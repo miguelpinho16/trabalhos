@@ -1,6 +1,6 @@
 LTspice 26.0.1 for Windows
 Circuit: C:\Users\migue\Desktop\Faculdade\CSRF\teste_lab1_t.net
-Start Time: Tue Oct 20 18:47:37 2026
+Start Time: Wed Oct 21 18:23:29 2026
 Options:plotwinsize=0
 solver = Normal
 Maximum thread count: 24
@@ -9,10 +9,8 @@ temp = 27
 method = trap
 Compress1stOrder = true
 Compress2ndOrder = true
-WARNING: Node n004 is floating.
-
 Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 2.139 seconds.
+Total elapsed time: 2.195 seconds.
 
 Files loaded:
 C:\Users\migue\Desktop\Faculdade\CSRF\teste_lab1_t.net
