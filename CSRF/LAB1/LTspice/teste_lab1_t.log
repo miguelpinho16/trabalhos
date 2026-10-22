@@ -1,18 +1,15 @@
-LTspice 26.0.1 for Windows
-Circuit: C:\Users\migue\Desktop\Faculdade\CSRF\teste_lab1_t.net
-Start Time: Wed Oct 21 18:23:29 2026
-Options:plotwinsize=0
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\migue\Desktop\Trabalhos\CSRF\LAB1\LTspice\teste_lab1_t.net
+Start Time: Thu Oct 22 15:14:14 2026
+Options: plotwinsize=0
 solver = Normal
-Maximum thread count: 24
+Maximum thread count: 8
 tnom = 27
 temp = 27
-method = trap
-Compress1stOrder = true
-Compress2ndOrder = true
-Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 2.195 seconds.
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 5.333 seconds.
 
 Files loaded:
-C:\Users\migue\Desktop\Faculdade\CSRF\teste_lab1_t.net
-C:\Users\migue\AppData\Local\LTspice\lib\cmp\standard.mos
+C:\Users\migue\Desktop\Trabalhos\CSRF\LAB1\LTspice\teste_lab1_t.net
 
