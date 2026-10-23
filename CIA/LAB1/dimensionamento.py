@@ -41,7 +41,8 @@ for CD in np.sort(CD_vals):
           f"   {gm_min*1e3:6.2f}    | {gm_min/gm_ID*1e6:6.0f}")
 
 # ponto escolhido
-gm_sel = margem*gm_min_de(CD_sel)
+gm_sel = 25e-3     # em vez de  gm_sel = margem*gm_min_de(CD_sel)
+# margem*gm_min_de(CD_sel)
 print(f"\nEscolha: CD = {CD_sel*1e12:.2f} pF, gm = {gm_sel*1e3:.2f} mS "
       f"(mínimo {gm_min_de(CD_sel)*1e3:.2f} mS + {100*(margem-1):.0f} %)")
 print(f"  queda inicial = {queda(CD_sel)*1e3:.1f} mV  (máx {dV_max*1e3:.0f} mV)")
