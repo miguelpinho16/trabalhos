@@ -1,0 +1,45 @@
+root@netauto:~/cgr# cat /root/lab2/R4.txt
+### R4  20261024-1015
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+    address 172.16.12.1/27
+
+auto eth0
+iface eth0 inet static
+    address 192.168.200.34
+    netmask 255.255.255.0
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+auto swp1
+iface swp1
+    address 192.168.23.4/24
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname R4
+log syslog informational
+service integrated-vtysh-config
+!
+interface lo
+ ip ospf area 32
+ ip ospf passive
+exit
+!
+interface swp1
+ ip ospf area 32
+ ip ospf network broadcast
+exit
+!
+router ospf
+ ospf router-id 4.4.4.4
+exit
+!
+end

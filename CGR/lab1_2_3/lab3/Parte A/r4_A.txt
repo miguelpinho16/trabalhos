@@ -1,0 +1,64 @@
+root@netauto:~/cgr# cat /root/lab3-A/r4.txt
+### r4  20261024-1108
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+    address 10.255.3.4/32
+
+auto eth0
+iface eth0 inet static
+    address 192.168.100.34
+    netmask 255.255.255.0
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+auto swp1
+iface swp1
+    address 10.3.24.2/30
+
+auto swp2
+iface swp2
+    address 10.3.34.2/30
+
+auto swp3
+iface swp3
+    address 172.16.4.1/24
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname r4
+log syslog informational
+service integrated-vtysh-config
+!
+interface lo
+ ip router isis CGR
+ isis passive
+exit
+!
+interface swp1
+ ip router isis CGR
+ isis network point-to-point
+exit
+!
+interface swp2
+ ip router isis CGR
+ isis network point-to-point
+exit
+!
+interface swp3
+ ip router isis CGR
+ isis passive
+exit
+!
+router isis CGR
+ is-type level-2-only
+ net 49.0001.0102.5500.3004.00
+exit
+!
+end

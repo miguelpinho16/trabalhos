@@ -1,0 +1,52 @@
+### Access1  20261024-0835
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 192.168.200.13
+    netmask 255.255.255.0
+
+auto bond1
+iface bond1
+        bond-slaves swp1 swp2
+        bond-mode 802.3ad
+        bridge-vids 2 3
+
+auto bond2
+iface bond2
+        bond-slaves swp3 swp4
+        bond-mode 802.3ad
+        bridge-vids 2 3
+
+auto swp5
+iface swp5
+        bridge-access 2
+
+auto swp6
+iface swp6
+        bridge-access 3
+
+auto bridge
+iface bridge
+        bridge-vlan-aware yes
+        bridge-ports bond1 bond2 swp5 swp6
+        bridge-vids 2 3
+        bridge-stp on
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname Access1
+log syslog informational
+service integrated-vtysh-config
+!
+end

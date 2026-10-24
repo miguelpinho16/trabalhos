@@ -1,0 +1,38 @@
+option domain-name "example.org";
+option domain-name-servers ns1.example.org, ns2.example.org;
+default-lease-time 600;
+max-lease-time 7200;
+ddns-update-style none;
+subnet 10.8.2.0 netmask 255.255.255.0 {
+  range 10.8.2.100 10.8.2.199;
+  option routers 10.8.2.1;
+}
+subnet 10.8.3.0 netmask 255.255.255.0 {
+  range 10.8.3.100 10.8.3.199;
+  option routers 10.8.3.1;
+}
+subnet 10.8.100.0 netmask 255.255.255.0 {
+}
+subnet 10.8.10.48 netmask 255.255.255.252 {
+}
+subnet 10.8.10.52 netmask 255.255.255.252 {
+}
+subnet 10.8.10.64 netmask 255.255.255.252 {
+}
+subnet 10.8.10.68 netmask 255.255.255.252 {
+}
+
+DatacenterRack
+INTERFACESv4="swp5 swp6 swp10 swp11"
+INTERFACESv6=""
+
+Distribution1
+SERVERS="10.8.100.1"
+INTERFACES=""
+OPTIONS="-i vlan2 -i vlan3 -iu swp7 -iu swp8 -iu swp9 -iu swp10"
+
+Distribution2
+SERVERS="10.8.100.1"
+INTERFACES=""
+OPTIONS="-i vlan2 -i vlan3 -iu swp7 -iu swp8 -iu swp9 -iu swp10"
+

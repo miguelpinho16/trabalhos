@@ -1,0 +1,155 @@
+root@R5:~# vtysh -c "show ip ospf"
+ OSPF Routing Process, Router ID: 5.5.5.5
+ Supports only single TOS (TOS0) routes
+ This implementation conforms to RFC2328
+ RFC1583Compatibility flag is disabled
+ OpaqueCapability flag is disabled
+ Initial SPF scheduling delay 0 millisec(s)
+ Minimum hold time between consecutive SPFs 50 millisec(s)
+ Maximum hold time between consecutive SPFs 5000 millisec(s)
+ Hold time multiplier is currently 1
+ SPF algorithm last executed 6m12s ago
+ Last SPF duration 864 usecs
+ SPF timer is inactive
+ LSA minimum interval 5000 msecs
+ LSA minimum arrival 1000 msecs
+ Write Multiplier set to 20
+ Refresh timer 10 secs
+ Maximum multiple paths(ECMP) supported 256
+ Administrative distance 110
+ This router is an ABR, ABR type is: Standard (RFC2328)
+ Number of external LSA 1. Checksum Sum 0x00009233
+ Number of opaque AS LSA 0. Checksum Sum 0x00000000
+ Number of areas attached to this router: 3
+ Adjacency changes are logged
+ Area ID: 0.0.0.0 (Backbone)
+   Number of interfaces in this area: Total: 1, Active: 1
+   Number of fully adjacent neighbors in this area: 1
+   Area has no authentication
+   SPF algorithm executed 5 times
+   Number of LSA 15
+   Number of router LSA 4. Checksum Sum 0x00015a2a
+   Number of network LSA 0. Checksum Sum 0x00000000
+   Number of summary LSA 11. Checksum Sum 0x0005bea0
+   Number of ASBR summary LSA 0. Checksum Sum 0x00000000
+   Number of NSSA LSA 0. Checksum Sum 0x00000000
+   Number of opaque link LSA 0. Checksum Sum 0x00000000
+   Number of opaque area LSA 0. Checksum Sum 0x00000000
+
+ Area ID: 0.0.0.32
+   Shortcutting mode: Default, S-bit consensus: no
+   Number of interfaces in this area: Total: 2, Active: 2
+   Number of fully adjacent neighbors in this area: 2
+   Area has no authentication
+   Number of full virtual adjacencies going through this area: 1
+   SPF algorithm executed 18 times
+   Number of LSA 16
+   Number of router LSA 3. Checksum Sum 0x0002170f
+   Number of network LSA 1. Checksum Sum 0x0000e3c2
+   Number of summary LSA 11. Checksum Sum 0x0005e3dd
+   Number of ASBR summary LSA 1. Checksum Sum 0x0000b627
+   Number of NSSA LSA 0. Checksum Sum 0x00000000
+   Number of opaque link LSA 0. Checksum Sum 0x00000000
+   Number of opaque area LSA 0. Checksum Sum 0x00000000
+
+ Area ID: 0.0.0.43
+   Shortcutting mode: Default, S-bit consensus: no
+   Number of interfaces in this area: Total: 1, Active: 1
+   Number of fully adjacent neighbors in this area: 1
+   Area has no authentication
+   Number of full virtual adjacencies going through this area: 0
+   SPF algorithm executed 17 times
+   Number of LSA 11
+   Number of router LSA 3. Checksum Sum 0x000169ee
+   Number of network LSA 0. Checksum Sum 0x00000000
+   Number of summary LSA 7. Checksum Sum 0x0003cf95
+   Number of ASBR summary LSA 1. Checksum Sum 0x00003f57
+   Number of NSSA LSA 0. Checksum Sum 0x00000000
+   Number of opaque link LSA 0. Checksum Sum 0x00000000
+   Number of opaque area LSA 0. Checksum Sum 0x00000000
+
+
+root@R5:~#
+
+
+
+root@R3:~# vtysh -c "show ip route"
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+C>* 172.16.0.0/27 is directly connected, lo, weight 1, 00:26:06
+L>* 172.16.0.1/32 is directly connected, lo, weight 1, 00:26:06
+O>* 172.16.9.0/25 [110/20000] via 192.168.45.2, swp1, weight 1, 00:22:37
+O>* 172.16.10.1/32 [110/50000] via 192.168.45.2, swp1, weight 1, 00:06:39
+O>* 172.16.11.1/32 [110/30000] via 192.168.45.2, swp1, weight 1, 00:06:39
+O>* 172.16.12.1/32 [110/30000] via 192.168.45.2, swp1, weight 1, 00:22:37
+O>* 192.168.12.0/24 [110/50000] via 192.168.45.2, swp1, weight 1, 00:06:39
+O>* 192.168.13.0/24 [110/40000] via 192.168.45.2, swp1, weight 1, 00:06:39
+O>* 192.168.23.0/24 [110/30000] via 192.168.45.2, swp1, weight 1, 00:22:37
+O>* 192.168.34.0/24 [110/20000] via 192.168.45.2, swp1, weight 1, 00:22:37
+C>* 192.168.45.0/24 is directly connected, swp1, weight 1, 00:26:06
+L>* 192.168.45.3/32 is directly connected, swp1, weight 1, 00:26:06
+C>* 192.168.200.0/24 is directly connected, eth0, weight 1, 00:45:23
+L>* 192.168.200.33/32 is directly connected, eth0, weight 1, 00:45:23
+root@R3:~# vtysh -c "show ip ospf database"
+
+       OSPF Router with ID (3.3.3.3)
+
+                Router Link States (Area 0.0.0.0)
+
+Link ID         ADV Router      Age  Seq#       CkSum  Link count
+1.1.1.1        1.1.1.1          412 0x8000000a 0x11b5 3
+2.2.2.2        2.2.2.2         1369 0x80000008 0x13c7 4
+3.3.3.3        3.3.3.3         1368 0x80000007 0x5a23 2
+5.5.5.5        5.5.5.5          412 0x80000003 0xda8b 1
+
+                Summary Link States (Area 0.0.0.0)
+
+Link ID         ADV Router      Age  Seq#       CkSum  Route
+172.16.0.1     3.3.3.3         1377 0x80000001 0x8112 172.16.0.1/32
+172.16.9.0     1.1.1.1          109 0x80000002 0x65ac 172.16.9.0/25
+172.16.10.1    5.5.5.5          417 0x80000001 0xd83a 172.16.10.1/32
+172.16.11.1    1.1.1.1           69 0x80000002 0x4315 172.16.11.1/32
+172.16.11.1    5.5.5.5          417 0x80000001 0xcbb4 172.16.11.1/32
+172.16.12.1    1.1.1.1           39 0x80000002 0x381f 172.16.12.1/32
+172.16.12.1    5.5.5.5          417 0x80000001 0xc186 172.16.12.1/32
+192.168.12.0   5.5.5.5          417 0x80000001 0xa0c4 192.168.12.0/24
+192.168.13.0   5.5.5.5          417 0x80000001 0x9407 192.168.13.0/24
+192.168.23.0   1.1.1.1          129 0x80000002 0x9c04 192.168.23.0/24
+192.168.23.0   5.5.5.5          417 0x80000001 0x266b 192.168.23.0/24
+
+                Router Link States (Area 0.0.0.34)
+
+Link ID         ADV Router      Age  Seq#       CkSum  Link count
+3.3.3.3        3.3.3.3         1377 0x80000004 0x2c4b 1
+
+                Summary Link States (Area 0.0.0.34)
+
+Link ID         ADV Router      Age  Seq#       CkSum  Route
+172.16.9.0     3.3.3.3         1363 0x80000001 0x2d6f 172.16.9.0/25
+172.16.10.1    3.3.3.3          405 0x80000001 0x185d 172.16.10.1/32
+172.16.11.1    3.3.3.3         1363 0x80000001 0x0bd7 172.16.11.1/32
+172.16.12.1    3.3.3.3         1363 0x80000001 0xffe1 172.16.12.1/32
+192.168.12.0   3.3.3.3          405 0x80000001 0xdfe7 192.168.12.0/24
+192.168.13.0   3.3.3.3          405 0x80000001 0xd32a 192.168.13.0/24
+192.168.23.0   3.3.3.3         1363 0x80000001 0x64c6 192.168.23.0/24
+192.168.34.0   3.3.3.3         1363 0x80000001 0xe96d 192.168.34.0/24
+192.168.45.0   3.3.3.3         1377 0x80000001 0x6f14 192.168.45.0/24
+
+                AS External Link States
+
+Link ID         ADV Router      Age  Seq#       CkSum  Route
+0.0.0.0        3.3.3.3         1378 0x80000001 0x9233 E2 0.0.0.0/0 [0x0]
+
+
+
+
+====== EXPLICAÇÃO ======
+O problema escondido era que a área 43 (R5–R6–R7) só se ligava ao resto da rede através da área 32, e não diretamente à área 0. No OSPF todas as áreas têm de se ligar à backbone. O R5 tinha uma interface na área 32 e outra na 43, mas nenhuma na 0, por isso não propagava as rotas entre áreas. O R7 ficava sem a rota default do R3 e sem o resumo 172.16.9.0/25 do R1, e o ping do R7 para o R3 dava 100% de perdas.
+
+A correção foi um virtual link na área 32 entre o R1 (1.1.1.1), que é ABR da área 0, e o R5 (5.5.5.5). Com ele o R5 passa a estar ligado à backbone. Foi preciso também ospf abr-type standard no R5, porque o FRR só aceitava o virtual link num router que fosse ABR pelo critério standard. Depois disto o R7 recebeu a default e todas as rotas, e todos os pings entre os 19 endereços funcionam (ver lab2-testes.txt).

@@ -1,0 +1,125 @@
+### SpineRouter1  20261024-0858
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+    address 10.8.255.1/32
+
+auto eth0
+iface eth0 inet static
+    address 192.168.200.5
+    netmask 255.255.255.0
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+auto swp1
+iface swp1
+    address 10.8.10.33/30
+
+auto swp2
+iface swp2
+    address 10.8.10.37/30
+
+auto swp3
+iface swp3
+    address 10.8.10.41/30
+
+auto swp4
+iface swp4
+    address 10.8.10.45/30
+
+auto swp5
+iface swp5
+    address 10.8.10.49/30
+
+auto swp6
+iface swp6
+    address 10.8.10.53/30
+
+auto swp7
+iface swp7
+    address 10.8.10.2/30
+
+auto swp8
+iface swp8
+    address 10.8.10.6/30
+
+auto swp9
+iface swp9
+    address 10.8.10.26/30
+
+auto swp10
+iface swp10
+    address 10.8.10.30/30
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname SpineRouter1
+log syslog informational
+service integrated-vtysh-config
+!
+interface lo
+ ip ospf area 0
+ ip ospf passive
+exit
+!
+interface swp1
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp2
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp3
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp4
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp5
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp6
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp7
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp8
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp9
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp10
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+router ospf
+ ospf router-id 10.8.255.1
+exit
+!
+end

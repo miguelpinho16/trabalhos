@@ -1,0 +1,792 @@
+##### PARTE A #####
+=== R1 ===
+root@r1:~# vtysh -c "show running-config" | grep -E "^ net|hostname"
+hostname r1
+ net 49.0001.0102.5500.3001.00
+root@r1:~# S=10.255.3.1
+root@r1:~# for d in 10.255.3.1 10.255.3.2 10.255.3.3 10.255.3.4 10.3.12.1 10.3.12.2 10.3.13.1 10.3.13.2 10.3.24.1 10.3.24.2 10.3.34.1 10.3.34.2 172.16.1.1 172.16.3.1 172.16.4.1 172.16.1.10 172.16.3.10 172.16.4.10; do ping -c 1 -W 1 -I $S $d > /dev/null 2>&1 && echo "OK   $d" || echo "FAIL $d"; done
+OK   10.255.3.1
+OK   10.255.3.2
+OK   10.255.3.3
+OK   10.255.3.4
+OK   10.3.12.1
+OK   10.3.12.2
+OK   10.3.13.1
+OK   10.3.13.2
+OK   10.3.24.1
+OK   10.3.24.2
+OK   10.3.34.1
+OK   10.3.34.2
+OK   172.16.1.1
+OK   172.16.3.1
+OK   172.16.4.1
+OK   172.16.1.10
+OK   172.16.3.10
+OK   172.16.4.10
+
+=== R2 ===
+root@r2:~# S=10.255.3.2
+root@r2:~# for d in 10.255.3.1 10.255.3.2 10.255.3.3 10.255.3.4 10.3.12.1 10.3.12.2 10.3.13.1 10.3.13.2 10.3.24.1 10.3.24.2 10.3.34.1 10.3.34.2 172.16.1.1 172.16.3.1 172.16.4.1 172.16.1.10 172.16.3.10 172.16.4.10; do ping -c 1 -W 1 -I $S $d > /dev/null 2>&1 && echo "OK   $d" || echo "FAIL $d"; done
+OK   10.255.3.1
+OK   10.255.3.2
+OK   10.255.3.3
+OK   10.255.3.4
+OK   10.3.12.1
+OK   10.3.12.2
+OK   10.3.13.1
+OK   10.3.13.2
+OK   10.3.24.1
+OK   10.3.24.2
+OK   10.3.34.1
+OK   10.3.34.2
+OK   172.16.1.1
+OK   172.16.3.1
+OK   172.16.4.1
+OK   172.16.1.10
+OK   172.16.3.10
+OK   172.16.4.10
+
+
+=== R3 ===
+root@r3:~# S=10.255.3.3
+root@r3:~# for d in 10.255.3.1 10.255.3.2 10.255.3.3 10.255.3.4 10.3.12.1 10.3.12.2 10.3.13.1 10.3.13.2 10.3.24.1 10.3.24.2 10.3.34.1 10.3.34.2 172.16.1.1 172.16.3.1 172.16.4.1 172.16.1.10 172.16.3.10 172.16.4.10; do ping -c 1 -W 1 -I $S $d > /dev/null 2>&1 && echo "OK   $d" || echo "FAIL $d"; done
+OK   10.255.3.1
+OK   10.255.3.2
+OK   10.255.3.3
+OK   10.255.3.4
+OK   10.3.12.1
+OK   10.3.12.2
+OK   10.3.13.1
+OK   10.3.13.2
+OK   10.3.24.1
+OK   10.3.24.2
+OK   10.3.34.1
+OK   10.3.34.2
+OK   172.16.1.1
+OK   172.16.3.1
+OK   172.16.4.1
+OK   172.16.1.10
+OK   172.16.3.10
+OK   172.16.4.10
+
+
+=== R4 ===
+root@r4:~# S=10.255.3.4
+root@r4:~# for d in 10.255.3.1 10.255.3.2 10.255.3.3 10.255.3.4 10.3.12.1 10.3.12.2 10.3.13.1 10.3.13.2 10.3.24.1 10.3.24.2 10.3.34.1 10.3.34.2 172.16.1.1 172.16.3.1 172.16.4.1 172.16.1.10 172.16.3.10 172.16.4.10; do ping -c 1 -W 1 -I $S $d > /dev/null 2>&1 && echo "OK   $d" || echo "FAIL $d"; done
+OK   10.255.3.1
+OK   10.255.3.2
+OK   10.255.3.3
+OK   10.255.3.4
+OK   10.3.12.1
+OK   10.3.12.2
+OK   10.3.13.1
+OK   10.3.13.2
+OK   10.3.24.1
+OK   10.3.24.2
+OK   10.3.34.1
+OK   10.3.34.2
+OK   172.16.1.1
+OK   172.16.3.1
+OK   172.16.4.1
+OK   172.16.1.10
+OK   172.16.3.10
+OK   172.16.4.10
+
+=== pc1 ===
+pc1> ping 172.16.1.1 -c 3
+
+84 bytes from 172.16.1.1 icmp_seq=1 ttl=64 time=0.202 ms
+84 bytes from 172.16.1.1 icmp_seq=2 ttl=64 time=0.150 ms
+84 bytes from 172.16.1.1 icmp_seq=3 ttl=64 time=0.152 ms
+
+pc1>
+
+
+=== pc3 ===
+pc3> ping 172.16.3.1 -c 3
+
+84 bytes from 172.16.3.1 icmp_seq=1 ttl=64 time=0.103 ms
+84 bytes from 172.16.3.1 icmp_seq=2 ttl=64 time=0.218 ms
+84 bytes from 172.16.3.1 icmp_seq=3 ttl=64 time=0.241 ms
+
+pc3>
+
+
+=== pc4 ===
+pc4> ping 172.16.4.1 -c 3
+
+84 bytes from 172.16.4.1 icmp_seq=1 ttl=64 time=0.171 ms
+84 bytes from 172.16.4.1 icmp_seq=2 ttl=64 time=0.161 ms
+84 bytes from 172.16.4.1 icmp_seq=3 ttl=64 time=0.198 ms
+
+pc4>
+
+
+
+=== Parte A: vizinhos e rotas ===
+root@r1:~# vtysh -c "show isis neighbor"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r2                  swp1        2  Up            28       2020.2020.2020
+ r3                  swp2        2  Up            30       2020.2020.2020
+root@r1:~# vtysh -c "show ip route isis"
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I   10.3.12.0/30 [115/20] via 10.3.12.2, swp1 inactive, weight 1, 00:16:12
+I   10.3.13.0/30 [115/20] via 10.3.13.2, swp2 inactive, weight 1, 00:16:08
+I>* 10.3.24.0/30 [115/20] via 10.3.12.2, swp1, weight 1, 00:16:12
+I>* 10.3.34.0/30 [115/20] via 10.3.13.2, swp2, weight 1, 00:16:08
+I>* 10.255.3.2/32 [115/20] via 10.3.12.2, swp1, weight 1, 00:16:12
+I>* 10.255.3.3/32 [115/20] via 10.3.13.2, swp2, weight 1, 00:16:08
+I>* 10.255.3.4/32 [115/30] via 10.3.12.2, swp1, weight 1, 00:15:39
+  *                        via 10.3.13.2, swp2, weight 1, 00:15:39
+I>* 172.16.3.0/24 [115/20] via 10.3.13.2, swp2, weight 1, 00:16:08
+I>* 172.16.4.0/24 [115/30] via 10.3.12.2, swp1, weight 1, 00:15:39
+  *                        via 10.3.13.2, swp2, weight 1, 00:15:39
+root@r1:~#
+
+
+root@r4:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r2                  swp1        2  Up            30       2020.2020.2020
+ r3                  swp2        2  Up            28       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 10.3.12.0/30 [115/20] via 10.3.24.1, swp1, weight 1, 00:15:52
+I>* 10.3.13.0/30 [115/20] via 10.3.34.1, swp2, weight 1, 00:15:52
+I   10.3.24.0/30 [115/20] via 10.3.24.1, swp1 inactive, weight 1, 00:15:52
+I   10.3.34.0/30 [115/20] via 10.3.34.1, swp2 inactive, weight 1, 00:15:52
+I>* 10.255.3.1/32 [115/30] via 10.3.24.1, swp1, weight 1, 00:15:52
+  *                        via 10.3.34.1, swp2, weight 1, 00:15:52
+I>* 10.255.3.2/32 [115/20] via 10.3.24.1, swp1, weight 1, 00:15:52
+I>* 10.255.3.3/32 [115/20] via 10.3.34.1, swp2, weight 1, 00:15:52
+I>* 172.16.1.0/24 [115/30] via 10.3.24.1, swp1, weight 1, 00:15:52
+  *                        via 10.3.34.1, swp2, weight 1, 00:15:52
+I>* 172.16.3.0/24 [115/20] via 10.3.34.1, swp2, weight 1, 00:15:52
+root@r4:~#
+
+
+##### PARTE B #####
+
+
+=== B1. r1: attached bit (ATT=1 no LSP L1 do r1), vizinhos, base de dados ===
+root@r1:~# vtysh -c "conf t" -c "router isis CGR" -c "is-type level-1-2"
+vtysh -c "write memory"
+Note: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+watchfrr[382]: [WFP93-1D146] configuration write completed with exit code 0
+root@r1:~# vtysh -c "show isis neighbor"
+vtysh -c "show isis database"
+vtysh -c "show isis database detail"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r2                  swp1        2  Up            30       2020.2020.2020
+ r3                  swp2        1  Up            29       2020.2020.2020
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00             *    109   0x00000002  0x4422     854    1/0/0
+r3.00-00                   27   0x00000000  0xc73c     842     none
+    2 LSPs
+
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00             *    109   0x00000006  0x115a     890    0/0/0
+r2.00-00                  101   0x00000008  0x84bb     892    0/0/0
+r3.00-00                  120   0x00000004  0x1890     406    0/0/0
+r4.00-00                  109   0x00000006  0x1222     867    0/0/0
+    4 LSPs
+
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00             *    109   0x00000002  0x4422     854    1/0/0
+  Protocols Supported: IPv4
+  Area Address: 49.0001
+  Hostname: r1
+  TE Router ID: 10.255.3.1
+  Router Capability: 10.255.3.1 , D:0, S:0
+    SR Algorithm:
+      0: SPF
+  Extended Reachability: 0102.5500.3003.00 (Metric: 10)
+  IPv4 Interface Address: 10.255.3.1
+  Extended IP Reachability: 10.255.3.1/32 (Metric: 10)
+  Extended IP Reachability: 10.3.12.0/30 (Metric: 10)
+  Extended IP Reachability: 10.3.13.0/30 (Metric: 10)
+  Extended IP Reachability: 172.16.1.0/24 (Metric: 10)
+
+r3.00-00                   27   0x00000000  0xc73c     842     none
+
+    2 LSPs
+
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00             *    109   0x00000006  0x115a     890    0/0/0
+  Protocols Supported: IPv4
+  Area Address: 49.0001
+  Hostname: r1
+  TE Router ID: 10.255.3.1
+  Router Capability: 10.255.3.1 , D:0, S:0
+    SR Algorithm:
+      0: SPF
+  Extended Reachability: 0102.5500.3002.00 (Metric: 10)
+  IPv4 Interface Address: 10.255.3.1
+  Extended IP Reachability: 10.255.3.1/32 (Metric: 10)
+  Extended IP Reachability: 10.3.12.0/30 (Metric: 10)
+  Extended IP Reachability: 10.3.13.0/30 (Metric: 10)
+  Extended IP Reachability: 172.16.1.0/24 (Metric: 10)
+
+r2.00-00                  101   0x00000008  0x84bb     892    0/0/0
+  Protocols Supported: IPv4
+  Area Address: 49.0002
+  Hostname: r2
+  TE Router ID: 10.255.3.2
+  Router Capability: 10.255.3.2 , D:0, S:0
+  Extended Reachability: 0102.5500.3001.00 (Metric: 10)
+  IPv4 Interface Address: 10.255.3.2
+  Extended IP Reachability: 10.255.3.2/32 (Metric: 10)
+  Extended IP Reachability: 10.3.12.0/30 (Metric: 10)
+  Extended IP Reachability: 10.3.24.0/30 (Metric: 10)
+
+r3.00-00                  120   0x00000004  0x1890     406    0/0/0
+  Protocols Supported: IPv4
+  Area Address: 49.0001
+  Hostname: r3
+  TE Router ID: 10.255.3.3
+  Router Capability: 10.255.3.3 , D:0, S:0
+  Extended Reachability: 0102.5500.3001.00 (Metric: 10)
+  Extended Reachability: 0102.5500.3004.00 (Metric: 10)
+  IPv4 Interface Address: 10.255.3.3
+  Extended IP Reachability: 10.255.3.3/32 (Metric: 10)
+  Extended IP Reachability: 10.3.13.0/30 (Metric: 10)
+  Extended IP Reachability: 10.3.34.0/30 (Metric: 10)
+  Extended IP Reachability: 172.16.3.0/24 (Metric: 10)
+
+r4.00-00                  109   0x00000006  0x1222     867    0/0/0
+  Protocols Supported: IPv4
+  Area Address: 49.0002
+  Hostname: r4
+  TE Router ID: 10.255.3.4
+  Router Capability: 10.255.3.4 , D:0, S:0
+  Extended Reachability: 0102.5500.3002.00 (Metric: 10)
+  IPv4 Interface Address: 10.255.3.4
+  Extended IP Reachability: 10.255.3.4/32 (Metric: 10)
+  Extended IP Reachability: 10.3.24.0/30 (Metric: 10)
+  Extended IP Reachability: 10.3.34.0/30 (Metric: 10)
+  Extended IP Reachability: 172.16.4.0/24 (Metric: 10)
+
+    4 LSPs
+
+root@r1:~#
+
+=== B2. r2, r4, r3: vizinhos, rotas e bases de dados (adjacencia r3-r4 nao sobe; default via r1 / via r2) ===
+root@r2:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+vtysh -c "show isis database"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r1                  swp1        2  Up            28       2020.2020.2020
+ r4                  swp2        1  Up            29       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 10.3.13.0/30 [115/20] via 10.3.12.1, swp1, weight 1, 00:00:55
+I   10.3.24.0/30 [115/20] via 10.3.24.2, swp2 inactive, weight 1, 00:00:55
+I>* 10.3.34.0/30 [115/20] via 10.3.24.2, swp2, weight 1, 00:00:55
+I>* 10.255.3.1/32 [115/20] via 10.3.12.1, swp1, weight 1, 00:00:55
+I>* 10.255.3.4/32 [115/20] via 10.3.24.2, swp2, weight 1, 00:00:55
+I>* 172.16.1.0/24 [115/20] via 10.3.12.1, swp1, weight 1, 00:00:55
+I>* 172.16.4.0/24 [115/20] via 10.3.24.2, swp2, weight 1, 00:00:55
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r2.00-00             *    101   0x00000004  0xfd3b    1143    1/0/0
+r4.00-00                  109   0x00000004  0x1424    1111    0/0/0
+    2 LSPs
+
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00                  109   0x00000002  0x1956    1022    0/0/0
+r2.00-00             *    101   0x00000004  0x8cb7    1099    0/0/0
+    2 LSPs
+
+root@r2:~#
+
+root@r4:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+vtysh -c "show isis database"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r2                  swp1        1  Up            29       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 0.0.0.0/0 [115/10] via 10.3.24.1, swp1, weight 1, 00:00:53
+I>* 10.3.12.0/30 [115/20] via 10.3.24.1, swp1, weight 1, 00:00:56
+I   10.3.24.0/30 [115/20] via 10.3.24.1, swp1 inactive, weight 1, 00:00:56
+I>* 10.255.3.2/32 [115/20] via 10.3.24.1, swp1, weight 1, 00:00:56
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r2.00-00                  101   0x00000004  0xfd3b    1144    1/0/0
+r4.00-00             *    109   0x00000004  0x1424    1113    0/0/0
+    2 LSPs
+
+
+root@r3:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+vtysh -c "show isis database"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r1                  swp1        1  Up            30       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 0.0.0.0/0 [115/10] via 10.3.13.1, swp1, weight 1, 00:01:25
+I>* 10.3.12.0/30 [115/20] via 10.3.13.1, swp1, weight 1, 00:01:25
+I   10.3.13.0/30 [115/20] via 10.3.13.1, swp1 inactive, weight 1, 00:01:25
+I>* 10.255.3.1/32 [115/20] via 10.3.13.1, swp1, weight 1, 00:01:25
+I>* 172.16.1.0/24 [115/20] via 10.3.13.1, swp1, weight 1, 00:01:25
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00                  109   0x00000002  0x4422     996    1/0/0
+r3.00-00             *    109   0x00000004  0x2923    1079    0/0/0
+    2 LSPs
+
+root@r3:~#
+
+=== B3. r1: rotas IS-IS (sem 172.16.4.0/24 nem 10.255.3.4/32) ===
+root@r1:~# vtysh -c "show ip route isis"
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I   10.3.13.0/30 [115/20] via 10.3.13.2, swp2 inactive, weight 1, 00:02:24
+I>* 10.3.24.0/30 [115/20] via 10.3.12.2, swp1, weight 1, 00:04:26
+I>* 10.3.34.0/30 [115/20] via 10.3.13.2, swp2, weight 1, 00:04:26
+I>* 10.255.3.2/32 [115/20] via 10.3.12.2, swp1, weight 1, 00:04:26
+I>* 10.255.3.3/32 [115/20] via 10.3.13.2, swp2, weight 1, 00:04:26
+I>* 172.16.3.0/24 [115/20] via 10.3.13.2, swp2, weight 1, 00:04:26
+root@r1:~#
+
+=== B4. r1: LSP L2 do r2 (sem prefixos do r4) ===
+root@r1:~# vtysh -c "show isis database detail r2.00-00"
+Area CGR:
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r2.00-00                  101   0x00000004  0x8cb7     963    0/0/0
+  Protocols Supported: IPv4
+  Area Address: 49.0002
+  Hostname: r2
+  TE Router ID: 10.255.3.2
+  Router Capability: 10.255.3.2 , D:0, S:0
+  Extended Reachability: 0102.5500.3001.00 (Metric: 10)
+  IPv4 Interface Address: 10.255.3.2
+  Extended IP Reachability: 10.255.3.2/32 (Metric: 10)
+  Extended IP Reachability: 10.3.12.0/30 (Metric: 10)
+  Extended IP Reachability: 10.3.24.0/30 (Metric: 10)
+
+root@r1:~#
+
+=== B5. pings dos PCs (pc1->pc4, pc3->pc4, pc4->pc3 falham; pc4->pc1 timeout) ===
+Welcome to Virtual PC Simulator, version 0.8.3
+Dedicated to Daling.
+Build time: Sep  9 2023 11:15:00
+Copyright (c) 2007-2015, Paul Meng (mirnshi@gmail.com)
+All rights reserved.
+
+VPCS is free software, distributed under the terms of the "BSD" licence.
+Source code and license can be found at vpcs.sf.net.
+For more information, please visit wiki.freecode.com.cn.
+
+Press '?' to get help.
+
+Executing the startup file
+
+
+Checking for duplicate address...
+pc1 : 172.16.1.10 255.255.255.0 gateway 172.16.1.1
+
+pc1> ping 172.16.3.10 -c 3
+
+84 bytes from 172.16.3.10 icmp_seq=1 ttl=62 time=5.122 ms
+84 bytes from 172.16.3.10 icmp_seq=2 ttl=62 time=0.857 ms
+84 bytes from 172.16.3.10 icmp_seq=3 ttl=62 time=1.064 ms
+
+pc1> ping 172.16.4.10 -c 3
+
+*172.16.1.1 icmp_seq=1 ttl=64 time=2.959 ms (ICMP type:3, code:0, Destination network unreachable)
+*172.16.1.1 icmp_seq=2 ttl=64 time=0.349 ms (ICMP type:3, code:0, Destination network unreachable)
+*172.16.1.1 icmp_seq=3 ttl=64 time=0.729 ms (ICMP type:3, code:0, Destination network unreachable)
+
+pc1>
+
+Source code and license can be found at vpcs.sf.net.
+For more information, please visit wiki.freecode.com.cn.
+
+Press '?' to get help.
+
+Executing the startup file
+
+
+Checking for duplicate address...
+pc3 : 172.16.3.10 255.255.255.0 gateway 172.16.3.1
+
+pc3> ping 172.16.1.10 -c 3
+
+84 bytes from 172.16.1.10 icmp_seq=1 ttl=62 time=1.413 ms
+84 bytes from 172.16.1.10 icmp_seq=2 ttl=62 time=0.788 ms
+84 bytes from 172.16.1.10 icmp_seq=3 ttl=62 time=0.501 ms
+
+pc3> ping 172.16.4.10 -c 3
+
+*10.3.13.1 icmp_seq=1 ttl=63 time=0.565 ms (ICMP type:3, code:0, Destination network unreachable)
+*10.3.13.1 icmp_seq=2 ttl=63 time=0.581 ms (ICMP type:3, code:0, Destination network unreachable)
+*10.3.13.1 icmp_seq=3 ttl=63 time=0.355 ms (ICMP type:3, code:0, Destination network unreachable)
+
+pc3>
+
+
+Source code and license can be found at vpcs.sf.net.
+For more information, please visit wiki.freecode.com.cn.
+
+Press '?' to get help.
+
+Executing the startup file
+
+
+Checking for duplicate address...
+pc4 : 172.16.4.10 255.255.255.0 gateway 172.16.4.1
+
+pc4> ping 172.16.1.10 -c 3ping 172.16.1.10 -c 3
+
+172.16.1.10 icmp_seq=1 timeout
+172.16.1.10 icmp_seq=2 timeout
+172.16.1.10 icmp_seq=3 timeout
+
+pc4> ping 172.16.3.10 -c 3
+
+*10.3.24.1 icmp_seq=1 ttl=63 time=3.261 ms (ICMP type:3, code:0, Destination network unreachable)
+*10.3.24.1 icmp_seq=2 ttl=63 time=0.352 ms (ICMP type:3, code:0, Destination network unreachable)
+*10.3.24.1 icmp_seq=3 ttl=63 time=0.376 ms (ICMP type:3, code:0, Destination network unreachable)
+
+pc4>
+
+
+##### PARTE C #####
+
+
+=== C1. pings dos PCs, r2, r1, r3, r4 (tudo passa) ===
+ping 172.16.1.10 -c 3
+
+84 bytes from 172.16.1.10 icmp_seq=1 ttl=61 time=0.593 ms
+84 bytes from 172.16.1.10 icmp_seq=2 ttl=61 time=0.627 ms
+84 bytes from 172.16.1.10 icmp_seq=3 ttl=61 time=0.446 ms
+
+pc4> ping 172.16.3.10 -c 3
+
+84 bytes from 172.16.3.10 icmp_seq=1 ttl=62 time=0.912 ms
+84 bytes from 172.16.3.10 icmp_seq=2 ttl=62 time=0.416 ms
+84 bytes from 172.16.3.10 icmp_seq=3 ttl=62 time=0.972 ms
+
+pc4>
+
+ping 172.16.1.10 -c 3
+
+84 bytes from 172.16.1.10 icmp_seq=1 ttl=62 time=0.875 ms
+84 bytes from 172.16.1.10 icmp_seq=2 ttl=62 time=0.587 ms
+84 bytes from 172.16.1.10 icmp_seq=3 ttl=62 time=0.576 ms
+
+pc3> ping 172.16.4.10 -c 3
+
+84 bytes from 172.16.4.10 icmp_seq=1 ttl=62 time=1.068 ms
+84 bytes from 172.16.4.10 icmp_seq=2 ttl=62 time=0.659 ms
+84 bytes from 172.16.4.10 icmp_seq=3 ttl=62 time=0.697 ms
+
+pc3>
+
+
+ping 172.16.3.10 -c 3
+
+84 bytes from 172.16.3.10 icmp_seq=1 ttl=62 time=2.344 ms
+84 bytes from 172.16.3.10 icmp_seq=2 ttl=62 time=0.882 ms
+84 bytes from 172.16.3.10 icmp_seq=3 ttl=62 time=0.510 ms
+
+pc1> ping 172.16.4.10 -c 3
+
+84 bytes from 172.16.4.10 icmp_seq=1 ttl=61 time=7.088 ms
+84 bytes from 172.16.4.10 icmp_seq=2 ttl=61 time=1.324 ms
+84 bytes from 172.16.4.10 icmp_seq=3 ttl=61 time=0.942 ms
+
+pc1>
+
+
+vtysh -c "show ip route isis"
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 10.3.13.0/30 [115/20] via 10.3.12.1, swp1, weight 1, 00:16:21
+I   10.3.24.0/30 [115/20] via 10.3.24.2, swp2 inactive, weight 1, 00:03:18
+I>* 10.3.34.0/30 [115/20] via 10.3.24.2, swp2, weight 1, 00:03:18
+I>* 10.255.3.1/32 [115/20] via 10.3.12.1, swp1, weight 1, 00:16:21
+I>* 10.255.3.3/32 [115/30] via 10.3.12.1, swp1, weight 1, 00:03:18
+  *                        via 10.3.24.2, swp2, weight 1, 00:03:18
+I>* 10.255.3.4/32 [115/20] via 10.3.24.2, swp2, weight 1, 00:03:18
+I>* 172.16.1.0/24 [115/20] via 10.3.12.1, swp1, weight 1, 00:16:21
+I>* 172.16.3.0/24 [115/30] via 10.3.12.1, swp1, weight 1, 00:03:18
+  *                        via 10.3.24.2, swp2, weight 1, 00:03:18
+I>* 172.16.4.0/24 [115/20] via 10.3.24.2, swp2, weight 1, 00:03:18
+root@r2:~#
+
+
+root@r1:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+vtysh -c "show isis database"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r2                  swp1        2  Up            29       2020.2020.2020
+ r3                  swp2        3  Up            27       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I   10.3.13.0/30 [115/20] via 10.3.13.2, swp2 inactive, weight 1, 00:03:08
+I>* 10.3.24.0/30 [115/20] via 10.3.12.2, swp1, weight 1, 00:18:14
+I>* 10.3.34.0/30 [115/20] via 10.3.13.2, swp2, weight 1, 00:03:08
+I>* 10.255.3.2/32 [115/20] via 10.3.12.2, swp1, weight 1, 00:18:14
+I>* 10.255.3.3/32 [115/20] via 10.3.13.2, swp2, weight 1, 00:03:08
+I>* 10.255.3.4/32 [115/30] via 10.3.12.2, swp1, weight 1, 00:03:20
+  *                        via 10.3.13.2, swp2, weight 1, 00:03:20
+I>* 172.16.3.0/24 [115/20] via 10.3.13.2, swp2, weight 1, 00:03:08
+I>* 172.16.4.0/24 [115/30] via 10.3.12.2, swp1, weight 1, 00:03:20
+  *                        via 10.3.13.2, swp2, weight 1, 00:03:20
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00             *    109   0x00000003  0x4223     937    1/0/0
+r3.00-00                  109   0x00000006  0x2f11     964    1/0/0
+    2 LSPs
+
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00             *    120   0x00000003  0xa02d     953    0/0/0
+r2.00-00                  112   0x00000005  0xdac6     941    0/0/0
+r3.00-00                  120   0x00000002  0x1c8e     990    0/0/0
+r4.00-00                  120   0x00000002  0x7324     982    0/0/0
+    4 LSPs
+
+root@r1:~#
+root@r3:~# vtysh -c "conf t" -c "no router isis CGR"
+root@r3:~# vtysh -c "conf t" -c "router isis CGR" -c "net 49.0001.0102.5500.3003.00" -c "is-type level-1-2" -c "metric-style wide" -c "interface lo" -c "ip router isis CGR" -c "isis passive" -c "interface swp1" -c "ip router isis CGR" -c "isis network point-to-point" -c "interface swp2" -c "ip router isis CGR" -c "isis network point-to-point" -c "interface swp3" -c "ip router isis CGR" -c "isis passive"
+% Configuration applied with notes:
+No changes found to be committed!
+% Configuration applied with notes:
+No changes found to be committed!
+% Configuration applied with notes:
+No changes found to be committed!
+% Configuration applied with notes:
+No changes found to be committed!
+root@r3:~# vtysh -c "write memory"
+Note: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+watchfrr[610]: [WFP93-1D146] configuration write completed with exit code 0
+root@r3:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+vtysh -c "show isis database"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r1                  swp1        3  Up            27       2020.2020.2020
+ r4                  swp2        2  Up            29       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 10.3.12.0/30 [115/20] via 10.3.13.1, swp1, weight 1, 00:02:50
+I   10.3.13.0/30 [115/20] via 10.3.13.1, swp1 inactive, weight 1, 00:02:50
+I>* 10.3.24.0/30 [115/20] via 10.3.34.2, swp2, weight 1, 00:03:01
+I>* 10.255.3.1/32 [115/20] via 10.3.13.1, swp1, weight 1, 00:02:50
+I>* 10.255.3.2/32 [115/30] via 10.3.13.1, swp1, weight 1, 00:02:50
+  *                        via 10.3.34.2, swp2, weight 1, 00:02:50
+I>* 10.255.3.4/32 [115/20] via 10.3.34.2, swp2, weight 1, 00:03:01
+I>* 172.16.1.0/24 [115/20] via 10.3.13.1, swp1, weight 1, 00:02:50
+I>* 172.16.4.0/24 [115/20] via 10.3.34.2, swp2, weight 1, 00:03:01
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00                  109   0x00000003  0x4223     957    1/0/0
+r3.00-00             *    109   0x00000006  0x2f11     985    1/0/0
+    2 LSPs
+
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00                  120   0x00000003  0xa02d     973    0/0/0
+r2.00-00                  101   0x00000004  0x8cb7     202    0/0/0
+r3.00-00             *    120   0x00000002  0x1c8e    1011    0/0/0
+r4.00-00                  120   0x00000002  0x7324    1003    0/0/0
+    4 LSPs
+
+root@r3:~#
+
+root@r4:~# vtysh -c "conf t" -c "no router isis CGR"
+root@r4:~# vtysh -c "conf t" -c "router isis CGR" -c "net 49.0002.0102.5500.3004.00" -c "is-type level-1-2" -c "metric-style wide" -c "interface lo" -c "ip router isis CGR" -c "isis passive" -c "interface swp1" -c "ip router isis CGR" -c "isis network point-to-point" -c "interface swp2" -c "ip router isis CGR" -c "isis network point-to-point" -c "interface swp3" -c "ip router isis CGR" -c "isis passive"
+% Configuration applied with notes:
+No changes found to be committed!
+% Configuration applied with notes:
+No changes found to be committed!
+% Configuration applied with notes:
+No changes found to be committed!
+% Configuration applied with notes:
+No changes found to be committed!
+root@r4:~# vtysh -c "write memory"
+Note: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+watchfrr[608]: [WFP93-1D146] configuration write completed with exit code 0
+root@r4:~# vtysh -c "show isis neighbor"
+vtysh -c "show ip route isis"
+vtysh -c "show isis database"
+Area CGR:
+ System Id           Interface   L  State         Holdtime SNPA
+ r2                  swp1        3  Up            30       2020.2020.2020
+ r3                  swp2        2  Up            29       2020.2020.2020
+Codes: K - kernel route, C - connected, L - local, S - static,
+       R - RIP, O - OSPF, I - IS-IS, B - BGP, E - EIGRP, N - NHRP,
+       T - Table, v - VNC, V - VNC-Direct, A - Babel, F - PBR,
+       f - OpenFabric, t - Table-Direct,
+       > - selected route, * - FIB route, q - queued, r - rejected, b - backup
+       t - trapped, o - offload failure
+
+IPv4 unicast VRF default:
+I>* 10.3.12.0/30 [115/20] via 10.3.24.1, swp1, weight 1, 00:02:47
+I>* 10.3.13.0/30 [115/20] via 10.3.34.1, swp2, weight 1, 00:02:47
+I   10.3.24.0/30 [115/20] via 10.3.24.1, swp1 inactive, weight 1, 00:02:47
+I>* 10.255.3.1/32 [115/30] via 10.3.24.1, swp1, weight 1, 00:02:47
+  *                        via 10.3.34.1, swp2, weight 1, 00:02:47
+I>* 10.255.3.2/32 [115/20] via 10.3.24.1, swp1, weight 1, 00:02:47
+I>* 10.255.3.3/32 [115/20] via 10.3.34.1, swp2, weight 1, 00:02:47
+I>* 172.16.1.0/24 [115/30] via 10.3.24.1, swp1, weight 1, 00:02:47
+  *                        via 10.3.34.1, swp2, weight 1, 00:02:47
+I>* 172.16.3.0/24 [115/20] via 10.3.34.1, swp2, weight 1, 00:02:47
+Area CGR:
+IS-IS Level-1 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r2.00-00                  101   0x00000005  0xfb3c     995    1/0/0
+r4.00-00             *    109   0x00000006  0x1a12     986    1/0/0
+    2 LSPs
+
+IS-IS Level-2 link-state database:
+LSP ID                  PduLen  SeqNumber   Chksum  Holdtime  ATT/P/OL
+r1.00-00                  120   0x00000003  0xa02d     975    0/0/0
+r2.00-00                  101   0x00000004  0x8cb7     204    0/0/0
+r3.00-00                  120   0x00000002  0x1c8e    1013    0/0/0
+r4.00-00             *    120   0x00000002  0x7324    1005    0/0/0
+    4 LSPs
+
+root@r4:~#
+
+
+
+##### PARTE D #####
+
+=== antes ===
+root@r1:~# vtysh -c "show ip route 172.16.4.0/24"
+Routing entry for 172.16.4.0/24
+  Known via "isis", distance 115, metric 30, best
+  Last update 00:09:43 ago
+  Flags: Selected
+  Status: Installed
+  * 10.3.12.2, via swp1, weight 1
+  * 10.3.13.2, via swp2, weight 1
+
+root@r1:~#
+
+trace 172.16.4.10
+trace to 172.16.4.10, 8 hops max, press Ctrl+C to stop
+ 1   172.16.1.1   0.209 ms  0.087 ms  0.081 ms
+ 2   10.3.13.2   1.680 ms  0.318 ms  0.112 ms
+ 3   10.3.34.2   0.595 ms  0.966 ms  1.195 ms
+ 4   *172.16.4.10   2.004 ms (ICMP type:3, code:3, Destination port unreachable)
+
+pc1>
+
+=== depois ===
+vtysh -c "conf t" -c "interface swp1" -c "isis metric 100"
+% Configuration applied with notes:
+No changes found to be committed!
+root@r1:~# vtysh -c "write memory"
+Note: this version of vtysh never writes vtysh.conf
+Building Configuration...
+Integrated configuration saved to /etc/frr/frr.conf
+[OK]
+watchfrr[454]: [WFP93-1D146] configuration write completed with exit code 0
+root@r1:~# vtysh -c "show ip route 172.16.4.0/24"
+Routing entry for 172.16.4.0/24
+  Known via "isis", distance 115, metric 30, best
+  Last update 00:02:57 ago
+  Flags: Selected
+  Status: Installed
+  * 10.3.13.2, via swp2, weight 1
+
+root@r1:~#
+
+
+trace 172.16.4.10
+trace to 172.16.4.10, 8 hops max, press Ctrl+C to stop
+ 1   172.16.1.1   0.231 ms  0.248 ms  0.116 ms
+ 2   10.3.13.2   0.569 ms  0.269 ms  0.494 ms
+ 3   10.3.34.2   0.541 ms  0.386 ms  0.489 ms
+ 4   *172.16.4.10   2.014 ms (ICMP type:3, code:3, Destination port unreachable)
+
+pc1>

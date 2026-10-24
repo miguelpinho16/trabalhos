@@ -1,0 +1,76 @@
+### BorderRouter  20261024-0835
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+    address 10.8.255.3/32
+
+auto eth0
+iface eth0 inet static
+    address 192.168.200.9
+    netmask 255.255.255.0
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+auto swp1
+iface swp1
+    address 10.8.10.42/30
+
+auto swp2
+iface swp2
+    address 10.8.10.46/30
+
+auto swp3
+iface swp3
+    address 10.8.10.58/30
+
+auto swp4
+iface swp4
+    address 10.8.10.62/30
+
+auto swp5
+iface swp5
+    address 198.51.100.1/24
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname BorderRouter
+log syslog informational
+service integrated-vtysh-config
+!
+interface lo
+ ip ospf area 0
+ ip ospf passive
+exit
+!
+interface swp1
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp2
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp3
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp4
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+router ospf
+ ospf router-id 10.8.255.3
+ default-information originate always
+exit
+!
+end

@@ -1,0 +1,80 @@
+### DatacenterRack  20261024-0835
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+    address 10.8.255.4/32
+
+auto eth0
+iface eth0 inet static
+    address 192.168.200.12
+    netmask 255.255.255.0
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+auto swp1
+iface swp1
+    address 10.8.100.1/24
+
+auto swp5
+iface swp5
+    address 10.8.10.50/30
+
+auto swp6
+iface swp6
+    address 10.8.10.54/30
+
+auto swp10
+iface swp10
+    address 10.8.10.66/30
+
+auto swp11
+iface swp11
+    address 10.8.10.70/30
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname DatacenterRack
+log syslog informational
+service integrated-vtysh-config
+!
+interface lo
+ ip ospf area 0
+ ip ospf passive
+exit
+!
+interface swp1
+ ip ospf area 0
+ ip ospf passive
+exit
+!
+interface swp5
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp6
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp10
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp11
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+router ospf
+ ospf router-id 10.8.255.4
+exit
+!
+end

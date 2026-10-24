@@ -1,0 +1,120 @@
+### Distribution2  20261024-0858
+### /etc/network/interfaces
+# Management interface (written by cgr_lab.py)
+auto lo
+iface lo inet loopback
+    address 10.8.255.12/32
+
+auto eth0
+iface eth0 inet static
+    address 192.168.200.7
+    netmask 255.255.255.0
+
+# ---- your data-plane configuration goes below (ifupdown2 syntax), then: ifreload -a
+
+auto bond1
+iface bond1
+    bond-slaves swp1 swp2
+    bond-mode 802.3ad
+    bridge-vids 3
+
+auto bond2
+iface bond2
+    bond-slaves swp3 swp4
+    bond-mode 802.3ad
+    bridge-vids 2
+
+auto bond3
+iface bond3
+    bond-slaves swp5 swp6
+    bond-mode 802.3ad
+    bridge-vids 2 3
+
+auto bridge
+iface bridge
+    bridge-vlan-aware yes
+    bridge-ports bond1 bond2 bond3
+    bridge-vids 2 3
+    bridge-stp on
+    bridge-bridgeprio 8192
+
+auto vlan2
+iface vlan2
+    address 10.8.2.2/24
+    vlan-id 2
+    vlan-raw-device bridge
+
+auto vlan3
+iface vlan3
+    address 10.8.3.2/24
+    vlan-id 3
+    vlan-raw-device bridge
+
+auto swp7
+iface swp7
+    address 10.8.10.17/30
+
+auto swp8
+iface swp8
+    address 10.8.10.21/30
+
+auto swp9
+iface swp9
+    address 10.8.10.25/30
+
+auto swp10
+iface swp10
+    address 10.8.10.29/30
+
+### FRR running configuration
+Building configuration...
+
+Current configuration:
+!
+frr version 10.7.1
+frr defaults datacenter
+hostname Distribution2
+log syslog informational
+service integrated-vtysh-config
+!
+interface lo
+ ip ospf area 0
+ ip ospf passive
+exit
+!
+interface swp7
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp8
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp9
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface swp10
+ ip ospf area 0
+ ip ospf network point-to-point
+exit
+!
+interface vlan2
+ ip ospf area 1
+ ip ospf passive
+exit
+!
+interface vlan3
+ ip ospf area 1
+ ip ospf passive
+exit
+!
+router ospf
+ ospf router-id 10.8.255.12
+ area 1 range 10.8.0.0/22
+exit
+!
+end
