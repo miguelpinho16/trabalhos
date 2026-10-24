@@ -1,0 +1,292 @@
+==========================================================================================
+CIA – LAB1 – Alíneas b) e c): função de transferência do ganho de malha (loop aberto)
+==========================================================================================
+
+Nós:  V1 = vx (saída 1.º andar) | V2 = Vctr (saída 2.º andar) | V3 = nó M2B/M3B | VoutR = saída do SF
+Bulk ligado à fonte (deep n-well) -> sem gmb.   Meio-circuito: gm1B já inclui o espelho (lado A).
+
+Capacidades à massa agrupadas por nó (a expressão é EXATA):
+   C_1 (V1)    = C_db1B + C_gd2B + C_gs5
+   C_2 (V2)    = C_p + C_db5 + C_db4 + C_gd4 + C_gs11 + C_gd11 + C_gd1
+   C_3 (V3)    = C_gs2B + C_gd3B + C_db3B
+   C_4 (VoutR) = C_db1 + C_dbIB3 + C_gs1A + C_gd1A
+Capacidades flutuantes:
+   C_gd1B (Vref–V1),  C_db2B (V1–V3),  C_gd5 (V1–V2),  C_c (V2–V3),  C_gs1 (V2–VoutR)
+
+------------------------------------------------------------------------------------------
+FUNÇÃO DE TRANSFERÊNCIA
+------------------------------------------------------------------------------------------
+
+             VoutR(s)      b0 + b1·s + b2·s² + b3·s³ + b4·s⁴
+     H(s) = ────────── = ─────────────────────────────────────
+              Vref(s)      a0 + a1·s + a2·s² + a3·s³ + a4·s⁴
+
+     -> 4 polos (raízes do denominador) e 4 zeros (raízes do numerador)
+
+------------------------------------------------------------------------------------------
+GANHO DC  (s = 0  ->  A0 = b0/a0)
+------------------------------------------------------------------------------------------
+
+               g_m1B·(g_m2B+g_ds2B+g_ds3B)                g_m5             g_m1       
+  A0 = ──────────────────────────────────────────── · ─────────── · ──────────────────
+       g_ds1B·(g_m2B+g_ds2B+g_ds3B) + g_ds2B·g_ds3B   g_ds4+g_ds5   g_m1+g_ds1+g_dsIB3
+
+                 (1.º andar com cascode)              (2.º andar)          (SF)       
+
+  Aproximação (g_m >> g_ds):   A0 ≈ g_m1B/(g_ds1B + g_ds2B·g_ds3B/g_m2B) · g_m5/(g_ds4+g_ds5)
+
+  A0 = ____________   (= ________ dB)
+
+------------------------------------------------------------------------------------------
+POLOS E ZEROS
+------------------------------------------------------------------------------------------
+  Exatos: polos = raízes de  a0 + a1·s + a2·s² + a3·s³ + a4·s⁴ = 0
+          zeros = raízes de  b0 + b1·s + b2·s² + b3·s³ + b4·s⁴ = 0
+  Aproximados (polos/zeros bem afastados):
+          p1 ≈ -a0/a1   p2 ≈ -a1/a2   p3 ≈ -a2/a3   p4 ≈ -a3/a4
+          z1 ≈ -b0/b1   z2 ≈ -b1/b2   z3 ≈ -b2/b3   z4 ≈ -b3/b4
+          GBW ≈ A0·|p1| = b0/a1
+
+  p1 = ____________ Hz      z1 = ____________ Hz
+  p2 = ____________ Hz      z2 = ____________ Hz
+  p3 = ____________ Hz      z3 = ____________ Hz
+  p4 = ____________ Hz      z4 = ____________ Hz
+  GBW = ___________ Hz      PM = ____________ °
+
+==========================================================================================
+NUMERADOR  N(s) = b0 + b1·s + b2·s² + b3·s³ + b4·s⁴
+==========================================================================================
+
+b0   (coeficiente de s^0, 1 parcela(s))
+     + g_m1B·g_m5·g_m1·(g_m2B+g_ds2B+g_ds3B)
+
+b1   (coeficiente de s^1, 6 parcela(s))
+     + C_3·g_m1B·g_m5·g_m1
+     + C_c·g_m1B·g_m1·(g_m5 - g_ds2B)
+     + C_db2B·g_m1B·g_m5·g_m1
+     - C_gd1B·g_m5·g_m1·(g_m2B+g_ds2B+g_ds3B)
+     - C_gd5·g_m1B·g_m1·(g_m2B+g_ds2B+g_ds3B)
+     + C_gs1·g_m1B·g_m5·(g_m2B+g_ds2B+g_ds3B)
+
+b2   (coeficiente de s^2, 13 parcela(s))
+     - C_3·C_gd1B·g_m5·g_m1
+     - C_3·C_gd5·g_m1B·g_m1
+     + C_3·C_gs1·g_m1B·g_m5
+     + C_c·C_gs1·g_m1B·(g_m5 - g_ds2B)
+     - C_db2B·C_c·g_m1B·g_m1
+     - C_db2B·C_gd5·g_m1B·g_m1
+     + C_db2B·C_gs1·g_m1B·g_m5
+     + C_gd1B·C_c·g_m1·(- g_m5 + g_ds2B)
+     - C_gd1B·C_db2B·g_m5·g_m1
+     + C_gd1B·C_gd5·g_m1·(g_m2B+g_ds2B+g_ds3B)
+     - C_gd1B·C_gs1·g_m5·(g_m2B+g_ds2B+g_ds3B)
+     - C_gd5·C_c·g_m1B·g_m1
+     - C_gd5·C_gs1·g_m1B·(g_m2B+g_ds2B+g_ds3B)
+
+b3   (coeficiente de s^3, 12 parcela(s))
+     + C_3·C_gd1B·C_gd5·g_m1
+     - C_3·C_gd1B·C_gs1·g_m5
+     - C_3·C_gd5·C_gs1·g_m1B
+     - C_db2B·C_c·C_gs1·g_m1B
+     - C_db2B·C_gd5·C_gs1·g_m1B
+     + C_gd1B·C_c·C_gs1·(- g_m5 + g_ds2B)
+     + C_gd1B·C_db2B·C_c·g_m1
+     + C_gd1B·C_db2B·C_gd5·g_m1
+     - C_gd1B·C_db2B·C_gs1·g_m5
+     + C_gd1B·C_gd5·C_c·g_m1
+     + C_gd1B·C_gd5·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     - C_gd5·C_c·C_gs1·g_m1B
+
+b4   (coeficiente de s^4, 4 parcela(s))
+     + C_3·C_gd1B·C_gd5·C_gs1·
+     + C_gd1B·C_db2B·C_c·C_gs1·
+     + C_gd1B·C_db2B·C_gd5·C_gs1·
+     + C_gd1B·C_gd5·C_c·C_gs1·
+
+==========================================================================================
+DENOMINADOR  D(s) = a0 + a1·s + a2·s² + a3·s³ + a4·s⁴
+==========================================================================================
+
+a0   (coeficiente de s^0, 1 parcela(s))
+     + (g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]
+
+a1   (coeficiente de s^1, 9 parcela(s))
+     + C_1·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·(g_m1+g_ds1+g_dsIB3)·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]
+     + C_3·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)·(g_ds1B+g_ds2B)
+     + C_4·(g_ds4+g_ds5)·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]
+     + C_c·(g_m1+g_ds1+g_dsIB3)·(g_m2B·g_m5 + g_m2B·g_ds1B + g_m5·g_ds2B + g_ds1B·g_ds2B + g_ds1B·g_ds3B + g_ds1B·g_ds4 + g_ds1B·g_ds5 + g_ds2B·g_ds3B + g_ds2B·g_ds4 + g_ds2B·g_ds5)
+     + C_db2B·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)·(g_ds1B + g_ds3B)
+     + C_gd1B·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_gd5·(g_m1+g_ds1+g_dsIB3)·(g_m2B·g_m5 + g_m2B·g_ds1B + g_m2B·g_ds4 + g_m2B·g_ds5 + g_m5·g_ds2B + g_m5·g_ds3B + g_ds1B·g_ds2B + g_ds1B·g_ds3B + g_ds2B·g_ds3B + g_ds2B·g_ds4 + g_ds2B·g_ds5 + g_ds3B·g_ds4 + g_ds3B·g_ds5)
+     + C_gs1·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+
+a2   (coeficiente de s^2, 35 parcela(s))
+     + C_1·C_2·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_3·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_4·(g_ds4+g_ds5)·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_c·(g_m1+g_ds1+g_dsIB3)·(g_m2B + g_ds2B + g_ds3B + g_ds4 + g_ds5)
+     + C_1·C_db2B·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_gd5·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_gs1·(g_m2B+g_ds2B+g_ds3B)·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_2·C_3·(g_m1+g_ds1+g_dsIB3)·(g_ds1B+g_ds2B)
+     + C_2·C_4·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]
+     + C_2·C_c·(g_m1+g_ds1+g_dsIB3)·(g_ds1B+g_ds2B)
+     + C_2·C_db2B·(g_m1+g_ds1+g_dsIB3)·(g_ds1B + g_ds3B)
+     + C_2·C_gd1B·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·C_gd5·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·C_gs1·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]
+     + C_3·C_4·(g_ds4+g_ds5)·(g_ds1B+g_ds2B)
+     + C_3·C_c·(g_m1+g_ds1+g_dsIB3)·(g_ds1B+g_ds2B)
+     + C_3·C_db2B·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_gd1B·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_gd5·(g_m1+g_ds1+g_dsIB3)·(g_m5 + g_ds1B + g_ds2B + g_ds4 + g_ds5)
+     + C_3·C_gs1·(g_ds1B+g_ds2B)·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_4·C_c·(g_m2B·g_m5 + g_m2B·g_ds1B + g_m5·g_ds2B + g_ds1B·g_ds2B + g_ds1B·g_ds3B + g_ds1B·g_ds4 + g_ds1B·g_ds5 + g_ds2B·g_ds3B + g_ds2B·g_ds4 + g_ds2B·g_ds5)
+     + C_4·C_db2B·(g_ds4+g_ds5)·(g_ds1B + g_ds3B)
+     + C_4·C_gd1B·(g_ds4+g_ds5)·(g_m2B+g_ds2B+g_ds3B)
+     + C_4·C_gd5·(g_m2B·g_m5 + g_m2B·g_ds1B + g_m2B·g_ds4 + g_m2B·g_ds5 + g_m5·g_ds2B + g_m5·g_ds3B + g_ds1B·g_ds2B + g_ds1B·g_ds3B + g_ds2B·g_ds3B + g_ds2B·g_ds4 + g_ds2B·g_ds5 + g_ds3B·g_ds4 + g_ds3B·g_ds5)
+     + C_4·C_gs1·[g_ds1B·(g_m2B+g_ds2B+g_ds3B)+g_ds2B·g_ds3B]
+     + C_c·C_gs1·(g_m2B·g_m5 + g_m2B·g_ds1B + g_m5·g_ds2B + g_ds1B·g_ds2B + g_ds1B·g_ds3B + g_ds1B·g_ds4 + g_ds1B·g_ds5 + g_ds1B·g_ds1 + g_ds1B·g_dsIB3 + g_ds2B·g_ds3B + g_ds2B·g_ds4 + g_ds2B·g_ds5 + g_ds2B·g_ds1 + g_ds2B·g_dsIB3)
+     + C_db2B·C_c·(g_m1+g_ds1+g_dsIB3)·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5)
+     + C_db2B·C_gd5·(g_m1+g_ds1+g_dsIB3)·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5)
+     + C_db2B·C_gs1·(g_ds1B·g_ds4 + g_ds1B·g_ds5 + g_ds1B·g_ds1 + g_ds1B·g_dsIB3 + g_ds3B·g_ds4 + g_ds3B·g_ds5 + g_ds3B·g_ds1 + g_ds3B·g_dsIB3)
+     + C_gd1B·C_c·(g_m1+g_ds1+g_dsIB3)·(g_m2B + g_ds2B + g_ds3B + g_ds4 + g_ds5)
+     + C_gd1B·C_db2B·(g_ds4+g_ds5)·(g_m1+g_ds1+g_dsIB3)
+     + C_gd1B·C_gd5·(g_m1+g_ds1+g_dsIB3)·(g_m2B+g_ds2B+g_ds3B)
+     + C_gd1B·C_gs1·(g_m2B+g_ds2B+g_ds3B)·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_gd5·C_c·(g_m1+g_ds1+g_dsIB3)·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5)
+     + C_gd5·C_gs1·(g_m2B·g_m5 + g_m2B·g_ds1B + g_m2B·g_ds4 + g_m2B·g_ds5 + g_m2B·g_ds1 + g_m2B·g_dsIB3 + g_m5·g_ds2B + g_m5·g_ds3B + g_ds1B·g_ds2B + g_ds1B·g_ds3B + g_ds2B·g_ds3B + g_ds2B·g_ds4 + g_ds2B·g_ds5 + g_ds2B·g_ds1 + g_ds2B·g_dsIB3 + g_ds3B·g_ds4 + g_ds3B·g_ds5 + g_ds3B·g_ds1 + g_ds3B·g_dsIB3)
+
+a3   (coeficiente de s^3, 70 parcela(s))
+     + C_1·C_2·C_3·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_2·C_4·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_2·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_2·C_db2B·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_2·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_3·C_4·(g_ds4+g_ds5)
+     + C_1·C_3·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_3·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_3·C_gs1·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_1·C_4·C_c·(g_m2B + g_ds2B + g_ds3B + g_ds4 + g_ds5)
+     + C_1·C_4·C_db2B·(g_ds4+g_ds5)
+     + C_1·C_4·C_gd5·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_4·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_1·C_c·C_gs1·(g_m2B + g_ds2B + g_ds3B + g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_1·C_db2B·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_db2B·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_db2B·C_gs1·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_1·C_gd5·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_1·C_gd5·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·C_3·C_4·(g_ds1B+g_ds2B)
+     + C_2·C_3·C_db2B·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_3·C_gd1B·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_3·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_3·C_gs1·(g_ds1B+g_ds2B)
+     + C_2·C_4·C_c·(g_ds1B+g_ds2B)
+     + C_2·C_4·C_db2B·(g_ds1B + g_ds3B)
+     + C_2·C_4·C_gd1B·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·C_4·C_gd5·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·C_c·C_gs1·(g_ds1B+g_ds2B)
+     + C_2·C_db2B·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_db2B·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_db2B·C_gs1·(g_ds1B + g_ds3B)
+     + C_2·C_gd1B·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_gd1B·C_db2B·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_gd1B·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_2·C_gd5·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_2·C_gd5·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_3·C_4·C_c·(g_ds1B+g_ds2B)
+     + C_3·C_4·C_db2B·(g_ds4+g_ds5)
+     + C_3·C_4·C_gd1B·(g_ds4+g_ds5)
+     + C_3·C_4·C_gd5·(g_m5 + g_ds1B + g_ds2B + g_ds4 + g_ds5)
+     + C_3·C_4·C_gs1·(g_ds1B+g_ds2B)
+     + C_3·C_c·C_gs1·(g_ds1B+g_ds2B)
+     + C_3·C_db2B·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_db2B·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_db2B·C_gs1·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_3·C_gd1B·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_gd1B·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_gd1B·C_gs1·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_3·C_gd5·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_3·C_gd5·C_gs1·(g_m5 + g_ds1B + g_ds2B + g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_4·C_c·C_gs1·(g_ds1B+g_ds2B)
+     + C_4·C_db2B·C_c·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5)
+     + C_4·C_db2B·C_gd5·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5)
+     + C_4·C_db2B·C_gs1·(g_ds1B + g_ds3B)
+     + C_4·C_gd1B·C_c·(g_m2B + g_ds2B + g_ds3B + g_ds4 + g_ds5)
+     + C_4·C_gd1B·C_db2B·(g_ds4+g_ds5)
+     + C_4·C_gd1B·C_gd5·(g_m2B+g_ds2B+g_ds3B)
+     + C_4·C_gd1B·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_4·C_gd5·C_c·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5)
+     + C_4·C_gd5·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_db2B·C_c·C_gs1·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_db2B·C_gd5·C_gs1·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_gd1B·C_c·C_gs1·(g_m2B + g_ds2B + g_ds3B + g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_gd1B·C_db2B·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_gd1B·C_db2B·C_gd5·(g_m1+g_ds1+g_dsIB3)
+     + C_gd1B·C_db2B·C_gs1·(g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+     + C_gd1B·C_gd5·C_c·(g_m1+g_ds1+g_dsIB3)
+     + C_gd1B·C_gd5·C_gs1·(g_m2B+g_ds2B+g_ds3B)
+     + C_gd5·C_c·C_gs1·(g_m5 + g_ds1B + g_ds3B + g_ds4 + g_ds5 + g_ds1 + g_dsIB3)
+
+a4   (coeficiente de s^4, 59 parcela(s))
+     + C_1·C_2·C_3·C_4·
+     + C_1·C_2·C_3·C_gs1·
+     + C_1·C_2·C_4·C_c·
+     + C_1·C_2·C_4·C_db2B·
+     + C_1·C_2·C_c·C_gs1·
+     + C_1·C_2·C_db2B·C_gs1·
+     + C_1·C_3·C_4·C_c·
+     + C_1·C_3·C_4·C_gd5·
+     + C_1·C_3·C_4·C_gs1·
+     + C_1·C_3·C_c·C_gs1·
+     + C_1·C_3·C_gd5·C_gs1·
+     + C_1·C_4·C_c·C_gs1·
+     + C_1·C_4·C_db2B·C_c·
+     + C_1·C_4·C_db2B·C_gd5·
+     + C_1·C_4·C_db2B·C_gs1·
+     + C_1·C_4·C_gd5·C_c·
+     + C_1·C_db2B·C_c·C_gs1·
+     + C_1·C_db2B·C_gd5·C_gs1·
+     + C_1·C_gd5·C_c·C_gs1·
+     + C_2·C_3·C_4·C_db2B·
+     + C_2·C_3·C_4·C_gd1B·
+     + C_2·C_3·C_4·C_gd5·
+     + C_2·C_3·C_db2B·C_gs1·
+     + C_2·C_3·C_gd1B·C_gs1·
+     + C_2·C_3·C_gd5·C_gs1·
+     + C_2·C_4·C_db2B·C_c·
+     + C_2·C_4·C_db2B·C_gd5·
+     + C_2·C_4·C_gd1B·C_c·
+     + C_2·C_4·C_gd1B·C_db2B·
+     + C_2·C_4·C_gd5·C_c·
+     + C_2·C_db2B·C_c·C_gs1·
+     + C_2·C_db2B·C_gd5·C_gs1·
+     + C_2·C_gd1B·C_c·C_gs1·
+     + C_2·C_gd1B·C_db2B·C_gs1·
+     + C_2·C_gd5·C_c·C_gs1·
+     + C_3·C_4·C_db2B·C_c·
+     + C_3·C_4·C_db2B·C_gd5·
+     + C_3·C_4·C_db2B·C_gs1·
+     + C_3·C_4·C_gd1B·C_c·
+     + C_3·C_4·C_gd1B·C_gd5·
+     + C_3·C_4·C_gd1B·C_gs1·
+     + C_3·C_4·C_gd5·C_c·
+     + C_3·C_4·C_gd5·C_gs1·
+     + C_3·C_db2B·C_c·C_gs1·
+     + C_3·C_db2B·C_gd5·C_gs1·
+     + C_3·C_gd1B·C_c·C_gs1·
+     + C_3·C_gd1B·C_gd5·C_gs1·
+     + C_3·C_gd5·C_c·C_gs1·
+     + C_4·C_db2B·C_c·C_gs1·
+     + C_4·C_db2B·C_gd5·C_gs1·
+     + C_4·C_gd1B·C_c·C_gs1·
+     + C_4·C_gd1B·C_db2B·C_c·
+     + C_4·C_gd1B·C_db2B·C_gd5·
+     + C_4·C_gd1B·C_db2B·C_gs1·
+     + C_4·C_gd1B·C_gd5·C_c·
+     + C_4·C_gd5·C_c·C_gs1·
+     + C_gd1B·C_db2B·C_c·C_gs1·
+     + C_gd1B·C_db2B·C_gd5·C_gs1·
+     + C_gd1B·C_gd5·C_c·C_gs1·
