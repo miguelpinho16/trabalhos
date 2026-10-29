@@ -1,6 +1,6 @@
 LTspice 24.1.10 for Windows
 Circuit: C:\Users\migue\Desktop\Trabalhos\CSRF\LAB1\LTspice\teste_lab1_t.net
-Start Time: Thu Oct 22 15:14:14 2026
+Start Time: Thu Oct 29 09:16:20 2026
 Options: plotwinsize=0
 solver = Normal
 Maximum thread count: 8
@@ -8,7 +8,7 @@ tnom = 27
 temp = 27
 method = modified trap
 Direct Newton iteration for .op point succeeded.
-Total elapsed time: 5.333 seconds.
+Total elapsed time: 0.134 seconds.
 
 Files loaded:
 C:\Users\migue\Desktop\Trabalhos\CSRF\LAB1\LTspice\teste_lab1_t.net

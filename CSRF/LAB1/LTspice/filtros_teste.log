@@ -1,0 +1,14 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\migue\Desktop\Trabalhos\CSRF\LAB1\LTspice\filtros_teste.net
+Start Time: Thu Oct 29 09:20:13 2026
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.111 seconds.
+
+Files loaded:
+C:\Users\migue\Desktop\Trabalhos\CSRF\LAB1\LTspice\filtros_teste.net
+
