@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  31 OCT 2026 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  31 OCT 2026 23:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/denpo/FCT/MEEC/2ano/1semestre/CSRF/Report/main.tex
-(c:/Users/denpo/FCT/MEEC/2ano/1semestre/CSRF/Report/main.tex
+**c:/Users/denpo/FCT/MEEC/2ano/1semestre/trabalhos/CSRF/LAB1/Relatorio/main.tex
+(c:/Users/denpo/FCT/MEEC/2ano/1semestre/trabalhos/CSRF/LAB1/Relatorio/main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
 (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -623,7 +623,7 @@ Package hyperref Info: Link coloring ON on input line 10.
 \openout3 = `main.out'.
 
  (capa.tex
-<IMAGENS/logo_fct.png, id=30, 288.07625pt x 68.255pt>
+<IMAGENS/logo_fct.png, id=26, 288.07625pt x 68.255pt>
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 12.
@@ -680,23 +680,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.34 \newpage
-              [1] (introducao.tex
-<IMAGENS/LNA.png, id=53, 453.94594pt x 167.87718pt>
-File: IMAGENS/LNA.png Graphic file (type png)
-<use IMAGENS/LNA.png>
-Package pdftex.def Info: IMAGENS/LNA.png  used on input line 13.
-(pdftex.def)             Requested size: 483.69687pt x 178.88138pt.
-)
+              [1] (introducao.tex)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 37.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [2{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <./IMAGENS/LNA.png>] (desenvolvimento1.tex)
+ [2] (desenvolvimento1.tex)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 40.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [3] (conclusao.tex
+ [3{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}] (conclusao.tex
 
 LaTeX Warning: Reference `eq:gm_vsat' on page 4 undefined on input line 33.
 
@@ -720,20 +714,20 @@ L3 programming layer <2025-11-06>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3E4B39E0D83759C30790CBA67FA6D962;1778.
+(rerunfilecheck)             Checksum: 82CF43252C48530D96DE404CD8442BA5;1359.
  ) 
 Here is how much of TeX's memory you used:
- 16571 strings out of 467871
- 269251 string characters out of 5418375
+ 16565 strings out of 467871
+ 269461 string characters out of 5418375
  707840 words of memory out of 5000000
- 45132 multiletter control sequences out of 15000+600000
+ 45127 multiletter control sequences out of 15000+600000
  693266 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,15n,93p,1244b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,15n,93p,1262b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (6 pages, 283212 bytes).
+Output written on main.pdf (6 pages, 251985 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 134 PDF objects out of 1000 (max. 8388607)
+ 12 named destinations out of 1000 (max. 500000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

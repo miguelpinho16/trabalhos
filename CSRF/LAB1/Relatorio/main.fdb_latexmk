@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1793441291.85377 "main.aux" "main.bbl" "main" 1793441294.23598 0
-  "./referencias.bib" 1781563904 1559 891c7daf4ea6036aa3d742cba280d074 ""
+["bibtex main"] 1793487861.1037 "main.aux" "main.bbl" "main" 1793487879.81831 0
+  "./referencias.bib" 1793465093 1559 891c7daf4ea6036aa3d742cba280d074 ""
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1793441293 1478 15456fde0aef6ba4a1e87c498659c1ba "pdflatex"
+  "main.aux" 1793487878 1309 851f5a17442da8a58cf6658e49011a59 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1793441292.18156 "c:/Users/denpo/FCT/MEEC/2ano/1semestre/CSRF/Report/main.tex" "main.pdf" "main" 1793441294.23687 0
+["pdflatex"] 1793487876.91585 "c:/Users/denpo/FCT/MEEC/2ano/1semestre/trabalhos/CSRF/LAB1/Relatorio/main.tex" "main.pdf" "main" 1793487879.81953 0
   "C:/Users/denpo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1780894043 94578 3d7812996b5e70e7dd3d06c67bb78c06 ""
   "C:/Users/denpo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1766267780 13333512 126b710cd2ad74c195a58a310fbc7402 ""
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -156,20 +156,19 @@
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/tex/latex/type1cm/type1cm.sty" 1469030226 7308 e7cee88575f4e65f8bf3918ccb2aa80e ""
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "IMAGENS/LNA.png" 1781565090 35757 97fda0b8e22db43502a782dd7c2600e8 ""
-  "IMAGENS/logo_fct.png" 1781565090 5444 453e07b36ee1a36409bda229baa6ac08 ""
-  "c:/Users/denpo/FCT/MEEC/2ano/1semestre/CSRF/Report/main.tex" 1793441014 916 dcbe797b6b23af5db13066067f87fad2 ""
-  "capa.tex" 1793440886 1738 2b30555f9d929f0700d4dd3fb1736080 ""
-  "conclusao.tex" 1781563904 4089 75d291dbf70a45723e44106de8564065 ""
-  "config.tex" 1778450315 4312 8d8c23f22d53b13aab2768cb3d799bf0 ""
-  "desenvolvimento1.tex" 1793441289 434 c77bf6de01b3e321a4fe1abf2b09c633 ""
-  "introducao.tex" 1778449350 2950 94a866b3ee56d9e9d61f0ca4bd9415df ""
-  "main.aux" 1793441293 1478 15456fde0aef6ba4a1e87c498659c1ba "pdflatex"
-  "main.bbl" 1793441292 363 569eb83059f8840f3c2a8cfd7cb5c589 "bibtex main"
-  "main.lof" 1793441293 67 1cfe40170176fd5def653c65332813c0 "pdflatex"
-  "main.out" 1793441293 1778 3e4b39e0d83759c30790cba67fa6d962 "pdflatex"
-  "main.tex" 1793441014 916 dcbe797b6b23af5db13066067f87fad2 ""
-  "main.toc" 1793441293 713 2c3485e56cd8a709ced44e3cc9a4f810 "pdflatex"
+  "IMAGENS/logo_fct.png" 1793465093 5444 453e07b36ee1a36409bda229baa6ac08 ""
+  "c:/Users/denpo/FCT/MEEC/2ano/1semestre/trabalhos/CSRF/LAB1/Relatorio/main.tex" 1793465093 916 dcbe797b6b23af5db13066067f87fad2 ""
+  "capa.tex" 1793465093 1738 2b30555f9d929f0700d4dd3fb1736080 ""
+  "conclusao.tex" 1793465093 4089 75d291dbf70a45723e44106de8564065 ""
+  "config.tex" 1793465093 4312 8d8c23f22d53b13aab2768cb3d799bf0 ""
+  "desenvolvimento1.tex" 1793487874 492 79dcfc2575f5a31035868126d720ac2f ""
+  "introducao.tex" 1793466265 708 8065deb50f177ac6e524d7bed51ff1a1 ""
+  "main.aux" 1793487878 1309 851f5a17442da8a58cf6658e49011a59 "pdflatex"
+  "main.bbl" 1793487861 363 569eb83059f8840f3c2a8cfd7cb5c589 "bibtex main"
+  "main.lof" 1793487878 67 1cfe40170176fd5def653c65332813c0 "pdflatex"
+  "main.out" 1793487878 1359 82cf43252c48530d96de404cd8442ba5 "pdflatex"
+  "main.tex" 1793465093 916 dcbe797b6b23af5db13066067f87fad2 ""
+  "main.toc" 1793487878 585 b06111bf644af0157d72407e9b419a4c "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
