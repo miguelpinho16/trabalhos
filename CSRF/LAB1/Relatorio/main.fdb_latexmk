@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1793487861.1037 "main.aux" "main.bbl" "main" 1793487879.81831 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 0 -1
   "./referencias.bib" 1793465093 1559 891c7daf4ea6036aa3d742cba280d074 ""
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1793487878 1309 851f5a17442da8a58cf6658e49011a59 "pdflatex"
+  "main.aux" 1793571952 1309 851f5a17442da8a58cf6658e49011a59 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1793487876.91585 "c:/Users/denpo/FCT/MEEC/2ano/1semestre/trabalhos/CSRF/LAB1/Relatorio/main.tex" "main.pdf" "main" 1793487879.81953 0
+["pdflatex"] 1793571951.03309 "c:/Users/denpo/FCT/MEEC/2ano/1semestre/trabalhos/CSRF/LAB1/Relatorio/main.tex" "main.pdf" "main" 1793571953.02112 2
   "C:/Users/denpo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1780894043 94578 3d7812996b5e70e7dd3d06c67bb78c06 ""
   "C:/Users/denpo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1766267780 13333512 126b710cd2ad74c195a58a310fbc7402 ""
   "C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -161,14 +161,14 @@
   "capa.tex" 1793465093 1738 2b30555f9d929f0700d4dd3fb1736080 ""
   "conclusao.tex" 1793465093 4089 75d291dbf70a45723e44106de8564065 ""
   "config.tex" 1793465093 4312 8d8c23f22d53b13aab2768cb3d799bf0 ""
-  "desenvolvimento1.tex" 1793487874 492 79dcfc2575f5a31035868126d720ac2f ""
+  "desenvolvimento1.tex" 1793571952 767 ebc3f00a8b84b80ebc596e3f982c1c6e ""
   "introducao.tex" 1793466265 708 8065deb50f177ac6e524d7bed51ff1a1 ""
-  "main.aux" 1793487878 1309 851f5a17442da8a58cf6658e49011a59 "pdflatex"
-  "main.bbl" 1793487861 363 569eb83059f8840f3c2a8cfd7cb5c589 "bibtex main"
-  "main.lof" 1793487878 67 1cfe40170176fd5def653c65332813c0 "pdflatex"
-  "main.out" 1793487878 1359 82cf43252c48530d96de404cd8442ba5 "pdflatex"
+  "main.aux" 1793571952 1309 851f5a17442da8a58cf6658e49011a59 "pdflatex"
+  "main.bbl" 1793488404 363 569eb83059f8840f3c2a8cfd7cb5c589 "bibtex main"
+  "main.lof" 1793571952 67 1cfe40170176fd5def653c65332813c0 "pdflatex"
+  "main.out" 1793571952 1359 82cf43252c48530d96de404cd8442ba5 "pdflatex"
   "main.tex" 1793465093 916 dcbe797b6b23af5db13066067f87fad2 ""
-  "main.toc" 1793487878 585 b06111bf644af0157d72407e9b419a4c "pdflatex"
+  "main.toc" 1793571952 585 b06111bf644af0157d72407e9b419a4c "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
