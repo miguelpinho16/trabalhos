@@ -6,14 +6,128 @@
 \section{Modelo de comunicação SPICE e principais resultados}
 
 \section{Filtro RF passa-banda: desenho, simulações ideais e realistas}
-O filtro RF solicitado consiste na associação de duas ressonâncias LC, em série e paralelo, respectivamente, 
-que devem ser dimensionados com base na impedância característica de 50~$\Omega$, frequência central atribuída de
-98~MHz no nosso caso e na largura de banda escolhida, que foi a de 17~MHz. 
+\label{sec:filtro-passa-banda}
+ 
+O filtro RF solicitado consiste na associação de duas ressonâncias LC, uma em série e outra em paralelo,
+dimensionadas com base na impedância característica $Z_0 = \qty{50}{\ohm}$, na frequência central atribuída
+$f_0 = \qty{98}{\mega\hertz}$ e na largura de banda escolhida $BW = \qty{17}{\mega\hertz}$.
+As expressões utilizadas no dimensionamento são apresentadas abaixo.
+ 
+\begin{subequations}
+    \label{eq:dimensionamento}
+    \begin{align}
+        L_S &= \dfrac{Z_0}{2\pi \, BW} = \qty{468.1}{\nano\henry} \label{eq:ls} \\
+        L_P &= \dfrac{Z_0 \, BW}{2\pi f_0^{2}} = \qty{14.09}{\nano\henry} \label{eq:lp} \\
+        C_S &= \dfrac{BW}{2\pi f_0^{2} \, Z_0} = \qty{5.63}{\pico\farad} \label{eq:cs} \\
+        C_P &= \dfrac{1}{2\pi \, BW \, Z_0} = \qty{187.2}{\pico\farad} \label{eq:cp}
+    \end{align}
+\end{subequations}
+ 
+Analisou-se o desempenho do filtro em três cenários: no primeiro, os valores dos componentes
+são iguais aos calculados teoricamente; no segundo, são aproximados aos valores disponíveis em laboratório
+(série E24); no terceiro, utilizam-se modelos realistas que introduzem imperfeições e
+outros efeitos não considerados nos cenários anteriores.
+ 
+\subsection{Filtro RF com componentes teóricos}
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{IMAGENS/BP_Teo_schematic.png}
+    \caption{Esquemático do filtro com componentes teóricos.}
+    \label{fig:teo-schematic}
+\end{figure}
+ 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosAC_An.png}
+        \caption{Análise AC.}
+        \label{fig:teo-ac}
+    \end{subfigure}
+ 
+    \vspace{1em}
+ 
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosS11.png}
+        \caption{Parâmetro $S_{11}$.}
+        \label{fig:teo-s11}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosS21.png}
+        \caption{Parâmetro $S_{21}$.}
+        \label{fig:teo-s21}
+    \end{subfigure}
+ 
+    \caption{Resultados de simulação com componentes teóricos.}
+    \label{fig:teo-resultados}
+\end{figure}
+ 
+\subsection{Filtro RF com componentes do laboratório}
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{IMAGENS/BP_Lab_schematic.png}
+    \caption{Esquemático do filtro com componentes do laboratório (série E24).}
+    \label{fig:lab-schematic}
+\end{figure}
+ 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesLabAC_An.png}
+        \caption{Análise AC.}
+        \label{fig:lab-ac}
+    \end{subfigure}
+ 
+    \vspace{1em}
+ 
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesLabSparam.png}
+        \caption{Parâmetros $S$.}
+        \label{fig:lab-s}
+    \end{subfigure}
+ 
+    \caption{Resultados de simulação com componentes do laboratório.}
+    \label{fig:lab-resultados}
+\end{figure}
+ 
+\subsection{Filtro RF com componentes realistas}
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{IMAGENS/BP_Realist_schematic.png}
+    \caption{Esquemático do filtro com modelos realistas dos componentes.}
+    \label{fig:real-schematic}
+\end{figure}
+ 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesRealistas.png}
+        \caption{Análise AC.}
+        \label{fig:real-ac}
+    \end{subfigure}
+ 
+    \vspace{1em}
+ 
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/BP_componentesRealistasSparam.png}
+        \caption{Parâmetro $S_{11}$.}
+        \label{fig:real-s11}
+    \end{subfigure}
 
-\begin{equation}
-    \begin{subequations}
-        $L_S = $
-    \end{subequations}
-\end{equation}
+    \vspace{1em}
+ 
+    \caption{Resultados de simulação com modelos realistas.}
+    \label{fig:real-resultados}
+\end{figure}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  1 NOV 2026 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  4 NOV 2026 00:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -283,68 +283,131 @@ Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
 \AP@output=\toks27
 \AP@partial=\box57
 \AP@footins=\box58
-) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip102
-
-For additional information on amsmath, use the `?' option.
-(C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count299
+\l__siunitx_number_exponent_fixed_int=\count300
+\l__siunitx_number_min_decimal_int=\count301
+\l__siunitx_number_min_integer_int=\count302
+\l__siunitx_number_round_precision_int=\count303
+\l__siunitx_number_lower_threshold_int=\count304
+\l__siunitx_number_upper_threshold_int=\count305
+\l__siunitx_number_group_first_int=\count306
+\l__siunitx_number_group_size_int=\count307
+\l__siunitx_number_group_minimum_int=\count308
+\l__siunitx_angle_tmp_dim=\dimen174
+\l__siunitx_angle_marker_box=\box59
+\l__siunitx_angle_unit_box=\box60
+\l__siunitx_compound_count_int=\count309
+ (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/translations\translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+ (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks28
-\ex@=\dimen174
-)) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+\ex@=\dimen175
+))
+\l__siunitx_table_tmp_box=\box61
+\l__siunitx_table_tmp_dim=\dimen176
+\l__siunitx_table_column_width_dim=\dimen177
+\l__siunitx_table_integer_box=\box62
+\l__siunitx_table_decimal_box=\box63
+\l__siunitx_table_uncert_box=\box64
+\l__siunitx_table_before_box=\box65
+\l__siunitx_table_after_box=\box66
+\l__siunitx_table_before_dim=\dimen178
+\l__siunitx_table_carry_dim=\dimen179
+\l__siunitx_unit_tmp_int=\count310
+\l__siunitx_unit_position_int=\count311
+\l__siunitx_unit_total_int=\count312
+
+
+C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty:9116: LaTeX Error: Key 'siunitx/locale' accepts only a fixed set of choices.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.9116 \NewDocumentCommand
+                           \DeclareSIPower { +m +m m }
+
+The key 'siunitx/locale' only accepts predefined values, and 'PT' is not one
+of these.
+
+
+(C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen180
+\ar@mcellbox=\box67
+\extrarowheight=\dimen181
+\NC@list=\toks29
+\extratabsurround=\skip102
+\backup@length=\skip103
+\ar@cellbox=\box68
+)) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip104
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen175
+\pmbraise@=\dimen182
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count299
+\inf@bad=\count313
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count300
-\leftroot@=\count301
+\uproot@=\count314
+\leftroot@=\count315
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count302
-\DOTSCASE@=\count303
+\classnum@=\count316
+\DOTSCASE@=\count317
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box59
-\strutbox@=\box60
+\Mathstrutbox@=\box69
+\strutbox@=\box70
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen176
+\big@size=\dimen183
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count304
+\macc@depth=\count318
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count305
+\c@MaxMatrixCols=\count319
 \dotsspace@=\muskip17
-\c@parentequation=\count306
-\dspbrk@lvl=\count307
-\tag@help=\toks29
-\row@=\count308
-\column@=\count309
-\maxfields@=\count310
-\andhelp@=\toks30
-\eqnshift@=\dimen177
-\alignsep@=\dimen178
-\tagshift@=\dimen179
-\tagwidth@=\dimen180
-\totwidth@=\dimen181
-\lineht@=\dimen182
-\@envbody=\toks31
-\multlinegap=\skip103
-\multlinetaggap=\skip104
-\mathdisplay@stack=\toks32
+\c@parentequation=\count320
+\dspbrk@lvl=\count321
+\tag@help=\toks30
+\row@=\count322
+\column@=\count323
+\maxfields@=\count324
+\andhelp@=\toks31
+\eqnshift@=\dimen184
+\alignsep@=\dimen185
+\tagshift@=\dimen186
+\tagwidth@=\dimen187
+\totwidth@=\dimen188
+\lineht@=\dimen189
+\@envbody=\toks32
+\multlinegap=\skip105
+\multlinetaggap=\skip106
+\mathdisplay@stack=\toks33
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
@@ -358,74 +421,65 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count311
-\float@exts=\toks33
-\float@box=\box61
-\@float@everytoks=\toks34
-\@floatcapt=\box62
+\c@float@type=\count325
+\float@exts=\toks34
+\float@box=\box71
+\@float@everytoks=\toks35
+\@floatcapt=\box72
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen183
-\captionmargin=\dimen184
-\caption@leftmargin=\dimen185
-\caption@rightmargin=\dimen186
-\caption@width=\dimen187
-\caption@indent=\dimen188
-\caption@parindent=\dimen189
-\caption@hangindent=\dimen190
+\caption@tempdima=\dimen190
+\captionmargin=\dimen191
+\caption@leftmargin=\dimen192
+\caption@rightmargin=\dimen193
+\caption@width=\dimen194
+\caption@indent=\dimen195
+\caption@parindent=\dimen196
+\caption@hangindent=\dimen197
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count312
-\c@continuedfloat=\count313
+\c@caption@flags=\count326
+\c@continuedfloat=\count327
 Package caption Info: float package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count314
+\c@subfigure=\count328
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count315
-) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen191
-\ar@mcellbox=\box63
-\extrarowheight=\dimen192
-\NC@list=\toks35
-\extratabsurround=\skip105
-\backup@length=\skip106
-\ar@cellbox=\box64
+\c@subtable=\count329
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen193
-\lightrulewidth=\dimen194
-\cmidrulewidth=\dimen195
-\belowrulesep=\dimen196
-\belowbottomsep=\dimen197
-\aboverulesep=\dimen198
-\abovetopsep=\dimen199
-\cmidrulesep=\dimen256
-\cmidrulekern=\dimen257
-\defaultaddspace=\dimen258
-\@cmidla=\count316
-\@cmidlb=\count317
-\@aboverulesep=\dimen259
-\@belowrulesep=\dimen260
-\@thisruleclass=\count318
-\@lastruleclass=\count319
-\@thisrulewidth=\dimen261
+\heavyrulewidth=\dimen198
+\lightrulewidth=\dimen199
+\cmidrulewidth=\dimen256
+\belowrulesep=\dimen257
+\belowbottomsep=\dimen258
+\aboverulesep=\dimen259
+\abovetopsep=\dimen260
+\cmidrulesep=\dimen261
+\cmidrulekern=\dimen262
+\defaultaddspace=\dimen263
+\@cmidla=\count330
+\@cmidlb=\count331
+\@aboverulesep=\dimen264
+\@belowrulesep=\dimen265
+\@thisruleclass=\count332
+\@lastruleclass=\count333
+\@thisrulewidth=\dimen266
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip107
-\multirow@cntb=\count320
+\multirow@cntb=\count334
 \multirow@dima=\skip108
-\bigstrutjot=\dimen262
+\bigstrutjot=\dimen267
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
 \everycr=\toks36
 \minrowclearance=\skip109
-\rownum=\count321
+\rownum=\count335
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
@@ -434,15 +488,7 @@ Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
@@ -451,13 +497,13 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count322
+\c@section@level=\count336
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen263
-\Hy@linkcounter=\count323
-\Hy@pagecounter=\count324
+\@linkdim=\dimen268
+\Hy@linkcounter=\count337
+\Hy@pagecounter=\count338
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -465,7 +511,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count325
+\Hy@SavedSpaceFactor=\count339
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -478,21 +524,21 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count326
+\c@Hy@tempcnt=\count340
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen264
+\XeTeXLinkMargin=\dimen269
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count327
-\Field@Width=\dimen265
-\Fld@charsize=\dimen266
+\Fld@menulength=\count341
+\Field@Width=\dimen270
+\Fld@charsize=\dimen271
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -500,15 +546,15 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count328
-\c@Item=\count329
-\c@Hfootnote=\count330
+\Hy@abspage=\count342
+\c@Item=\count343
+\c@Hfootnote=\count344
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count331
-\c@bookmark@seq@number=\count332
+\Fld@listcount=\count345
+\c@bookmark@seq@number=\count346
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
  (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
@@ -518,7 +564,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip110
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 139.
+Package hyperref Info: Option `colorlinks' set `true' on input line 140.
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/type1cm\type1cm.sty
 Package: type1cm 2002/09/05 v0.04 BlueSky/Y&Y Type1 CM font definitions (DPC, patched RF)
 )
@@ -527,7 +573,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10.
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count333
+\l__color_backend_stack_int=\count347
 ) (main.aux)
 \openout1 = `main.aux'.
 
@@ -588,16 +634,16 @@ Package babel Info: 'portuguese' activates 'portuges' shorthands.
 
 (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
-\scratchdimen=\dimen267
-\scratchbox=\box65
-\nofMPsegments=\count335
-\nofMParguments=\count336
+\scratchcounter=\count348
+\scratchdimen=\dimen272
+\scratchbox=\box73
+\nofMPsegments=\count349
+\nofMParguments=\count350
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count337
-\MPscratchDim=\dimen268
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
+\MPscratchCnt=\count351
+\MPscratchDim=\dimen273
+\MPnumerator=\count352
+\makeMPintoPDFobject=\count353
 \everyMPtoPDFconversion=\toks38
 ) (C:\Users\denpo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -613,6 +659,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
+Package translations Info: no dictionary file `translations-basic-dictionary-portuges.trsl' found. on input line 10.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -679,137 +726,100 @@ Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 37.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
  [2] (desenvolvimento1.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 10.
+(Font)              <10> on input line 12.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 10.
+(Font)              <7> on input line 12.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 10.
-
-desenvolvimento1.tex:15: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.15         $
-              L_S$
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-desenvolvimento1.tex:15: Display math should end with $$.
-<to be read again> 
-                   L
-l.15         $L
-               _S$
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-desenvolvimento1.tex:15: Missing $ inserted.
-<inserted text> 
-                $
-l.15         $L_
-                S$
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-desenvolvimento1.tex:16: LaTeX Error: \begin{equation} on input line 13 ended by \end{subequations}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16     \end{subequations}
-                           
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-desenvolvimento1.tex:17: LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.17 \end{equation}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-desenvolvimento1.tex:17: You can't use `\eqno' in horizontal mode.
-\veqno ->\@kernel@eqno 
-                       \aftergroup \ignorespaces 
-l.17 \end{equation}
-                   
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-desenvolvimento1.tex:17: LaTeX Error: \begin{document} ended by \end{equation}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.17 \end{equation}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-desenvolvimento1.tex:17: Missing $ inserted.
-<inserted text> 
-                $
-l.17 \end{equation}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-desenvolvimento1.tex:17: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.17 \end{equation}
-                   
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-desenvolvimento1.tex:17: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.17 \end{equation}
-                   
-Things are pretty mixed up, but I think the worst is over.
-
-)
+(Font)              <5> on input line 12.
+<IMAGENS/BP_Teo_schematic.png, id=24, 677.53125pt x 331.83975pt>
+File: IMAGENS/BP_Teo_schematic.png Graphic file (type png)
+<use IMAGENS/BP_Teo_schematic.png>
+Package pdftex.def Info: IMAGENS/BP_Teo_schematic.png  used on input line 35.
+(pdftex.def)             Requested size: 241.84843pt x 118.44952pt.
+<IMAGENS/BP_componentesTeoricosAC_An.png, id=26, 1154.51324pt x 510.10574pt>
+File: IMAGENS/BP_componentesTeoricosAC_An.png Graphic file (type png)
+<use IMAGENS/BP_componentesTeoricosAC_An.png>
+Package pdftex.def Info: IMAGENS/BP_componentesTeoricosAC_An.png  used on input line 44.
+(pdftex.def)             Requested size: 241.84843pt x 106.85294pt.
+<IMAGENS/BP_componentesTeoricosS11.png, id=27, 1154.51324pt x 387.24675pt>
+File: IMAGENS/BP_componentesTeoricosS11.png Graphic file (type png)
+<use IMAGENS/BP_componentesTeoricosS11.png>
+Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS11.png  used on input line 53.
+(pdftex.def)             Requested size: 232.17242pt x 77.87341pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 54.
+<IMAGENS/BP_componentesTeoricosS21.png, id=28, 1153.30875pt x 388.45125pt>
+File: IMAGENS/BP_componentesTeoricosS21.png Graphic file (type png)
+<use IMAGENS/BP_componentesTeoricosS21.png>
+Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS21.png  used on input line 60.
+(pdftex.def)             Requested size: 232.17242pt x 78.19861pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 68.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+ [3{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <./IMAGENS/BP_Teo_schematic.png>]
+<IMAGENS/BP_Lab_schematic.png, id=48, 612.48825pt x 284.262pt>
+File: IMAGENS/BP_Lab_schematic.png Graphic file (type png)
+<use IMAGENS/BP_Lab_schematic.png>
+Package pdftex.def Info: IMAGENS/BP_Lab_schematic.png  used on input line 73.
+(pdftex.def)             Requested size: 241.84843pt x 112.24104pt.
+<IMAGENS/BP_componentesLabAC_An.png, id=49, 1154.51324pt x 467.94826pt>
+File: IMAGENS/BP_componentesLabAC_An.png Graphic file (type png)
+<use IMAGENS/BP_componentesLabAC_An.png>
+Package pdftex.def Info: IMAGENS/BP_componentesLabAC_An.png  used on input line 82.
+(pdftex.def)             Requested size: 241.84843pt x 98.02211pt.
+<IMAGENS/BP_componentesLabSparam.png, id=50, 1153.911pt x 527.571pt>
+File: IMAGENS/BP_componentesLabSparam.png Graphic file (type png)
+<use IMAGENS/BP_componentesLabSparam.png>
+Package pdftex.def Info: IMAGENS/BP_componentesLabSparam.png  used on input line 91.
+(pdftex.def)             Requested size: 241.84843pt x 110.56778pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 99.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+ [4 <./IMAGENS/BP_componentesTeoricosAC_An.png> <./IMAGENS/BP_componentesTeoricosS11.png> <./IMAGENS/BP_componentesTeoricosS21.png> <./IMAGENS/BP_Lab_schematic.png>]
+<IMAGENS/BP_Realist_schematic.png, id=65, 705.23476pt x 393.26926pt>
+File: IMAGENS/BP_Realist_schematic.png Graphic file (type png)
+<use IMAGENS/BP_Realist_schematic.png>
+Package pdftex.def Info: IMAGENS/BP_Realist_schematic.png  used on input line 104.
+(pdftex.def)             Requested size: 241.84843pt x 134.86192pt.
+<IMAGENS/BP_componentesRealistas.png, id=66, 1153.911pt x 510.10574pt>
+File: IMAGENS/BP_componentesRealistas.png Graphic file (type png)
+<use IMAGENS/BP_componentesRealistas.png>
+Package pdftex.def Info: IMAGENS/BP_componentesRealistas.png  used on input line 113.
+(pdftex.def)             Requested size: 386.95897pt x 171.05966pt.
+<IMAGENS/BP_componentesRealistasSparam.png, id=67, 1153.911pt x 528.7755pt>
+File: IMAGENS/BP_componentesRealistasSparam.png Graphic file (type png)
+<use IMAGENS/BP_componentesRealistasSparam.png>
+Package pdftex.def Info: IMAGENS/BP_componentesRealistasSparam.png  used on input line 122.
+(pdftex.def)             Requested size: 232.17242pt x 106.39063pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 132.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+ [5 <./IMAGENS/BP_componentesLabAC_An.png> <./IMAGENS/BP_componentesLabSparam.png> <./IMAGENS/BP_Realist_schematic.png>])
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 40.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [3{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}] (conclusao.tex
+ [6 <./IMAGENS/BP_componentesRealistas.png> <./IMAGENS/BP_componentesRealistasSparam.png>] (conclusao.tex
 
-LaTeX Warning: Citation `blaakmeer2008' on page 4 undefined on input line 20.
+LaTeX Warning: Citation `blaakmeer2008' on page 7 undefined on input line 20.
 
 
-LaTeX Warning: Reference `eq:gm_vsat' on page 4 undefined on input line 33.
+LaTeX Warning: Reference `eq:gm_vsat' on page 7 undefined on input line 33.
 
 )
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 43.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [4{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] (main.bbl)
+ [7{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] (main.bbl)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 47.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [5] (main.aux)
+ [8] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -828,20 +838,20 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  82CF43252C48530D96DE404CD8442BA5;1359.
+(rerunfilecheck)             After:  8E314F5E2A46DB685BA973C6DE099E77;2120.
  ) 
 Here is how much of TeX's memory you used:
- 16552 strings out of 467871
- 269087 string characters out of 5418375
- 707737 words of memory out of 5000000
- 45120 multiletter control sequences out of 15000+600000
- 693266 words of font info for 86 fonts, out of 8000000 for 9000
+ 20303 strings out of 467871
+ 381995 string characters out of 5418375
+ 790490 words of memory out of 5000000
+ 48844 multiletter control sequences out of 15000+600000
+ 700288 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,15n,93p,1262b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (6 pages, 238828 bytes).
+ 78i,15n,93p,1262b,1123s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
+Output written on main.pdf (9 pages, 689891 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
