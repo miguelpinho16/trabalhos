@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  5 NOV 2026 03:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.20)  5 NOV 2026 22:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -897,56 +897,57 @@ File: IMAGENS/BP_componentesTeoricosS21.png Graphic file (type png)
 <use IMAGENS/BP_componentesTeoricosS21.png>
 Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS21.png  used on input line 300.
 (pdftex.def)             Requested size: 232.17242pt x 78.19861pt.
-<IMAGENS/BP_Lab_schematic.png, id=197, 612.48825pt x 284.262pt>
-File: IMAGENS/BP_Lab_schematic.png Graphic file (type png)
-<use IMAGENS/BP_Lab_schematic.png>
-Package pdftex.def Info: IMAGENS/BP_Lab_schematic.png  used on input line 313.
-(pdftex.def)             Requested size: 241.84843pt x 112.24104pt.
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 317.
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 314.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
  [6 <./IMAGENS/BP_Teo_schematic.png> <./IMAGENS/BP_componentesTeoricosAC_An.png> <./IMAGENS/BP_componentesTeoricosS11.png> <./IMAGENS/BP_componentesTeoricosS21.png>]
+<IMAGENS/BP_Lab_schematic.png, id=213, 612.48825pt x 284.262pt>
+File: IMAGENS/BP_Lab_schematic.png Graphic file (type png)
+<use IMAGENS/BP_Lab_schematic.png>
+Package pdftex.def Info: IMAGENS/BP_Lab_schematic.png  used on input line 319.
+(pdftex.def)             Requested size: 241.84843pt x 112.24104pt.
 <IMAGENS/BP_componentesLabAC_An.png, id=214, 1154.51324pt x 467.94826pt>
 File: IMAGENS/BP_componentesLabAC_An.png Graphic file (type png)
 <use IMAGENS/BP_componentesLabAC_An.png>
-Package pdftex.def Info: IMAGENS/BP_componentesLabAC_An.png  used on input line 322.
+Package pdftex.def Info: IMAGENS/BP_componentesLabAC_An.png  used on input line 328.
 (pdftex.def)             Requested size: 241.84843pt x 98.02211pt.
 <IMAGENS/BP_componentesLabSparam.png, id=215, 1153.911pt x 527.571pt>
 File: IMAGENS/BP_componentesLabSparam.png Graphic file (type png)
 <use IMAGENS/BP_componentesLabSparam.png>
-Package pdftex.def Info: IMAGENS/BP_componentesLabSparam.png  used on input line 331.
+Package pdftex.def Info: IMAGENS/BP_componentesLabSparam.png  used on input line 337.
 (pdftex.def)             Requested size: 241.84843pt x 110.56778pt.
 <IMAGENS/BP_Realist_schematic.png, id=216, 705.23476pt x 393.26926pt>
 File: IMAGENS/BP_Realist_schematic.png Graphic file (type png)
 <use IMAGENS/BP_Realist_schematic.png>
-Package pdftex.def Info: IMAGENS/BP_Realist_schematic.png  used on input line 344.
+Package pdftex.def Info: IMAGENS/BP_Realist_schematic.png  used on input line 356.
 (pdftex.def)             Requested size: 241.84843pt x 134.86192pt.
-<IMAGENS/BP_componentesRealistas.png, id=217, 1153.911pt x 510.10574pt>
-File: IMAGENS/BP_componentesRealistas.png Graphic file (type png)
-<use IMAGENS/BP_componentesRealistas.png>
-Package pdftex.def Info: IMAGENS/BP_componentesRealistas.png  used on input line 353.
-(pdftex.def)             Requested size: 241.84843pt x 106.90742pt.
-<IMAGENS/BP_componentesRealistasSparam.png, id=218, 1153.911pt x 528.7755pt>
-File: IMAGENS/BP_componentesRealistasSparam.png Graphic file (type png)
-<use IMAGENS/BP_componentesRealistasSparam.png>
-Package pdftex.def Info: IMAGENS/BP_componentesRealistasSparam.png  used on input line 362.
-(pdftex.def)             Requested size: 232.17242pt x 106.39063pt.
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 372.
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 360.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [7 <./IMAGENS/BP_Lab_schematic.png> <./IMAGENS/BP_componentesLabAC_An.png> <./IMAGENS/BP_componentesLabSparam.png> <./IMAGENS/BP_Realist_schematic.png>])
+ [7 <./IMAGENS/BP_Lab_schematic.png> <./IMAGENS/BP_componentesLabAC_An.png> <./IMAGENS/BP_componentesLabSparam.png>]
+<IMAGENS/BP_componentesRealistas.png, id=225, 1153.911pt x 510.10574pt>
+File: IMAGENS/BP_componentesRealistas.png Graphic file (type png)
+<use IMAGENS/BP_componentesRealistas.png>
+Package pdftex.def Info: IMAGENS/BP_componentesRealistas.png  used on input line 365.
+(pdftex.def)             Requested size: 241.84843pt x 106.90742pt.
+<IMAGENS/BP_componentesRealistasSparam.png, id=226, 1153.911pt x 528.7755pt>
+File: IMAGENS/BP_componentesRealistasSparam.png Graphic file (type png)
+<use IMAGENS/BP_componentesRealistasSparam.png>
+Package pdftex.def Info: IMAGENS/BP_componentesRealistasSparam.png  used on input line 374.
+(pdftex.def)             Requested size: 232.17242pt x 106.39063pt.
+)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 40.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [8 <./IMAGENS/BP_componentesRealistas.png> <./IMAGENS/BP_componentesRealistasSparam.png>] (conclusao.tex)
+ [8 <./IMAGENS/BP_Realist_schematic.png> <./IMAGENS/BP_componentesRealistas.png> <./IMAGENS/BP_componentesRealistasSparam.png>] (conclusao.tex)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 43.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [9{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] (main.bbl
+ [9] (main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
@@ -964,17 +965,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B374343DA1A0146B55921F847229C2DC;2305.
  ) 
 Here is how much of TeX's memory you used:
- 20583 strings out of 467871
- 392356 string characters out of 5418375
+ 20581 strings out of 467871
+ 392347 string characters out of 5418375
  796656 words of memory out of 5000000
- 49102 multiletter control sequences out of 15000+600000
- 700288 words of font info for 92 fonts, out of 8000000 for 9000
+ 49103 multiletter control sequences out of 15000+600000
+ 694315 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,16n,93p,1262b,1123s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (11 pages, 1392554 bytes).
+<C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb>
+Output written on main.pdf (11 pages, 1381406 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
+ 319 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
  276 words of extra memory for PDF output out of 10000 (max. 10000000)
 

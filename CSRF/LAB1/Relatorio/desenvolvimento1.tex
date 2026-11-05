@@ -305,6 +305,12 @@ outros efeitos não considerados nos cenários anteriores.
     \caption{Resultados de simulação com componentes teóricos.}
     \label{fig:teo-resultados}
 \end{figure}
+
+Observamos que com os componentes teóricos, tanto a frequência central (que se vê melhor com os parâmetros S, 
+na frequência de melhor adaptação do filtro à impedância $Z_0$) como o \textit{insertion loss} encontram-se com as expectativas. 
+O ganho AC está em -6 dB (0,5 em V/V) pelo facto de, na frequência de ressonância, tudo que a entrada "vê" 
+é um curto circuito, ou seja, a potência é puramente distribuída entre a resistência de entrada $Z_0$ e a carga, 
+também $Z_0$. A largura de banda -3dB é de aproximadamente 23,95 MHz. 
  
 \subsection{Filtro RF com componentes do laboratório}
  
@@ -336,6 +342,12 @@ outros efeitos não considerados nos cenários anteriores.
     \caption{Resultados de simulação com componentes do laboratório.}
     \label{fig:lab-resultados}
 \end{figure}
+
+Para os componentes adaptados à série E24, podemos observar que os componentes têm valores ligeiramente diferentes dos teóricos,
+principalmente as bobinas. Ademais, foi necessário utilizar dois condensadores paralelos para corresponder ao valor mais próximo possível
+do necessário para o condensador em paralelo. A frequência central foi deslocada de 98MHz para 96MHz, ao passo que a adaptação à entrada
+é pior, passando de -52 para -14 dB. O parâmetro $S_{21}$ manteve-se muito próximo de 0dB, e a largura de banda -3dB aumentou ligeiramente,
+para 24,2MHz. 
  
 \subsection{Filtro RF com componentes realistas}
  
@@ -369,5 +381,10 @@ outros efeitos não considerados nos cenários anteriores.
     \caption{Resultados de simulação com modelos realistas.}
     \label{fig:real-resultados}
 \end{figure}
+
+Para os componentes realistas, nota-se um aumento da atenuação ao longo da largura de banda do filtro, caracterizado por um 
+pico mais arredondado e não tão plano. Todos os outros parâmetros, como ganho AC, adaptação à entrada e o $S_{21}$, estão 
+piores, apesar dos valores mais aproximados dos teóricos. A largura de banda -3dB manteve-se relativamente estável ao longo das análises, 
+sendo 24,1MHz. 
 
 
