@@ -1,0 +1,20 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\Users\RLapa\Desktop\Escola V3\CSRF\LAB 1\trabalhos\CSRF\LAB1\LTspice\teste_lab1_t_componentes_reais.net
+Start Time: Thu Nov  5 20:41:35 2026
+Options:plotwinsize=0
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+Total elapsed time: 36.884 seconds.
+
+Files loaded:
+C:\Users\RLapa\Desktop\Escola V3\CSRF\LAB 1\trabalhos\CSRF\LAB1\LTspice\teste_lab1_t_componentes_reais.net
+C:\Users\RLapa\AppData\Local\LTspice\lib\sub\ADG1201.sub
+C:\Users\RLapa\AppData\Local\LTspice\lib\sub\LTC.lib
+
