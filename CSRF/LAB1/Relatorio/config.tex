@@ -24,8 +24,14 @@
 \usepackage{enumitem}
 \usepackage{afterpage}
 \usepackage{indentfirst}
-\usepackage[locale=PT]{siunitx}
-
+\usepackage{siunitx}
+\sisetup{
+    exponent-product = \times,
+    inter-unit-product = \,,
+    output-decimal-marker = {,},
+    group-separator = {\thinspace},
+    group-minimum-digits = 4
+}
 
 
 % ========== PACOTES MATEMÁTICOS ==========
@@ -134,7 +140,7 @@
     filecolor=RoyalBlue,
     urlcolor=RoyalBlue,
     citecolor=RoyalBlue,
-    pdftitle={Relatório ERF},
+    pdftitle={Relatório CSRF},
     pdfauthor={Delmont Maria, Miguel Pinho, Rodrigo Lapa},
     pdfcreator={LaTeX with lmodern}
 }
@@ -145,9 +151,9 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\includegraphics[height=1cm]{IMAGENS/logo_fct.png}}
-\fancyhead[R]{\footnotesize ERF}
+\fancyhead[R]{\footnotesize CSRF}
 %\fancyfoot[L]{\footnotesize \today}
-\fancyfoot[L]{\footnotesize 10 de Maio de 2026}
+\fancyfoot[L]{\footnotesize 31 de Outubro de 2026}
 \fancyfoot[R]{\footnotesize Página \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}

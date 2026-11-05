@@ -3,6 +3,246 @@
 % ==============================================
 \section{Configuração GNU Radio e principais resultados de simulação}
 
+A configuração do GNU Radio para a simulação do sistema AM é apresentada de acordo com a figura \ref{fig:gnu-radio-diagram}, também presente no enunciado.
+\begin{figure}[htbp]
+    \centering
+
+    \includegraphics[width=0.45\textwidth]{IMAGENS/gnuradio1.png}
+    \includegraphics[width=0.45\textwidth]{IMAGENS/gnuradio2.png}
+
+    \caption{Diagrama de blocos do sistema AM a ser simulado.}
+    \label{fig:gnu-radio-diagram}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+
+    \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_Out1.png}
+    \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_Out2.png}
+
+    \caption{Trasmissor AM no GNU Radio}
+    \label{fig:gnu-radio-transmitter}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+
+    \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_Ch.png}
+    \caption{Canal AM no GNU Radio}
+    \label{fig:gnu-radio-channel}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+    \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_In1.png}
+    \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_In2.png}
+
+    \caption{Recetor AM no GNU Radio}
+    \label{fig:gnu-radio-receiver}
+\end{figure}
+
+Como é possivel observar nas figuras \ref{fig:gnu-radio-transmitter}, \ref{fig:gnu-radio-channel} e \ref{fig:gnu-radio-receiver}, o sistema AM simulado no GNU Radio
+tem a capacidade de modular tanto um sinal sinusoidal como um sinal de áudio, transmitindo-os através de um canal AM e recuperando-os no recetor.
+Na parte final do trasmissor, foram adicionados blocos de multiplicação para simular a distorção harmónica e intermodulação, que são efeitos comuns em sistemas de comunicação AM.
+Estes efeitos são simulados até à terceira ordem e são controlados por blocos de controlo de ganho, permitindo o controlo da intensidade da distorção introduzida.
+Os coeficientes que controlam a intensidade desta distorção são a1, a2 e a3.
+
+\subsection{Resultados de simulação}
+
+Comecemos por simular a trasmissão de um sinal sinusoidal puro, com frequência de \qty{1}{\kilo\hertz}. Os sinais obtidos estão presentes nas figuras
+\ref{fig:gnu-radio-sin-time-good} e \ref{fig:gnu-radio-sin-freq-good}. Nesta primeira simulação não foram introduzidos efeitos de distorção ou de ruído no canal.
+
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_OG.png}
+        \caption{Sinal original.}
+        \label{fig:gnu-radio-sin-time-good-og}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited.png}
+        \caption{Sinal transmitido.}
+        \label{fig:gnu-radio-sin-time-good-transmitted}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received.png}
+        \caption{Sinal recebido.}
+        \label{fig:gnu-radio-sin-time-good-received}
+    \end{subfigure}
+
+    \caption{Resultados da simulação para sinal sinusoidal.}
+    \label{fig:gnu-radio-sin-time-good}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_TransmitedFFT.png}
+        \caption{FFT do sinal transmitido.}
+        \label{fig:gnu-radio-sin-time-good-transmitted-fft}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_ReceivedFFT.png}
+        \caption{FFT do sinal recebido.}
+        \label{fig:gnu-radio-sin-time-good-received-fft}
+    \end{subfigure}
+
+    \caption{Transformada de Fourier do sinal transmitido e recebido.}
+    \label{fig:gnu-radio-sin-freq-good}
+\end{figure}
+
+A simulação será repetida com a introdução de distorção harmónica e intermodulação, bem como ruído no canal de transmissão.
+Será feita uma simulação apenas com distorção, outra com distorção e ruído, e por fim uma simulação apenas com ruído. Os resultados obtidos para os sinais trasmitidos
+ estão presentes nas figuras \ref{fig:gnu-radio-sin-time-bad-out} e \ref{fig:gnu-radio-sin-freq-bad-out}, enquanto que os sinais recebidos
+ nas figuras \ref{fig:gnu-radio-sin-time-bad-in}e \ref{fig:gnu-radio-sin-freq-bad-in}. Os coeficientes de distorção e ruído usados estão presentes na
+ figura \ref{fig:gnu-radio-settings-bad}.
+
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited_BadDis.png}
+        \caption{Sinal transmitido com distorção.}
+        \label{fig:gnu-radio-sin-time-bad-dis-out}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited_BadNoise.png}
+        \caption{Sinal transmitido com ruído.}
+        \label{fig:gnu-radio-sin-time-bad-noise-out}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited_BadBoth.png}
+        \caption{Sinal transmitido com distorção e ruído.}
+        \label{fig:gnu-radio-sin-time-bad-both-out}
+    \end{subfigure}
+
+    \caption{Sinais transmitidos com distorção e ruído no domínio temporal.}
+    \label{fig:gnu-radio-sin-time-bad-out}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_Transmited_BadDis.png}
+        \caption{Sinal transmitido com distorção.}
+        \label{fig:gnu-radio-sin-freq-bad-dis-out}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png}
+        \caption{Sinal transmitido com ruído.}
+        \label{fig:gnu-radio-sin-freq-bad-noise-out}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png}
+        \caption{Sinal transmitido com distorção e ruído.}
+        \label{fig:gnu-radio-sin-freq-bad-both-out}
+    \end{subfigure}
+
+    \caption{Sinais transmitidos com distorção e ruído no domínio da frequência.}
+    \label{fig:gnu-radio-sin-freq-bad-out}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received_BadDis.png}
+        \caption{Sinal recebido com distorção.}
+        \label{fig:gnu-radio-sin-time-bad-dis-in}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received_BadNoise.png}
+        \caption{Sinal recebido com ruído.}
+        \label{fig:gnu-radio-sin-time-bad-noise-in}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received_BadBoth.png}
+        \caption{Sinal recebido com distorção e ruído.}
+        \label{fig:gnu-radio-sin-time-bad-both-in}
+    \end{subfigure}
+
+    \caption{Sinais recebidos com distorção e ruído no domínio temporal.}
+    \label{fig:gnu-radio-sin-time-bad-in}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_received_BadDis.png}
+        \caption{Sinal recebido com distorção.}
+        \label{fig:gnu-radio-sin-freq-bad-dis-in}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_received_BadNoise.png}
+        \caption{Sinal recebido com ruído.}
+        \label{fig:gnu-radio-sin-freq-bad-noise-in}
+    \end{subfigure}
+    \begin{subfigure}{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_received_BadBoth.png}
+        \caption{Sinal recebido com distorção e ruído.}
+        \label{fig:gnu-radio-sin-freq-bad-both-in}
+    \end{subfigure}
+
+    \caption{Sinais recebidos com distorção e ruído no domínio da frequência.}
+    \label{fig:gnu-radio-sin-freq-bad-in}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SettingsBad_Distortion.png}
+        \caption{Simulação com distorção.}
+        \label{fig:gnu-radio-settings-bad-dis}
+    \end{subfigure}
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SettingsBad_Noise.png}
+        \caption{Simulação com ruído.}
+        \label{fig:gnu-radio-settings-bad-noise}
+    \end{subfigure}
+    \begin{subfigure}{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/GNU_SettingsBad_Both.png}
+        \caption{Simulação com distorção e ruído.}
+        \label{fig:gnu-radio-settings-bad-both}
+    \end{subfigure}
+
+    \caption{Coeficientes de distorção e ruído usados nas simulações.}
+    \label{fig:gnu-radio-settings-bad}
+\end{figure}
+
+Como é possivel observar, a sinusoide não parece sofrer grandes alterações com a introdução de distorção e ruído, no entanto,
+ao realizar a análise no domínio da frequência, é possivel observar a introdução de harmónicas e intermodulação, bem como a introdução de ruído no sinal recebido.
+
+Ao ouvir a música transmitida, a introdução de distorção e ruído é mais perceptível. O ruído está dentro do esperado, no entanto, a distorção introduzida
+é o que aparenta ser mais prejudicial à qualidade do sinal recebido. 
 \section{Modelo de comunicação SPICE e principais resultados}
 
 \section{Filtro RF passa-banda: desenho, simulações ideais e realistas}
