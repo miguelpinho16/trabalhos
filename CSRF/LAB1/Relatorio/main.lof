@@ -11,11 +11,15 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces Sinais recebidos com distorção e ruído no domínio temporal.}}{5}{figure.caption.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Sinais recebidos com distorção e ruído no domínio da frequência.}}{5}{figure.caption.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Coeficientes de distorção e ruído usados nas simulações.}}{5}{figure.caption.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Esquemático do filtro com componentes teóricos.}}{6}{figure.caption.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Resultados de simulação com componentes teóricos.}}{6}{figure.caption.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Esquemático do filtro com componentes do laboratório (série E24).}}{7}{figure.caption.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Resultados de simulação com componentes do laboratório.}}{7}{figure.caption.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Esquemático do filtro com modelos realistas dos componentes.}}{8}{figure.caption.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Resultados de simulação com modelos realistas.}}{8}{figure.caption.18}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Modelo elétrico do sistema de comunicação AM com componentes ideais.}}{6}{figure.caption.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Simulação Elétrica do Modelo Ideal.}}{6}{figure.caption.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Modelo elétrico do sistema de comunicação AM com componentes Reais.}}{7}{figure.caption.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Simulação Elétrica do Modelo Realista.}}{7}{figure.caption.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Esquemático do filtro com componentes teóricos.}}{8}{figure.caption.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Resultados de simulação com componentes teóricos.}}{8}{figure.caption.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Esquemático do filtro com componentes do laboratório (série E24).}}{8}{figure.caption.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Resultados de simulação com componentes do laboratório.}}{9}{figure.caption.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Esquemático do filtro com modelos realistas dos componentes.}}{9}{figure.caption.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Resultados de simulação com modelos realistas.}}{9}{figure.caption.22}%
 \contentsfinish 
 \contentsfinish 

@@ -656,7 +656,7 @@ Package hyperref Info: Link coloring ON on input line 10.
 \openout3 = `main.out'.
 
  (capa.tex
-<IMAGENS/logo_fct.png, id=42, 288.07625pt x 68.255pt>
+<IMAGENS/logo_fct.png, id=39, 288.07625pt x 68.255pt>
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 12.
@@ -714,7 +714,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.34 \newpage
               [1] (introducao.tex
-<IMAGENS/ModulacaoAM.jpg, id=104, 303.1325pt x 204.765pt>
+<IMAGENS/ModulacaoAM.jpg, id=108, 303.1325pt x 204.765pt>
 File: IMAGENS/ModulacaoAM.jpg Graphic file (type jpg)
 <use IMAGENS/ModulacaoAM.jpg>
 Package pdftex.def Info: IMAGENS/ModulacaoAM.jpg  used on input line 25.
@@ -725,37 +725,37 @@ File: IMAGENS/logo_fct.png Graphic file (type png)
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 37.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
  [2 <./IMAGENS/ModulacaoAM.jpg>] (desenvolvimento1.tex
-<IMAGENS/gnuradio1.png, id=111, 434.37282pt x 161.10187pt>
+<IMAGENS/gnuradio1.png, id=115, 434.37282pt x 161.10187pt>
 File: IMAGENS/gnuradio1.png Graphic file (type png)
 <use IMAGENS/gnuradio1.png>
 Package pdftex.def Info: IMAGENS/gnuradio1.png  used on input line 10.
 (pdftex.def)             Requested size: 217.66211pt x 80.72772pt.
-<IMAGENS/gnuradio2.png, id=113, 450.9347pt x 170.88844pt>
+<IMAGENS/gnuradio2.png, id=117, 450.9347pt x 170.88844pt>
 File: IMAGENS/gnuradio2.png Graphic file (type png)
 <use IMAGENS/gnuradio2.png>
 Package pdftex.def Info: IMAGENS/gnuradio2.png  used on input line 11.
 (pdftex.def)             Requested size: 217.66211pt x 82.48705pt.
-<IMAGENS/GNU_Out1.png, id=114, 804.00375pt x 307.90031pt>
+<IMAGENS/GNU_Out1.png, id=118, 804.00375pt x 307.90031pt>
 File: IMAGENS/GNU_Out1.png Graphic file (type png)
 <use IMAGENS/GNU_Out1.png>
 Package pdftex.def Info: IMAGENS/GNU_Out1.png  used on input line 20.
 (pdftex.def)             Requested size: 217.66211pt x 83.355pt.
-<IMAGENS/GNU_Out2.png, id=115, 978.65625pt x 346.29375pt>
+<IMAGENS/GNU_Out2.png, id=119, 978.65625pt x 346.29375pt>
 File: IMAGENS/GNU_Out2.png Graphic file (type png)
 <use IMAGENS/GNU_Out2.png>
 Package pdftex.def Info: IMAGENS/GNU_Out2.png  used on input line 21.
 (pdftex.def)             Requested size: 217.66211pt x 77.01973pt.
-<IMAGENS/GNU_Ch.png, id=116, 760.34062pt x 229.60782pt>
+<IMAGENS/GNU_Ch.png, id=120, 760.34062pt x 229.60782pt>
 File: IMAGENS/GNU_Ch.png Graphic file (type png)
 <use IMAGENS/GNU_Ch.png>
 Package pdftex.def Info: IMAGENS/GNU_Ch.png  used on input line 30.
 (pdftex.def)             Requested size: 217.66211pt x 65.72969pt.
-<IMAGENS/GNU_In1.png, id=117, 699.36281pt x 478.03593pt>
+<IMAGENS/GNU_In1.png, id=121, 699.36281pt x 478.03593pt>
 File: IMAGENS/GNU_In1.png Graphic file (type png)
 <use IMAGENS/GNU_In1.png>
 Package pdftex.def Info: IMAGENS/GNU_In1.png  used on input line 38.
 (pdftex.def)             Requested size: 217.66211pt x 148.77313pt.
-<IMAGENS/GNU_In2.png, id=118, 627.09282pt x 478.03593pt>
+<IMAGENS/GNU_In2.png, id=122, 627.09282pt x 478.03593pt>
 File: IMAGENS/GNU_In2.png Graphic file (type png)
 <use IMAGENS/GNU_In2.png>
 Package pdftex.def Info: IMAGENS/GNU_In2.png  used on input line 39.
@@ -765,72 +765,72 @@ File: IMAGENS/logo_fct.png Graphic file (type png)
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 50.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
  [3 <./IMAGENS/gnuradio1.png> <./IMAGENS/gnuradio2.png> <./IMAGENS/GNU_Out1.png> <./IMAGENS/GNU_Out2.png> <./IMAGENS/GNU_Ch.png> <./IMAGENS/GNU_In1.png> <./IMAGENS/GNU_In2.png>]
-<IMAGENS/GNU_Signal_OG.png, id=135, 1397.97281pt x 199.49532pt>
+<IMAGENS/GNU_Signal_OG.png, id=139, 1397.97281pt x 199.49532pt>
 File: IMAGENS/GNU_Signal_OG.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_OG.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_OG.png  used on input line 61.
 (pdftex.def)             Requested size: 159.62085pt x 22.77557pt.
-<IMAGENS/GNU_Signal_Transmited.png, id=136, 1408.51219pt x 204.01219pt>
+<IMAGENS/GNU_Signal_Transmited.png, id=140, 1408.51219pt x 204.01219pt>
 File: IMAGENS/GNU_Signal_Transmited.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Transmited.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Transmited.png  used on input line 67.
 (pdftex.def)             Requested size: 159.62085pt x 23.11691pt.
-<IMAGENS/GNU_Signal_Received.png, id=137, 1399.47844pt x 231.11343pt>
+<IMAGENS/GNU_Signal_Received.png, id=141, 1399.47844pt x 231.11343pt>
 File: IMAGENS/GNU_Signal_Received.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Received.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Received.png  used on input line 73.
 (pdftex.def)             Requested size: 159.62085pt x 26.35707pt.
-<IMAGENS/GNU_Signal_TransmitedFFT.png, id=138, 1418.29875pt x 268.00125pt>
+<IMAGENS/GNU_Signal_TransmitedFFT.png, id=142, 1418.29875pt x 268.00125pt>
 File: IMAGENS/GNU_Signal_TransmitedFFT.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_TransmitedFFT.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_TransmitedFFT.png  used on input line 87.
 (pdftex.def)             Requested size: 217.66211pt x 41.12672pt.
-<IMAGENS/GNU_Signal_ReceivedFFT.png, id=139, 1406.25375pt x 274.02374pt>
+<IMAGENS/GNU_Signal_ReceivedFFT.png, id=143, 1406.25375pt x 274.02374pt>
 File: IMAGENS/GNU_Signal_ReceivedFFT.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_ReceivedFFT.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_ReceivedFFT.png  used on input line 93.
 (pdftex.def)             Requested size: 217.66211pt x 42.41052pt.
-<IMAGENS/GNU_Signal_Transmited_BadDis.png, id=145, 1394.20876pt x 210.03468pt>
+<IMAGENS/GNU_Signal_Transmited_BadDis.png, id=149, 1394.20876pt x 210.03468pt>
 File: IMAGENS/GNU_Signal_Transmited_BadDis.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Transmited_BadDis.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Transmited_BadDis.png  used on input line 114.
 (pdftex.def)             Requested size: 159.62085pt x 24.04611pt.
-<IMAGENS/GNU_Signal_Transmited_BadNoise.png, id=146, 1399.47844pt x 213.04594pt>
+<IMAGENS/GNU_Signal_Transmited_BadNoise.png, id=150, 1399.47844pt x 213.04594pt>
 File: IMAGENS/GNU_Signal_Transmited_BadNoise.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Transmited_BadNoise.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Transmited_BadNoise.png  used on input line 120.
 (pdftex.def)             Requested size: 159.62085pt x 24.29659pt.
-<IMAGENS/GNU_Signal_Transmited_BadBoth.png, id=147, 1403.2425pt x 212.29312pt>
+<IMAGENS/GNU_Signal_Transmited_BadBoth.png, id=151, 1403.2425pt x 212.29312pt>
 File: IMAGENS/GNU_Signal_Transmited_BadBoth.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Transmited_BadBoth.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Transmited_BadBoth.png  used on input line 126.
 (pdftex.def)             Requested size: 159.62085pt x 24.14595pt.
-<IMAGENS/GNU_SignalFFT_Transmited_BadDis.png, id=148, 1410.0178pt x 279.29344pt>
+<IMAGENS/GNU_SignalFFT_Transmited_BadDis.png, id=152, 1410.0178pt x 279.29344pt>
 File: IMAGENS/GNU_SignalFFT_Transmited_BadDis.png Graphic file (type png)
 <use IMAGENS/GNU_SignalFFT_Transmited_BadDis.png>
 Package pdftex.def Info: IMAGENS/GNU_SignalFFT_Transmited_BadDis.png  used on input line 140.
 (pdftex.def)             Requested size: 159.62085pt x 31.61731pt.
-<IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png, id=149, 1410.0178pt x 274.77657pt>
+<IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png, id=153, 1410.0178pt x 274.77657pt>
 File: IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png Graphic file (type png)
 <use IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png>
 Package pdftex.def Info: IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png  used on input line 146.
 (pdftex.def)             Requested size: 159.62085pt x 31.10599pt.
-<IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png, id=150, 1417.54594pt x 280.79906pt>
+<IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png, id=154, 1417.54594pt x 280.79906pt>
 File: IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png Graphic file (type png)
 <use IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png>
 Package pdftex.def Info: IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png  used on input line 152.
 (pdftex.def)             Requested size: 159.62085pt x 31.61638pt.
-<IMAGENS/GNU_Signal_Received_BadDis.png, id=151, 1412.27625pt x 229.60782pt>
+<IMAGENS/GNU_Signal_Received_BadDis.png, id=155, 1412.27625pt x 229.60782pt>
 File: IMAGENS/GNU_Signal_Received_BadDis.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Received_BadDis.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Received_BadDis.png  used on input line 166.
 (pdftex.def)             Requested size: 159.62085pt x 25.95062pt.
-<IMAGENS/GNU_Signal_Received_BadNoise.png, id=152, 1402.48969pt x 219.06844pt>
+<IMAGENS/GNU_Signal_Received_BadNoise.png, id=156, 1402.48969pt x 219.06844pt>
 File: IMAGENS/GNU_Signal_Received_BadNoise.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Received_BadNoise.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Received_BadNoise.png  used on input line 172.
 (pdftex.def)             Requested size: 159.62085pt x 24.92993pt.
-<IMAGENS/GNU_Signal_Received_BadBoth.png, id=153, 1402.48969pt x 215.30438pt>
+<IMAGENS/GNU_Signal_Received_BadBoth.png, id=157, 1402.48969pt x 215.30438pt>
 File: IMAGENS/GNU_Signal_Received_BadBoth.png Graphic file (type png)
 <use IMAGENS/GNU_Signal_Received_BadBoth.png>
 Package pdftex.def Info: IMAGENS/GNU_Signal_Received_BadBoth.png  used on input line 178.
@@ -840,118 +840,159 @@ File: IMAGENS/logo_fct.png Graphic file (type png)
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 186.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
  [4{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <./IMAGENS/GNU_Signal_OG.png> <./IMAGENS/GNU_Signal_Transmited.png> <./IMAGENS/GNU_Signal_Received.png> <./IMAGENS/GNU_Signal_TransmitedFFT.png> <./IMAGENS/GNU_Signal_ReceivedFFT.png> <./IMAGENS/GNU_Signal_Transmited_BadDis.png> <./IMAGENS/GNU_Signal_Transmited_BadNoise.png> <./IMAGENS/GNU_Signal_Transmited_BadBoth.png> <./IMAGENS/GNU_SignalFFT_Transmited_BadDis.png> <./IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png> <./IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png>]
-<IMAGENS/GNU_SignalFFT_received_BadDis.png, id=171, 1409.265pt x 271.76532pt>
+<IMAGENS/GNU_SignalFFT_received_BadDis.png, id=175, 1409.265pt x 271.76532pt>
 File: IMAGENS/GNU_SignalFFT_received_BadDis.png Graphic file (type png)
 <use IMAGENS/GNU_SignalFFT_received_BadDis.png>
 Package pdftex.def Info: IMAGENS/GNU_SignalFFT_received_BadDis.png  used on input line 194.
 (pdftex.def)             Requested size: 159.62085pt x 30.78168pt.
-<IMAGENS/GNU_SignalFFT_received_BadNoise.png, id=172, 1411.52344pt x 277.035pt>
+<IMAGENS/GNU_SignalFFT_received_BadNoise.png, id=176, 1411.52344pt x 277.035pt>
 File: IMAGENS/GNU_SignalFFT_received_BadNoise.png Graphic file (type png)
 <use IMAGENS/GNU_SignalFFT_received_BadNoise.png>
 Package pdftex.def Info: IMAGENS/GNU_SignalFFT_received_BadNoise.png  used on input line 200.
 (pdftex.def)             Requested size: 159.62085pt x 31.32784pt.
-<IMAGENS/GNU_SignalFFT_received_BadBoth.png, id=173, 1406.25375pt x 277.78781pt>
+<IMAGENS/GNU_SignalFFT_received_BadBoth.png, id=177, 1406.25375pt x 277.78781pt>
 File: IMAGENS/GNU_SignalFFT_received_BadBoth.png Graphic file (type png)
 <use IMAGENS/GNU_SignalFFT_received_BadBoth.png>
 Package pdftex.def Info: IMAGENS/GNU_SignalFFT_received_BadBoth.png  used on input line 206.
 (pdftex.def)             Requested size: 159.62085pt x 31.5274pt.
-<IMAGENS/GNU_SettingsBad_Distortion.png, id=174, 1419.05156pt x 143.78719pt>
+<IMAGENS/GNU_SettingsBad_Distortion.png, id=178, 1419.05156pt x 143.78719pt>
 File: IMAGENS/GNU_SettingsBad_Distortion.png Graphic file (type png)
 <use IMAGENS/GNU_SettingsBad_Distortion.png>
 Package pdftex.def Info: IMAGENS/GNU_SettingsBad_Distortion.png  used on input line 220.
 (pdftex.def)             Requested size: 338.58632pt x 34.30777pt.
-<IMAGENS/GNU_SettingsBad_Noise.png, id=175, 1422.81563pt x 134.75343pt>
+<IMAGENS/GNU_SettingsBad_Noise.png, id=179, 1422.81563pt x 134.75343pt>
 File: IMAGENS/GNU_SettingsBad_Noise.png Graphic file (type png)
 <use IMAGENS/GNU_SettingsBad_Noise.png>
 Package pdftex.def Info: IMAGENS/GNU_SettingsBad_Noise.png  used on input line 226.
 (pdftex.def)             Requested size: 338.58632pt x 32.06595pt.
-<IMAGENS/GNU_SettingsBad_Both.png, id=176, 1413.02907pt x 145.29282pt>
+<IMAGENS/GNU_SettingsBad_Both.png, id=180, 1413.02907pt x 145.29282pt>
 File: IMAGENS/GNU_SettingsBad_Both.png Graphic file (type png)
 <use IMAGENS/GNU_SettingsBad_Both.png>
 Package pdftex.def Info: IMAGENS/GNU_SettingsBad_Both.png  used on input line 232.
 (pdftex.def)             Requested size: 338.58632pt x 34.81334pt.
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 263.
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 259.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [5{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc} <./IMAGENS/GNU_Signal_Received_BadDis.png> <./IMAGENS/GNU_Signal_Received_BadNoise.png> <./IMAGENS/GNU_Signal_Received_BadBoth.png> <./IMAGENS/GNU_SignalFFT_received_BadDis.png> <./IMAGENS/GNU_SignalFFT_received_BadNoise.png> <./IMAGENS/GNU_SignalFFT_received_BadBoth.png> <./IMAGENS/GNU_SettingsBad_Distortion.png> <./IMAGENS/GNU_SettingsBad_Noise.png> <./IMAGENS/GNU_SettingsBad_Both.png>]
-<IMAGENS/BP_Teo_schematic.png, id=193, 677.53125pt x 331.83975pt>
+ [5 <./IMAGENS/GNU_Signal_Received_BadDis.png> <./IMAGENS/GNU_Signal_Received_BadNoise.png> <./IMAGENS/GNU_Signal_Received_BadBoth.png> <./IMAGENS/GNU_SignalFFT_received_BadDis.png> <./IMAGENS/GNU_SignalFFT_received_BadNoise.png> <./IMAGENS/GNU_SignalFFT_received_BadBoth.png> <./IMAGENS/GNU_SettingsBad_Distortion.png> <./IMAGENS/GNU_SettingsBad_Noise.png> <./IMAGENS/GNU_SettingsBad_Both.png>]
+<IMAGENS/SPICE_Trasmissor_Ideal.png, id=195, 517.935pt x 297.36093pt>
+File: IMAGENS/SPICE_Trasmissor_Ideal.png Graphic file (type png)
+<use IMAGENS/SPICE_Trasmissor_Ideal.png>
+Package pdftex.def Info: IMAGENS/SPICE_Trasmissor_Ideal.png  used on input line 265.
+(pdftex.def)             Requested size: 145.11053pt x 83.3104pt.
+<IMAGENS/SPICE_Canall.png, id=196, 505.13719pt x 280.04625pt>
+File: IMAGENS/SPICE_Canall.png Graphic file (type png)
+<use IMAGENS/SPICE_Canall.png>
+Package pdftex.def Info: IMAGENS/SPICE_Canall.png  used on input line 271.
+(pdftex.def)             Requested size: 145.11053pt x 80.44643pt.
+<IMAGENS/SPICE_Recetor_Ideal.png, id=197, 797.98125pt x 324.46219pt>
+File: IMAGENS/SPICE_Recetor_Ideal.png Graphic file (type png)
+<use IMAGENS/SPICE_Recetor_Ideal.png>
+Package pdftex.def Info: IMAGENS/SPICE_Recetor_Ideal.png  used on input line 277.
+(pdftex.def)             Requested size: 145.11053pt x 58.99973pt.
+<IMAGENS/SPICE_Sim_Ideal_Time.png, id=200, 1442.38875pt x 674.52pt>
+File: IMAGENS/SPICE_Sim_Ideal_Time.png Graphic file (type png)
+<use IMAGENS/SPICE_Sim_Ideal_Time.png>
+Package pdftex.def Info: IMAGENS/SPICE_Sim_Ideal_Time.png  used on input line 301.
+(pdftex.def)             Requested size: 217.66211pt x 101.78088pt.
+<IMAGENS/SPICE_Sim_Ideal_Freq.png, id=201, 1428.08531pt x 678.28406pt>
+File: IMAGENS/SPICE_Sim_Ideal_Freq.png Graphic file (type png)
+<use IMAGENS/SPICE_Sim_Ideal_Freq.png>
+Package pdftex.def Info: IMAGENS/SPICE_Sim_Ideal_Freq.png  used on input line 307.
+(pdftex.def)             Requested size: 217.66211pt x 103.37347pt.
+<IMAGENS/SPICE_Trasmissor_Real.png, id=203, 539.01375pt x 311.66437pt>
+File: IMAGENS/SPICE_Trasmissor_Real.png Graphic file (type png)
+<use IMAGENS/SPICE_Trasmissor_Real.png>
+Package pdftex.def Info: IMAGENS/SPICE_Trasmissor_Real.png  used on input line 329.
+(pdftex.def)             Requested size: 217.66211pt x 125.8572pt.
+<IMAGENS/SPICE_Recetor_Real.png, id=204, 792.71156pt x 313.17pt>
+File: IMAGENS/SPICE_Recetor_Real.png Graphic file (type png)
+<use IMAGENS/SPICE_Recetor_Real.png>
+Package pdftex.def Info: IMAGENS/SPICE_Recetor_Real.png  used on input line 335.
+(pdftex.def)             Requested size: 217.66211pt x 85.9906pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 343.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+ [6{C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc} <./IMAGENS/SPICE_Trasmissor_Ideal.png> <./IMAGENS/SPICE_Canall.png> <./IMAGENS/SPICE_Recetor_Ideal.png> <./IMAGENS/SPICE_Sim_Ideal_Time.png> <./IMAGENS/SPICE_Sim_Ideal_Freq.png>]
+<IMAGENS/SPICE_Sim_Real_Time.png, id=218, 1438.6247pt x 675.27281pt>
+File: IMAGENS/SPICE_Sim_Real_Time.png Graphic file (type png)
+<use IMAGENS/SPICE_Sim_Real_Time.png>
+Package pdftex.def Info: IMAGENS/SPICE_Sim_Real_Time.png  used on input line 351.
+(pdftex.def)             Requested size: 217.66211pt x 102.16237pt.
+<IMAGENS/SPICE_Sim_Real_Freq.png, id=219, 1414.53468pt x 676.77844pt>
+File: IMAGENS/SPICE_Sim_Real_Freq.png Graphic file (type png)
+<use IMAGENS/SPICE_Sim_Real_Freq.png>
+Package pdftex.def Info: IMAGENS/SPICE_Sim_Real_Freq.png  used on input line 357.
+(pdftex.def)             Requested size: 217.66211pt x 104.13539pt.
+<IMAGENS/BP_Teo_schematic.png, id=220, 677.53125pt x 331.83975pt>
 File: IMAGENS/BP_Teo_schematic.png Graphic file (type png)
 <use IMAGENS/BP_Teo_schematic.png>
-Package pdftex.def Info: IMAGENS/BP_Teo_schematic.png  used on input line 275.
-(pdftex.def)             Requested size: 241.84843pt x 118.44952pt.
-<IMAGENS/BP_componentesTeoricosAC_An.png, id=194, 1154.51324pt x 510.10574pt>
+Package pdftex.def Info: IMAGENS/BP_Teo_schematic.png  used on input line 398.
+(pdftex.def)             Requested size: 266.03474pt x 130.30309pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 402.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+ [7 <./IMAGENS/SPICE_Trasmissor_Real.png> <./IMAGENS/SPICE_Recetor_Real.png> <./IMAGENS/SPICE_Sim_Real_Time.png> <./IMAGENS/SPICE_Sim_Real_Freq.png>]
+<IMAGENS/BP_componentesTeoricosAC_An.png, id=232, 1154.51324pt x 510.10574pt>
 File: IMAGENS/BP_componentesTeoricosAC_An.png Graphic file (type png)
 <use IMAGENS/BP_componentesTeoricosAC_An.png>
-Package pdftex.def Info: IMAGENS/BP_componentesTeoricosAC_An.png  used on input line 284.
-(pdftex.def)             Requested size: 241.84843pt x 106.85294pt.
-<IMAGENS/BP_componentesTeoricosS11.png, id=195, 1154.51324pt x 387.24675pt>
+Package pdftex.def Info: IMAGENS/BP_componentesTeoricosAC_An.png  used on input line 407.
+(pdftex.def)             Requested size: 145.11053pt x 64.11331pt.
+<IMAGENS/BP_componentesTeoricosS11.png, id=233, 1154.51324pt x 387.24675pt>
 File: IMAGENS/BP_componentesTeoricosS11.png Graphic file (type png)
 <use IMAGENS/BP_componentesTeoricosS11.png>
-Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS11.png  used on input line 293.
-(pdftex.def)             Requested size: 232.17242pt x 77.87341pt.
+Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS11.png  used on input line 413.
+(pdftex.def)             Requested size: 145.11053pt x 48.67162pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 294.
-<IMAGENS/BP_componentesTeoricosS21.png, id=196, 1153.30875pt x 388.45125pt>
+(Font)              <9> on input line 414.
+<IMAGENS/BP_componentesTeoricosS21.png, id=234, 1153.30875pt x 388.45125pt>
 File: IMAGENS/BP_componentesTeoricosS21.png Graphic file (type png)
 <use IMAGENS/BP_componentesTeoricosS21.png>
-Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS21.png  used on input line 300.
-(pdftex.def)             Requested size: 232.17242pt x 78.19861pt.
-File: IMAGENS/logo_fct.png Graphic file (type png)
-<use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 314.
-(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [6 <./IMAGENS/BP_Teo_schematic.png> <./IMAGENS/BP_componentesTeoricosAC_An.png> <./IMAGENS/BP_componentesTeoricosS11.png> <./IMAGENS/BP_componentesTeoricosS21.png>]
-<IMAGENS/BP_Lab_schematic.png, id=213, 612.48825pt x 284.262pt>
+Package pdftex.def Info: IMAGENS/BP_componentesTeoricosS21.png  used on input line 419.
+(pdftex.def)             Requested size: 145.11053pt x 48.87042pt.
+<IMAGENS/BP_Lab_schematic.png, id=235, 612.48825pt x 284.262pt>
 File: IMAGENS/BP_Lab_schematic.png Graphic file (type png)
 <use IMAGENS/BP_Lab_schematic.png>
-Package pdftex.def Info: IMAGENS/BP_Lab_schematic.png  used on input line 319.
+Package pdftex.def Info: IMAGENS/BP_Lab_schematic.png  used on input line 438.
 (pdftex.def)             Requested size: 241.84843pt x 112.24104pt.
-<IMAGENS/BP_componentesLabAC_An.png, id=214, 1154.51324pt x 467.94826pt>
+<IMAGENS/BP_componentesLabAC_An.png, id=236, 1154.51324pt x 467.94826pt>
 File: IMAGENS/BP_componentesLabAC_An.png Graphic file (type png)
 <use IMAGENS/BP_componentesLabAC_An.png>
-Package pdftex.def Info: IMAGENS/BP_componentesLabAC_An.png  used on input line 328.
-(pdftex.def)             Requested size: 241.84843pt x 98.02211pt.
-<IMAGENS/BP_componentesLabSparam.png, id=215, 1153.911pt x 527.571pt>
+Package pdftex.def Info: IMAGENS/BP_componentesLabAC_An.png  used on input line 447.
+(pdftex.def)             Requested size: 217.66211pt x 88.21848pt.
+<IMAGENS/BP_componentesLabSparam.png, id=237, 1153.911pt x 527.571pt>
 File: IMAGENS/BP_componentesLabSparam.png Graphic file (type png)
 <use IMAGENS/BP_componentesLabSparam.png>
-Package pdftex.def Info: IMAGENS/BP_componentesLabSparam.png  used on input line 337.
-(pdftex.def)             Requested size: 241.84843pt x 110.56778pt.
-<IMAGENS/BP_Realist_schematic.png, id=216, 705.23476pt x 393.26926pt>
+Package pdftex.def Info: IMAGENS/BP_componentesLabSparam.png  used on input line 453.
+(pdftex.def)             Requested size: 217.66211pt x 99.51501pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 461.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+ [8 <./IMAGENS/BP_Teo_schematic.png> <./IMAGENS/BP_componentesTeoricosAC_An.png> <./IMAGENS/BP_componentesTeoricosS11.png> <./IMAGENS/BP_componentesTeoricosS21.png> <./IMAGENS/BP_Lab_schematic.png>]
+<IMAGENS/BP_Realist_schematic.png, id=250, 705.23476pt x 393.26926pt>
 File: IMAGENS/BP_Realist_schematic.png Graphic file (type png)
 <use IMAGENS/BP_Realist_schematic.png>
-Package pdftex.def Info: IMAGENS/BP_Realist_schematic.png  used on input line 356.
+Package pdftex.def Info: IMAGENS/BP_Realist_schematic.png  used on input line 472.
 (pdftex.def)             Requested size: 241.84843pt x 134.86192pt.
-File: IMAGENS/logo_fct.png Graphic file (type png)
-<use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 360.
-(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [7 <./IMAGENS/BP_Lab_schematic.png> <./IMAGENS/BP_componentesLabAC_An.png> <./IMAGENS/BP_componentesLabSparam.png>]
-<IMAGENS/BP_componentesRealistas.png, id=225, 1153.911pt x 510.10574pt>
+<IMAGENS/BP_componentesRealistas.png, id=251, 1153.911pt x 510.10574pt>
 File: IMAGENS/BP_componentesRealistas.png Graphic file (type png)
 <use IMAGENS/BP_componentesRealistas.png>
-Package pdftex.def Info: IMAGENS/BP_componentesRealistas.png  used on input line 365.
-(pdftex.def)             Requested size: 241.84843pt x 106.90742pt.
-<IMAGENS/BP_componentesRealistasSparam.png, id=226, 1153.911pt x 528.7755pt>
+Package pdftex.def Info: IMAGENS/BP_componentesRealistas.png  used on input line 481.
+(pdftex.def)             Requested size: 217.66211pt x 96.22057pt.
+<IMAGENS/BP_componentesRealistasSparam.png, id=252, 1153.911pt x 528.7755pt>
 File: IMAGENS/BP_componentesRealistasSparam.png Graphic file (type png)
 <use IMAGENS/BP_componentesRealistasSparam.png>
-Package pdftex.def Info: IMAGENS/BP_componentesRealistasSparam.png  used on input line 374.
-(pdftex.def)             Requested size: 232.17242pt x 106.39063pt.
-)
+Package pdftex.def Info: IMAGENS/BP_componentesRealistasSparam.png  used on input line 487.
+(pdftex.def)             Requested size: 217.66211pt x 99.74222pt.
+) (conclusao.tex)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 40.
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 42.
 (pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [8 <./IMAGENS/BP_Realist_schematic.png> <./IMAGENS/BP_componentesRealistas.png> <./IMAGENS/BP_componentesRealistasSparam.png>] (conclusao.tex)
-File: IMAGENS/logo_fct.png Graphic file (type png)
-<use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 43.
-(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
- [9] (main.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
+ [9 <./IMAGENS/BP_componentesLabAC_An.png> <./IMAGENS/BP_componentesLabSparam.png> <./IMAGENS/BP_Realist_schematic.png> <./IMAGENS/BP_componentesRealistas.png> <./IMAGENS/BP_componentesRealistasSparam.png>]
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 47.
@@ -962,20 +1003,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B374343DA1A0146B55921F847229C2DC;2305.
+(rerunfilecheck)             Checksum: 6B99A58F3C3331EFC78A2297F5AE6B14;2203.
  ) 
 Here is how much of TeX's memory you used:
- 20581 strings out of 467871
- 392347 string characters out of 5418375
- 796656 words of memory out of 5000000
- 49103 multiletter control sequences out of 15000+600000
+ 20651 strings out of 467871
+ 395003 string characters out of 5418375
+ 798704 words of memory out of 5000000
+ 49176 multiletter control sequences out of 15000+600000
  694315 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,16n,93p,1262b,1123s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 78i,15n,93p,1262b,1123s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/denpo/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb>
-Output written on main.pdf (11 pages, 1381406 bytes).
+Output written on main.pdf (11 pages, 1664434 bytes).
 PDF statistics:
- 319 PDF objects out of 1000 (max. 8388607)
+ 343 PDF objects out of 1000 (max. 8388607)
  43 named destinations out of 1000 (max. 500000)
- 276 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 313 words of extra memory for PDF output out of 10000 (max. 10000000)
 

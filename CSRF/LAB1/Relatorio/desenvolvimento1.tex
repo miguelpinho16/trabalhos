@@ -245,6 +245,127 @@ Ao ouvir a música transmitida, a introdução de distorção e ruído é mais p
 é o que aparenta ser mais prejudicial à qualidade do sinal recebido. 
 \section{Modelo de comunicação SPICE e principais resultados}
 
+Nesta secção irá ser apresentado o modelo elétrico do sistema de comunicação AM construído no GNU Radio, começando por um modelo com componentes ideais,
+seguindo-se um modelo com componentes mais realistas.
+
+O modelo apresentado na figura \ref{fig:spice-ideal} é o modelo com componentes ideais, onde os mixers são representados por switches ideiais e
+os amplificadores são representados por fontes de tensão controladas por tensão.
+O sinal de entrada é representado por uma fonte de tensão sinusoidal de \qty{1}{\kilo\hertz} e uma amplitude de \qty{1}{\volt} com um offset de \qty{1}{\volt}.
+Este sinal passa pelo mixer (respresentado por S2) e sofre uma comutação com a portadora de \qty{50}{\kilo\hertz}. As resistências presentes servem
+para limitar a corrente para o circuito ressonante (L1 e C5) e para controlar a tensão de saída do mixer.
+O circuito ressonante é composto por um indutor de \qty{10}{\milli\henry} e um condensador de \qty{1,013}{\nano\farad}, atuando como 
+um filtro passa-banda com frequência central de \qty{50}{\kilo\hertz}. Após este processamento, o sinal precisa de ser amplificado, o que em termos ideais traduz-se
+numa fonte de tensão controlada por tensão (E1) com um ganho de 2.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Trasmissor_Ideal.png}
+        \caption{Componente elétrica do transmissor.}
+        \label{fig:spice-ideal-transmitter}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Canall.png}
+        \caption{Componente elétrica do canal.}
+        \label{fig:spice-channel}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Recetor_Ideal.png}
+        \caption{Componente elétrica do recetor.}
+        \label{fig:spice-ideal-receiver}
+    \end{subfigure}
+
+    \caption{Modelo elétrico do sistema de comunicação AM com componentes ideais.}
+    \label{fig:spice-ideal}
+\end{figure}
+
+A respresentação elétrica do canal é feita por uma fonte de tensão controlada por tensão com ganho de 0.5 V/V, representando a atenuação do sinal e um offset
+indeterminado ao longo da frequência, respresentando o ruído do canal.
+
+O circuito do recetor inclui um circuito ressonante com a mesma frequência central do transmissor, seguido de um amplificador e um mixer I/Q passivo.
+As saídas do mixer são filtradas por um filtro passa-baixo. O sinal original é recuperado através do calculo da magnitude do sinal I/Q, que é feito através
+de uma fonte de tensão. O sinal resultante passa por um filtro passa-alto de modo a retirar a componente DC.
+
+Na figura \ref{fig:spice-ideal-results} está represntado o sinal de entrada, o sinal transmitido, o sinal recebido no recetor e o sinal final recebido no domínio temporal,
+enquanto que na figura \ref{fig:spice-ideal-results-freq} está representada a análise no domínio da frequência.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Ideal_Time.png}
+        \caption{Sinais no Domínio Temporal.}
+        \label{fig:spice-ideal-results}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Ideal_Freq.png}
+        \caption{Análise no Domínio da Frequência.}
+        \label{fig:spice-ideal-results-freq}
+    \end{subfigure}
+
+    \caption{Simulação Elétrica do Modelo Ideal.}
+    \label{fig:spice-sim-ideal}
+\end{figure}
+
+Nesta simulação, o sinal recebido apresenta uma distorção não desprezável. Este efeito tem origem no ruído introduzido pelo canal. Como é possivel ver no domínio da frequência,
+o ruído do sinal emitido está situado, em média, nos -200 dB, enquanto que o ruído do sinal recebido está situado nos -50 dB, descendo à medida que a frequência avança.
+Também é possivel observar a introdução de harmónicas no sinal trasmitido e o aumento do ruído depois da passagem pelo canal.
+
+O modelo elétrico com componentes mais realistas é apresentado na figura \ref{fig:spice-realistic}.
+Neste modelo, os switches ideais foram substituídos por switches reais (ADG1201) e os blocos de amplificação foram substituídos montagens não-inversoras,
+usando o amplificador operacional LT1007.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Trasmissor_Real.png}
+        \caption{Componente elétrica do transmissor.}
+        \label{fig:spice-real-transmitter}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Recetor_Real.png}
+        \caption{Componente elétrica do recetor.}
+        \label{fig:spice-real-receiver}
+    \end{subfigure}
+
+    \caption{Modelo elétrico do sistema de comunicação AM com componentes Reais.}
+    \label{fig:spice-realistic}
+\end{figure}
+
+Nas figuras \ref{fig:spice-real-results} e \ref{fig:spice-real-results-freq} estão representados os sinais no domínio temporal e a análise no domínio da frequência, respetivamente.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Real_Time.png}
+        \caption{Sinais no Domínio Temporal.}
+        \label{fig:spice-real-results}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Real_Freq.png}
+        \caption{Análise no Domínio da Frequência.}
+        \label{fig:spice-real-results-freq}
+    \end{subfigure}
+
+    \caption{Simulação Elétrica do Modelo Realista.}
+    \label{fig:spice-sim-realistic}
+\end{figure}
+
+Os sinais resultantes apresentam uma maior distorção quando comparados com o modelo ideal. Além disto, a atenuação verificada é significativamente maior,
+no entanto esta atenuação é facilmente corrigida com alteração do ganho do amplificador do recetor.
+
 \section{Filtro RF passa-banda: desenho, simulações ideais e realistas}
 \label{sec:filtro-passa-banda}
  
@@ -253,15 +374,17 @@ dimensionadas com base na impedância característica $Z_0 = \qty{50}{\ohm}$, na
 $f_0 = \qty{98}{\mega\hertz}$ e na largura de banda escolhida $BW = \qty{17}{\mega\hertz}$.
 As expressões utilizadas no dimensionamento são apresentadas abaixo.
  
-\begin{subequations}
-    \label{eq:dimensionamento}
-    \begin{align}
-        L_S &= \dfrac{Z_0}{2\pi \, BW} = \qty{468.1}{\nano\henry} \label{eq:ls} \\
-        L_P &= \dfrac{Z_0 \, BW}{2\pi f_0^{2}} = \qty{14.09}{\nano\henry} \label{eq:lp} \\
-        C_S &= \dfrac{BW}{2\pi f_0^{2} \, Z_0} = \qty{5.63}{\pico\farad} \label{eq:cs} \\
-        C_P &= \dfrac{1}{2\pi \, BW \, Z_0} = \qty{187.2}{\pico\farad} \label{eq:cp}
-    \end{align}
-\end{subequations}
+\begin{equation}
+\begin{aligned}
+L_S &= \dfrac{Z_0}{2\pi BW} = \qty{468.1}{\nano\henry}
+\qquad
+L_P &= \dfrac{Z_0 BW}{2\pi f_0^2} = \qty{14.09}{\nano\henry}
+\\
+C_S &= \dfrac{BW}{2\pi f_0^2 Z_0} = \qty{5.63}{\pico\farad}
+\qquad
+C_P &= \dfrac{1}{2\pi BW Z_0} = \qty{187.2}{\pico\farad}
+\end{aligned}
+\end{equation}
  
 Analisou-se o desempenho do filtro em três cenários: no primeiro, os valores dos componentes
 são iguais aos calculados teoricamente; no segundo, são aproximados aos valores disponíveis em laboratório
@@ -272,30 +395,26 @@ outros efeitos não considerados nos cenários anteriores.
  
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{IMAGENS/BP_Teo_schematic.png}
+    \includegraphics[width=0.55\textwidth]{IMAGENS/BP_Teo_schematic.png}
     \caption{Esquemático do filtro com componentes teóricos.}
     \label{fig:teo-schematic}
 \end{figure}
  
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosAC_An.png}
         \caption{Análise AC.}
         \label{fig:teo-ac}
     \end{subfigure}
- 
-    \vspace{1em}
- 
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosS11.png}
         \caption{Parâmetro $S_{11}$.}
         \label{fig:teo-s11}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosS21.png}
         \caption{Parâmetro $S_{21}$.}
@@ -323,16 +442,13 @@ também $Z_0$. A largura de banda -3dB é de aproximadamente 23,95 MHz.
  
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesLabAC_An.png}
         \caption{Análise AC.}
         \label{fig:lab-ac}
-    \end{subfigure}
- 
-    \vspace{1em}
- 
-    \begin{subfigure}[b]{0.5\textwidth}
+    \end{subfigure} 
+    \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesLabSparam.png}
         \caption{Parâmetros $S$.}
@@ -360,16 +476,13 @@ para 24,2MHz.
  
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesRealistas.png}
         \caption{Análise AC.}
         \label{fig:real-ac}
     \end{subfigure}
- 
-    \vspace{1em}
- 
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesRealistasSparam.png}
         \caption{Parâmetro $S_{11}$.}
