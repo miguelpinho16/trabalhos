@@ -2,9 +2,16 @@
 \section{Conclusão}
 \label{sec:conclusao}
 % ==========================================================================
-
-<<<<<<< HEAD
-=======
-Os resultados obtidos nas simulações elétricas demonstram a importância do modelo elétrico na análise do desempenho do sistema de comunicação AM.
- Os modelos ideais e realistas apresentaram diferenças significativas, evidenciando o impacto das imperfeições dos componentes reais no desempenho do sistema.
->>>>>>> 4324c1a5069910839985140fb9466a16625443df
+Os três estudos realizados mostram, de formas distintas, que o desempenho de um sistema de comunicação depende tanto da arquitetura
+escolhida como da fidelidade dos modelos usados para a analisar. Na simulação em GNU Radio, a sinusoide parece pouco afetada no domínio temporal,
+mas a análise espectral revela harmónicas, intermodulação e aumento do piso de ruído, e a distorção mostrou ser o efeito mais prejudicial
+à qualidade do áudio recebido.
+ 
+Na modelação em SPICE, o modelo ideal reproduz a cadeia AM de forma funcional, mas o ruído do canal degrada o sinal recebido, com o piso de ruído a subir
+de cerca de \qty{-200}{\decibel} para \qty{-50}{\decibel}. A substituição por \textit{switches} ADG1201 e amplificadores LT1007 aumenta a distorção e a atenuação,
+esta última facilmente compensável pelo ganho do recetor, o que evidencia o impacto das imperfeições dos componentes reais.
+ 
+No filtro RF passa-banda, o dimensionamento teórico cumpriu a frequência central e a adaptação esperadas, embora a largura de banda a \qty{-3}{\decibel}
+(\qty{23.95}{\mega\hertz}) tenha ficado acima da de projeto (\qty{17}{\mega\hertz}). A aproximação à série E24 deslocou a frequência central para \qty{96}{\mega\hertz} e degradou
+a adaptação à entrada de \qty{-52}{\decibel} para \qty{-14}{\decibel}, e os modelos realistas introduziram perdas adicionais, mantendo a largura de banda praticamente inalterada.
+Conclui-se que a simulação com componentes ideais é um ponto de partida útil, mas a validação do projeto exige modelos realistas e a consideração das tolerâncias dos valores comerciais.

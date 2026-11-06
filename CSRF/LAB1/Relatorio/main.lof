@@ -1,25 +1,25 @@
 \babel@toc {portuguese}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Modulação AM de um Sinal.}}{2}{figure.caption.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Diagrama de blocos do sistema AM a ser simulado.}}{3}{figure.caption.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Trasmissor AM no GNU Radio}}{3}{figure.caption.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Canal AM no GNU Radio}}{3}{figure.caption.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Recetor AM no GNU Radio}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Diagrama de blocos do sistema AM a simular.}}{3}{figure.caption.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Transmissor AM no GNU Radio.}}{3}{figure.caption.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Canal AM no GNU Radio.}}{3}{figure.caption.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Recetor AM no GNU Radio.}}{3}{figure.caption.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Resultados da simulação para sinal sinusoidal.}}{4}{figure.caption.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Transformada de Fourier do sinal transmitido e recebido.}}{4}{figure.caption.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Sinais transmitidos com distorção e ruído no domínio temporal.}}{4}{figure.caption.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Sinais transmitidos com distorção e ruído no domínio da frequência.}}{4}{figure.caption.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Sinais recebidos com distorção e ruído no domínio temporal.}}{5}{figure.caption.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Sinais recebidos com distorção e ruído no domínio da frequência.}}{5}{figure.caption.11}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Transformada de Fourier dos sinais transmitido e recebido.}}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Sinais transmitidos no domínio temporal.}}{4}{figure.caption.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Sinais transmitidos no domínio da frequência.}}{4}{figure.caption.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Sinais recebidos no domínio temporal.}}{4}{figure.caption.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Sinais recebidos no domínio da frequência.}}{4}{figure.caption.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Coeficientes de distorção e ruído usados nas simulações.}}{5}{figure.caption.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Modelo elétrico do sistema de comunicação AM com componentes ideais.}}{6}{figure.caption.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Simulação Elétrica do Modelo Ideal.}}{6}{figure.caption.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Modelo elétrico do sistema de comunicação AM com componentes Reais.}}{7}{figure.caption.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Simulação Elétrica do Modelo Realista.}}{7}{figure.caption.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Esquemático do filtro com componentes teóricos.}}{8}{figure.caption.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Resultados de simulação com componentes teóricos.}}{8}{figure.caption.18}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Modelo elétrico do sistema AM com componentes ideais.}}{5}{figure.caption.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Simulação elétrica do modelo ideal.}}{6}{figure.caption.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Modelo elétrico do sistema AM com componentes realistas.}}{6}{figure.caption.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Simulação elétrica do modelo realista.}}{6}{figure.caption.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Esquemático do filtro com componentes teóricos.}}{7}{figure.caption.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Resultados de simulação com componentes teóricos.}}{7}{figure.caption.18}%
 \contentsline {figure}{\numberline {19}{\ignorespaces Esquemático do filtro com componentes do laboratório (série E24).}}{8}{figure.caption.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Resultados de simulação com componentes do laboratório.}}{9}{figure.caption.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Esquemático do filtro com modelos realistas dos componentes.}}{9}{figure.caption.21}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Resultados de simulação com componentes do laboratório.}}{8}{figure.caption.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Esquemático do filtro com modelos realistas dos componentes.}}{8}{figure.caption.21}%
 \contentsline {figure}{\numberline {22}{\ignorespaces Resultados de simulação com modelos realistas.}}{9}{figure.caption.22}%
 \contentsfinish 
 \contentsfinish 

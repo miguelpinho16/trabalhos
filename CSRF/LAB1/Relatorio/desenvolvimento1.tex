@@ -2,86 +2,77 @@
 % ELEMENTO: DESENVOLVIMENTO
 % ==============================================
 \section{Configuração GNU Radio e principais resultados de simulação}
-
-A configuração do GNU Radio para a simulação do sistema AM é apresentada de acordo com a figura \ref{fig:gnu-radio-diagram}, também presente no enunciado.
+ 
+A configuração do GNU Radio utilizada para simular o sistema AM é apresentada na figura~\ref{fig:gnu-radio-diagram}, de acordo com o enunciado.
+ 
 \begin{figure}[htbp]
     \centering
-
     \includegraphics[width=0.45\textwidth]{IMAGENS/gnuradio1.png}
     \includegraphics[width=0.45\textwidth]{IMAGENS/gnuradio2.png}
-
-    \caption{Diagrama de blocos do sistema AM a ser simulado.}
+    \caption{Diagrama de blocos do sistema AM a simular.}
     \label{fig:gnu-radio-diagram}
 \end{figure}
-
+ 
 \begin{figure}[htbp]
     \centering
-
     \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_Out1.png}
     \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_Out2.png}
-
-    \caption{Trasmissor AM no GNU Radio}
+    \caption{Transmissor AM no GNU Radio.}
     \label{fig:gnu-radio-transmitter}
 \end{figure}
-
+ 
 \begin{figure}[htbp]
     \centering
-
     \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_Ch.png}
-    \caption{Canal AM no GNU Radio}
+    \caption{Canal AM no GNU Radio.}
     \label{fig:gnu-radio-channel}
 \end{figure}
-
+ 
 \begin{figure}[H]
     \centering
-
     \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_In1.png}
     \includegraphics[width=0.45\textwidth]{IMAGENS/GNU_In2.png}
-
-    \caption{Recetor AM no GNU Radio}
+    \caption{Recetor AM no GNU Radio.}
     \label{fig:gnu-radio-receiver}
 \end{figure}
-
-Como é possivel observar nas figuras \ref{fig:gnu-radio-transmitter}, \ref{fig:gnu-radio-channel} e \ref{fig:gnu-radio-receiver}, o sistema AM simulado no GNU Radio
-tem a capacidade de modular tanto um sinal sinusoidal como um sinal de áudio, transmitindo-os através de um canal AM e recuperando-os no recetor.
-Na parte final do trasmissor, foram adicionados blocos de multiplicação para simular a distorção harmónica e intermodulação, que são efeitos comuns em sistemas de comunicação AM.
-Estes efeitos são simulados até à terceira ordem e são controlados por blocos de controlo de ganho, permitindo o controlo da intensidade da distorção introduzida.
-Os coeficientes que controlam a intensidade desta distorção são a1, a2 e a3.
-
+ 
+Como se observa nas figuras~\ref{fig:gnu-radio-transmitter}, \ref{fig:gnu-radio-channel} e~\ref{fig:gnu-radio-receiver}, o sistema simulado
+modula tanto um sinal sinusoidal como um sinal de áudio, transmite-os através de um canal AM e recupera-os no recetor.
+No final do transmissor foram adicionados blocos de multiplicação que emulam a distorção harmónica e a intermodulação, efeitos
+comuns em sistemas AM. Estes efeitos são modelados até à terceira ordem e a sua intensidade é controlada pelos coeficientes
+$a_1$, $a_2$ e $a_3$, definidos através de blocos de ganho.
+ 
 \subsection{Resultados de simulação}
-
-Comecemos por simular a trasmissão de um sinal sinusoidal puro, com frequência de \qty{1}{\kilo\hertz}. Os sinais obtidos estão presentes nas figuras
-\ref{fig:gnu-radio-sin-time-good} e \ref{fig:gnu-radio-sin-freq-good}. Nesta primeira simulação não foram introduzidos efeitos de distorção ou de ruído no canal.
-
+ 
+Começou-se por simular a transmissão de um sinal sinusoidal puro de \qty{1}{\kilo\hertz}, sem distorção nem ruído no canal.
+Os sinais obtidos encontram-se nas figuras~\ref{fig:gnu-radio-sin-time-good} e~\ref{fig:gnu-radio-sin-freq-good}.
+ 
 \begin{figure}[htbp]
     \centering
-
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_OG.png}
         \caption{Sinal original.}
         \label{fig:gnu-radio-sin-time-good-og}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited.png}
         \caption{Sinal transmitido.}
         \label{fig:gnu-radio-sin-time-good-transmitted}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received.png}
         \caption{Sinal recebido.}
         \label{fig:gnu-radio-sin-time-good-received}
     \end{subfigure}
-
     \caption{Resultados da simulação para sinal sinusoidal.}
     \label{fig:gnu-radio-sin-time-good}
 \end{figure}
-
+ 
 \begin{figure}[htbp]
     \centering
-
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_TransmitedFFT.png}
@@ -94,302 +85,272 @@ Comecemos por simular a trasmissão de um sinal sinusoidal puro, com frequência
         \caption{FFT do sinal recebido.}
         \label{fig:gnu-radio-sin-time-good-received-fft}
     \end{subfigure}
-
-    \caption{Transformada de Fourier do sinal transmitido e recebido.}
+    \caption{Transformada de Fourier dos sinais transmitido e recebido.}
     \label{fig:gnu-radio-sin-freq-good}
 \end{figure}
-
-A simulação será repetida com a introdução de distorção harmónica e intermodulação, bem como ruído no canal de transmissão.
-Será feita uma simulação apenas com distorção, outra com distorção e ruído, e por fim uma simulação apenas com ruído. Os resultados obtidos para os sinais trasmitidos
- estão presentes nas figuras \ref{fig:gnu-radio-sin-time-bad-out} e \ref{fig:gnu-radio-sin-freq-bad-out}, enquanto que os sinais recebidos
- nas figuras \ref{fig:gnu-radio-sin-time-bad-in}e \ref{fig:gnu-radio-sin-freq-bad-in}. Os coeficientes de distorção e ruído usados estão presentes na
- figura \ref{fig:gnu-radio-settings-bad}.
-
-
+ 
+A simulação foi depois repetida em três cenários: apenas com distorção harmónica e intermodulação, com distorção e ruído, e apenas com ruído.
+Os sinais transmitidos encontram-se nas figuras~\ref{fig:gnu-radio-sin-time-bad-out} e~\ref{fig:gnu-radio-sin-freq-bad-out}, e os sinais
+recebidos nas figuras~\ref{fig:gnu-radio-sin-time-bad-in} e~\ref{fig:gnu-radio-sin-freq-bad-in}. Os coeficientes de distorção e ruído
+utilizados estão na figura~\ref{fig:gnu-radio-settings-bad}.
+ 
 \begin{figure}[H]
     \centering
-
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited_BadDis.png}
-        \caption{Sinal transmitido com distorção.}
+        \caption{Com distorção.}
         \label{fig:gnu-radio-sin-time-bad-dis-out}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited_BadNoise.png}
-        \caption{Sinal transmitido com ruído.}
+        \caption{Com ruído.}
         \label{fig:gnu-radio-sin-time-bad-noise-out}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Transmited_BadBoth.png}
-        \caption{Sinal transmitido com distorção e ruído.}
+        \caption{Com distorção e ruído.}
         \label{fig:gnu-radio-sin-time-bad-both-out}
     \end{subfigure}
-
-    \caption{Sinais transmitidos com distorção e ruído no domínio temporal.}
+    \caption{Sinais transmitidos no domínio temporal.}
     \label{fig:gnu-radio-sin-time-bad-out}
 \end{figure}
-
+ 
 \begin{figure}[H]
     \centering
-
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_Transmited_BadDis.png}
-        \caption{Sinal transmitido com distorção.}
+        \caption{Com distorção.}
         \label{fig:gnu-radio-sin-freq-bad-dis-out}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_Transmited_BadNoise.png}
-        \caption{Sinal transmitido com ruído.}
+        \caption{Com ruído.}
         \label{fig:gnu-radio-sin-freq-bad-noise-out}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_Transmited_BadBoth.png}
-        \caption{Sinal transmitido com distorção e ruído.}
+        \caption{Com distorção e ruído.}
         \label{fig:gnu-radio-sin-freq-bad-both-out}
     \end{subfigure}
-
-    \caption{Sinais transmitidos com distorção e ruído no domínio da frequência.}
+    \caption{Sinais transmitidos no domínio da frequência.}
     \label{fig:gnu-radio-sin-freq-bad-out}
 \end{figure}
-
+ 
 \begin{figure}[H]
     \centering
-
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received_BadDis.png}
-        \caption{Sinal recebido com distorção.}
+        \caption{Com distorção.}
         \label{fig:gnu-radio-sin-time-bad-dis-in}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received_BadNoise.png}
-        \caption{Sinal recebido com ruído.}
+        \caption{Com ruído.}
         \label{fig:gnu-radio-sin-time-bad-noise-in}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_Signal_Received_BadBoth.png}
-        \caption{Sinal recebido com distorção e ruído.}
+        \caption{Com distorção e ruído.}
         \label{fig:gnu-radio-sin-time-bad-both-in}
     \end{subfigure}
-
-    \caption{Sinais recebidos com distorção e ruído no domínio temporal.}
+    \caption{Sinais recebidos no domínio temporal.}
     \label{fig:gnu-radio-sin-time-bad-in}
 \end{figure}
-
-
-
+ 
 \begin{figure}[H]
     \centering
-
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_received_BadDis.png}
-        \caption{Sinal recebido com distorção.}
+        \caption{Com distorção.}
         \label{fig:gnu-radio-sin-freq-bad-dis-in}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_received_BadNoise.png}
-        \caption{Sinal recebido com ruído.}
+        \caption{Com ruído.}
         \label{fig:gnu-radio-sin-freq-bad-noise-in}
     \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
+    \begin{subfigure}{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SignalFFT_received_BadBoth.png}
-        \caption{Sinal recebido com distorção e ruído.}
+        \caption{Com distorção e ruído.}
         \label{fig:gnu-radio-sin-freq-bad-both-in}
     \end{subfigure}
-
-    \caption{Sinais recebidos com distorção e ruído no domínio da frequência.}
+    \caption{Sinais recebidos no domínio da frequência.}
     \label{fig:gnu-radio-sin-freq-bad-in}
 \end{figure}
-
+ 
 \begin{figure}[H]
     \centering
-
     \begin{subfigure}{0.7\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SettingsBad_Distortion.png}
         \caption{Simulação com distorção.}
         \label{fig:gnu-radio-settings-bad-dis}
     \end{subfigure}
+ 
     \begin{subfigure}{0.7\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SettingsBad_Noise.png}
         \caption{Simulação com ruído.}
         \label{fig:gnu-radio-settings-bad-noise}
     \end{subfigure}
+ 
     \begin{subfigure}{0.7\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/GNU_SettingsBad_Both.png}
         \caption{Simulação com distorção e ruído.}
         \label{fig:gnu-radio-settings-bad-both}
     \end{subfigure}
-
     \caption{Coeficientes de distorção e ruído usados nas simulações.}
     \label{fig:gnu-radio-settings-bad}
 \end{figure}
-
-Como é possivel observar, a sinusoide não parece sofrer grandes alterações com a introdução de distorção e ruído, no entanto,
-ao realizar a análise no domínio da frequência, é possivel observar a introdução de harmónicas e intermodulação, bem como a introdução de ruído no sinal recebido.
-
-Ao ouvir a música transmitida, a introdução de distorção e ruído é mais perceptível. O ruído está dentro do esperado, no entanto, a distorção introduzida
-é o que aparenta ser mais prejudicial à qualidade do sinal recebido. 
+ 
+No domínio temporal, a sinusoide não sofre alterações aparentes com a introdução de distorção e ruído. No domínio da frequência, porém,
+tornam-se visíveis as harmónicas e os produtos de intermodulação, bem como o aumento do piso de ruído no sinal recebido.
+Ao ouvir o áudio transmitido, ambos os efeitos são claramente perceptíveis: o ruído está dentro do esperado, mas a distorção
+é a mais prejudicial para a qualidade do sinal recebido.
+ 
 \section{Modelo de comunicação SPICE e principais resultados}
-
-Nesta secção irá ser apresentado o modelo elétrico do sistema de comunicação AM construído no GNU Radio, começando por um modelo com componentes ideais,
-seguindo-se um modelo com componentes mais realistas.
-
-O modelo apresentado na figura \ref{fig:spice-ideal} é o modelo com componentes ideais, onde os mixers são representados por switches ideiais e
-os amplificadores são representados por fontes de tensão controladas por tensão.
-O sinal de entrada é representado por uma fonte de tensão sinusoidal de \qty{1}{\kilo\hertz} e uma amplitude de \qty{1}{\volt} com um offset de \qty{1}{\volt}.
-Este sinal passa pelo mixer (respresentado por S2) e sofre uma comutação com a portadora de \qty{50}{\kilo\hertz}. As resistências presentes servem
-para limitar a corrente para o circuito ressonante (L1 e C5) e para controlar a tensão de saída do mixer.
-O circuito ressonante é composto por um indutor de \qty{10}{\milli\henry} e um condensador de \qty{1,013}{\nano\farad}, atuando como 
-um filtro passa-banda com frequência central de \qty{50}{\kilo\hertz}. Após este processamento, o sinal precisa de ser amplificado, o que em termos ideais traduz-se
-numa fonte de tensão controlada por tensão (E1) com um ganho de 2.
-
+ 
+Nesta secção apresenta-se o modelo elétrico do sistema AM construído no GNU Radio, primeiro com componentes ideais e depois com componentes mais realistas.
+ 
+O modelo com componentes ideais (figura~\ref{fig:spice-ideal}) representa os \textit{mixers} por \textit{switches} ideais e os amplificadores
+por fontes de tensão controladas por tensão. O sinal de entrada é uma sinusoide de \qty{1}{\kilo\hertz}, com amplitude de \qty{1}{\volt} e
+\textit{offset} de \qty{1}{\volt}. Este sinal passa pelo \textit{mixer} (S2) e é comutado com a portadora de \qty{50}{\kilo\hertz}. As resistências
+limitam a corrente no circuito ressonante (L1 e C5) e controlam a tensão de saída do \textit{mixer}. O circuito ressonante, com um indutor de
+\qty{10}{\milli\henry} e um condensador de \qty{1.013}{\nano\farad}, comporta-se como um filtro passa-banda centrado em \qty{50}{\kilo\hertz}.
+O sinal é em seguida amplificado, idealmente por uma fonte de tensão controlada por tensão (E1) com ganho 2.
+ 
 \begin{figure}[H]
     \centering
-
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Trasmissor_Ideal.png}
-        \caption{Componente elétrica do transmissor.}
+        \caption{Transmissor.}
         \label{fig:spice-ideal-transmitter}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Canall.png}
-        \caption{Componente elétrica do canal.}
+        \caption{Canal.}
         \label{fig:spice-channel}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Recetor_Ideal.png}
-        \caption{Componente elétrica do recetor.}
+        \caption{Recetor.}
         \label{fig:spice-ideal-receiver}
     \end{subfigure}
-
-    \caption{Modelo elétrico do sistema de comunicação AM com componentes ideais.}
+    \caption{Modelo elétrico do sistema AM com componentes ideais.}
     \label{fig:spice-ideal}
 \end{figure}
-
-A respresentação elétrica do canal é feita por uma fonte de tensão controlada por tensão com ganho de 0.5 V/V, representando a atenuação do sinal e um offset
-indeterminado ao longo da frequência, respresentando o ruído do canal.
-
-O circuito do recetor inclui um circuito ressonante com a mesma frequência central do transmissor, seguido de um amplificador e um mixer I/Q passivo.
-As saídas do mixer são filtradas por um filtro passa-baixo. O sinal original é recuperado através do calculo da magnitude do sinal I/Q, que é feito através
-de uma fonte de tensão. O sinal resultante passa por um filtro passa-alto de modo a retirar a componente DC.
-
-Na figura \ref{fig:spice-ideal-results} está represntado o sinal de entrada, o sinal transmitido, o sinal recebido no recetor e o sinal final recebido no domínio temporal,
-enquanto que na figura \ref{fig:spice-ideal-results-freq} está representada a análise no domínio da frequência.
-
+ 
+O canal é representado por uma fonte de tensão controlada por tensão com ganho de \qty{0.5}{\volt\per\volt}, que modela a atenuação do sinal,
+e por uma fonte de ruído de espectro aproximadamente plano, que modela o ruído do canal.
+ 
+O recetor inclui um circuito ressonante com a mesma frequência central do transmissor, seguido de um amplificador e de um \textit{mixer} I/Q passivo.
+As saídas do \textit{mixer} são filtradas por filtros passa-baixo e o sinal original é recuperado calculando a magnitude do sinal I/Q, através de
+uma fonte de tensão comportamental. Por fim, um filtro passa-alto remove a componente DC.
+ 
+A figura~\ref{fig:spice-sim-ideal} apresenta os sinais de entrada, transmitido, recebido no recetor e final no domínio temporal (a) e a respetiva análise no domínio da frequência (b).
+ 
 \begin{figure}[H]
     \centering
-
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Ideal_Time.png}
-        \caption{Sinais no Domínio Temporal.}
+        \caption{Domínio temporal.}
         \label{fig:spice-ideal-results}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Ideal_Freq.png}
-        \caption{Análise no Domínio da Frequência.}
+        \caption{Domínio da frequência.}
         \label{fig:spice-ideal-results-freq}
     \end{subfigure}
-
-    \caption{Simulação Elétrica do Modelo Ideal.}
+    \caption{Simulação elétrica do modelo ideal.}
     \label{fig:spice-sim-ideal}
 \end{figure}
-
-Nesta simulação, o sinal recebido apresenta uma distorção não desprezável. Este efeito tem origem no ruído introduzido pelo canal. Como é possivel ver no domínio da frequência,
-o ruído do sinal emitido está situado, em média, nos -200 dB, enquanto que o ruído do sinal recebido está situado nos -50 dB, descendo à medida que a frequência avança.
-Também é possivel observar a introdução de harmónicas no sinal trasmitido e o aumento do ruído depois da passagem pelo canal.
-
-O modelo elétrico com componentes mais realistas é apresentado na figura \ref{fig:spice-realistic}.
-Neste modelo, os switches ideais foram substituídos por switches reais (ADG1201) e os blocos de amplificação foram substituídos montagens não-inversoras,
-usando o amplificador operacional LT1007.
-
+ 
+Nesta simulação, o sinal recebido apresenta uma distorção não desprezável, originada pelo ruído do canal. No domínio da frequência,
+o piso de ruído do sinal transmitido situa-se, em média, nos \qty{-200}{\decibel}, enquanto o do sinal recebido se situa nos \qty{-50}{\decibel},
+decrescendo com o aumento da frequência. Observam-se ainda harmónicas no sinal transmitido e o aumento do ruído após a passagem pelo canal.
+ 
+O modelo com componentes mais realistas (figura~\ref{fig:spice-realistic}) substitui os \textit{switches} ideais por \textit{switches} reais (ADG1201)
+e os blocos de amplificação por montagens não-inversoras com o amplificador operacional LT1007.
+ 
 \begin{figure}[H]
     \centering
-
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Trasmissor_Real.png}
-        \caption{Componente elétrica do transmissor.}
+        \caption{Transmissor.}
         \label{fig:spice-real-transmitter}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Recetor_Real.png}
-        \caption{Componente elétrica do recetor.}
+        \caption{Recetor.}
         \label{fig:spice-real-receiver}
     \end{subfigure}
-
-    \caption{Modelo elétrico do sistema de comunicação AM com componentes Reais.}
+    \caption{Modelo elétrico do sistema AM com componentes realistas.}
     \label{fig:spice-realistic}
 \end{figure}
-
-Nas figuras \ref{fig:spice-real-results} e \ref{fig:spice-real-results-freq} estão representados os sinais no domínio temporal e a análise no domínio da frequência, respetivamente.
-
+ 
+A figura~\ref{fig:spice-sim-realistic} mostra os sinais no domínio temporal e a respetiva análise no domínio da frequência.
+ 
 \begin{figure}[H]
     \centering
-
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Real_Time.png}
-        \caption{Sinais no Domínio Temporal.}
+        \caption{Domínio temporal.}
         \label{fig:spice-real-results}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/SPICE_Sim_Real_Freq.png}
-        \caption{Análise no Domínio da Frequência.}
+        \caption{Domínio da frequência.}
         \label{fig:spice-real-results-freq}
     \end{subfigure}
-
-    \caption{Simulação Elétrica do Modelo Realista.}
+    \caption{Simulação elétrica do modelo realista.}
     \label{fig:spice-sim-realistic}
 \end{figure}
-
-Os sinais resultantes apresentam uma maior distorção quando comparados com o modelo ideal. Além disto, a atenuação verificada é significativamente maior,
-no entanto esta atenuação é facilmente corrigida com alteração do ganho do amplificador do recetor.
-
+ 
+Os sinais resultantes apresentam maior distorção do que no modelo ideal e a atenuação é significativamente maior. Esta atenuação
+pode, no entanto, ser facilmente compensada ajustando o ganho do amplificador do recetor.
+ 
 \section{Filtro RF passa-banda: desenho, simulações ideais e realistas}
 \label{sec:filtro-passa-banda}
  
 O filtro RF solicitado consiste na associação de duas ressonâncias LC, uma em série e outra em paralelo,
 dimensionadas com base na impedância característica $Z_0 = \qty{50}{\ohm}$, na frequência central atribuída
 $f_0 = \qty{98}{\mega\hertz}$ e na largura de banda escolhida $BW = \qty{17}{\mega\hertz}$.
-As expressões utilizadas no dimensionamento são apresentadas abaixo.
+As expressões utilizadas no dimensionamento são apresentadas em~\eqref{eq:ls}--\eqref{eq:cp}.
  
-\begin{equation}
-\begin{aligned}
-L_S &= \dfrac{Z_0}{2\pi BW} = \qty{468.1}{\nano\henry}
-\qquad
-L_P &= \dfrac{Z_0 BW}{2\pi f_0^2} = \qty{14.09}{\nano\henry}
-\\
-C_S &= \dfrac{BW}{2\pi f_0^2 Z_0} = \qty{5.63}{\pico\farad}
-\qquad
-C_P &= \dfrac{1}{2\pi BW Z_0} = \qty{187.2}{\pico\farad}
-\end{aligned}
-\end{equation}
+\begin{subequations}
+    \begin{align}
+        L_S &= \dfrac{Z_0}{2\pi \, BW} = \qty{468.1}{\nano\henry} \label{eq:ls} \\
+        L_P &= \dfrac{Z_0 \, BW}{2\pi f_0^{2}} = \qty{14.09}{\nano\henry} \label{eq:lp} \\
+        C_S &= \dfrac{BW}{2\pi f_0^{2} \, Z_0} = \qty{5.63}{\pico\farad} \label{eq:cs} \\
+        C_P &= \dfrac{1}{2\pi \, BW \, Z_0} = \qty{187.2}{\pico\farad} \label{eq:cp}
+    \end{align}
+\end{subequations}
  
-Analisou-se o desempenho do filtro em três cenários: no primeiro, os valores dos componentes
-são iguais aos calculados teoricamente; no segundo, são aproximados aos valores disponíveis em laboratório
-(série E24); no terceiro, utilizam-se modelos realistas que introduzem imperfeições e
-outros efeitos não considerados nos cenários anteriores.
+Analisou-se o desempenho do filtro em três cenários: no primeiro, os componentes têm os valores calculados teoricamente;
+no segundo, são aproximados aos valores disponíveis em laboratório (série E24); no terceiro, utilizam-se modelos realistas
+que introduzem imperfeições e outros efeitos não considerados nos cenários anteriores.
  
 \subsection{Filtro RF com componentes teóricos}
  
@@ -402,34 +363,38 @@ outros efeitos não considerados nos cenários anteriores.
  
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosAC_An.png}
         \caption{Análise AC.}
         \label{fig:teo-ac}
     \end{subfigure}
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosS11.png}
         \caption{Parâmetro $S_{11}$.}
         \label{fig:teo-s11}
     \end{subfigure}
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesTeoricosS21.png}
         \caption{Parâmetro $S_{21}$.}
         \label{fig:teo-s21}
     \end{subfigure}
- 
     \caption{Resultados de simulação com componentes teóricos.}
     \label{fig:teo-resultados}
 \end{figure}
+ 
+Com os componentes teóricos, tanto a frequência central (mais evidente nos parâmetros $S$, na frequência de melhor adaptação do filtro a $Z_0$)
+como a \textit{insertion loss} correspondem ao esperado. O ganho AC é de \qty{-6}{\decibel} (\qty{0.5}{\volt\per\volt}) porque, à frequência de ressonância,
+o ramo série comporta-se como um curto-circuito e o ramo paralelo como um circuito aberto, pelo que o sinal passa e a tensão se divide apenas
+entre a resistência da fonte e a carga, ambas iguais a $Z_0$. A largura de banda a \qty{-3}{\decibel} é de aproximadamente \qty{23.95}{\mega\hertz},
+superior aos \qty{17}{\mega\hertz} de projeto.
 
-Observamos que com os componentes teóricos, tanto a frequência central (que se vê melhor com os parâmetros S, 
-na frequência de melhor adaptação do filtro à impedância $Z_0$) como o \textit{insertion loss} encontram-se com as expectativas. 
-O ganho AC está em -6 dB (0,5 em V/V) pelo facto de, na frequência de ressonância, tudo que a entrada "vê" 
-é um curto circuito, ou seja, a potência é puramente distribuída entre a resistência de entrada $Z_0$ e a carga, 
-também $Z_0$. A largura de banda -3dB é de aproximadamente 23,95 MHz. 
+A largura de banda a \qty{-3}{\decibel} (\qty{23.95}{\mega\hertz}) é superior ao parâmetro $BW=\qty{17}{\mega\hertz}$ porque, nas expressões de 
+dimensionamento, $BW$ define os bordos onde $|S_{21}|^2=0{,}8$ ($\approx\qty{-1}{\decibel}$). Na aproximação de banda estreita, $|S_{21}|^2 = 1/(1+x^4/4)$ 
+com $x=2(f-f_0)/BW$, pelo que o ponto de \qty{-3}{\decibel} ocorre em $x=\sqrt{2}$, ou seja, $BW_{-3\,\mathrm{dB}}=\sqrt{2}\,BW\approx\qty{24.0}{\mega\hertz}$, 
+em concordância com a simulação.
  
 \subsection{Filtro RF com componentes do laboratório}
  
@@ -447,23 +412,21 @@ também $Z_0$. A largura de banda -3dB é de aproximadamente 23,95 MHz.
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesLabAC_An.png}
         \caption{Análise AC.}
         \label{fig:lab-ac}
-    \end{subfigure} 
+    \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesLabSparam.png}
         \caption{Parâmetros $S$.}
         \label{fig:lab-s}
     \end{subfigure}
- 
     \caption{Resultados de simulação com componentes do laboratório.}
     \label{fig:lab-resultados}
 \end{figure}
-
-Para os componentes adaptados à série E24, podemos observar que os componentes têm valores ligeiramente diferentes dos teóricos,
-principalmente as bobinas. Ademais, foi necessário utilizar dois condensadores paralelos para corresponder ao valor mais próximo possível
-do necessário para o condensador em paralelo. A frequência central foi deslocada de 98MHz para 96MHz, ao passo que a adaptação à entrada
-é pior, passando de -52 para -14 dB. O parâmetro $S_{21}$ manteve-se muito próximo de 0dB, e a largura de banda -3dB aumentou ligeiramente,
-para 24,2MHz. 
+ 
+Com os componentes adaptados à série E24, os valores diferem ligeiramente dos teóricos, sobretudo nas bobinas, e foi necessário associar
+dois condensadores em paralelo para aproximar o valor requerido para o condensador do ramo paralelo. A frequência central deslocou-se de
+\qty{98}{\mega\hertz} para \qty{96}{\mega\hertz} e a adaptação à entrada piorou, passando de \qty{-52}{\decibel} para \qty{-14}{\decibel}.
+O parâmetro $S_{21}$ manteve-se muito próximo de \qty{0}{\decibel} e a largura de banda a \qty{-3}{\decibel} aumentou ligeiramente, para \qty{24.2}{\mega\hertz}.
  
 \subsection{Filtro RF com componentes realistas}
  
@@ -485,19 +448,15 @@ para 24,2MHz.
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{IMAGENS/BP_componentesRealistasSparam.png}
-        \caption{Parâmetro $S_{11}$.}
-        \label{fig:real-s11}
+        \caption{Parâmetros $S$.}
+        \label{fig:real-s}
     \end{subfigure}
-
-    \vspace{1em}
- 
     \caption{Resultados de simulação com modelos realistas.}
     \label{fig:real-resultados}
 \end{figure}
-
-Para os componentes realistas, nota-se um aumento da atenuação ao longo da largura de banda do filtro, caracterizado por um 
-pico mais arredondado e não tão plano. Todos os outros parâmetros, como ganho AC, adaptação à entrada e o $S_{21}$, estão 
-piores, apesar dos valores mais aproximados dos teóricos. A largura de banda -3dB manteve-se relativamente estável ao longo das análises, 
-sendo 24,1MHz. 
+ 
+Com os modelos realistas, nota-se um aumento da atenuação ao longo da banda passante, com um pico mais arredondado e menos plano.
+O ganho AC, a adaptação à entrada e o $S_{21}$ pioram, apesar de os valores dos componentes se aproximarem dos teóricos.
+A largura de banda a \qty{-3}{\decibel} manteve-se relativamente estável nos três cenários, sendo de \qty{24.1}{\mega\hertz} neste caso.
 
 
