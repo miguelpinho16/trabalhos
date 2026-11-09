@@ -6,26 +6,38 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Dimensionamento da réplica $M_1$}{9}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Análise do amplificador}{9}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Circuito simplificado e modelo de pequeno sinal}{9}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Função de transferência exata}{10}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Expressões aproximadas}{10}{subsubsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.3}Dimensionamento pela metodologia $g_m/I_D$}{10}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Especificações e critérios}{10}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{10}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Polarização}{10}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Tabela-resumo}{10}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}Simulação do amplificador}{10}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Ponto de funcionamento}{10}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Resposta em frequência em malha aberta}{10}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Otimização do consumo}{10}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}Impedância de saída}{10}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Análise teórica}{10}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Simulação}{10}{subsubsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.6}Ruído e PSRR}{10}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Ruído de saída}{10}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}PSRR$^+$}{10}{subsubsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.7}Funcionamento no tempo}{10}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Resumo do desempenho}{10}{subsection.2.8}%
-\contentsline {section}{\numberline {3}Conclusão}{11}{section.3}%
-\contentsline {section}{Referências}{12}{section*.14}%
-\contentsline {section}{Refer\^encias}{12}{section*.14}%
+\contentsline {subsubsection}{\numberline {2.2.2}Modelo simplificado e expressões aproximadas}{11}{subsubsection.2.2.2}%
+\contentsline {paragraph}{Transcondutâncias.}{11}{paragraph*.16}%
+\contentsline {paragraph}{Condutâncias.}{11}{paragraph*.17}%
+\contentsline {paragraph}{Capacidades.}{12}{paragraph*.18}%
+\contentsline {paragraph}{Equações dos nós.}{12}{paragraph*.19}%
+\contentsline {subsection}{\numberline {2.3}Dimensionamento pela metodologia $g_m/I_D$}{12}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Especificações e critérios}{12}{subsubsection.2.3.1}%
+\contentsline {paragraph}{Capacidade de compensação.}{12}{paragraph*.20}%
+\contentsline {paragraph}{GBW.}{13}{paragraph*.21}%
+\contentsline {paragraph}{Margem de fase.}{13}{paragraph*.22}%
+\contentsline {paragraph}{Ganho DC.}{13}{paragraph*.23}%
+\contentsline {paragraph}{Margens de tensão.}{13}{paragraph*.24}%
+\contentsline {paragraph}{Metodologia.}{13}{paragraph*.25}%
+\contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{13}{subsubsection.2.3.2}%
+\contentsline {paragraph}{$M_5$ (segundo andar).}{14}{paragraph*.26}%
+\contentsline {paragraph}{$M_4$, $M_{4A}$ e $M_{4B}$ (espelho PMOS).}{14}{paragraph*.27}%
+\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{14}{paragraph*.28}%
+\contentsline {paragraph}{$M_{2A}$ e $M_{2B}$ (cascode) e fonte $I_{extra}$.}{14}{paragraph*.29}%
+\contentsline {paragraph}{$M_{3A}$ e $M_{3B}$ (fonte de corrente).}{15}{paragraph*.31}%
+\contentsline {subsection}{\numberline {2.4}Simulação do amplificador}{15}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Ponto de funcionamento}{15}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Resposta em frequência em malha aberta}{15}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Otimização do consumo}{15}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}Impedância de saída}{15}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Análise teórica}{15}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Simulação}{15}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Ruído e PSRR}{15}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Ruído de saída}{15}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}PSRR$^+$}{15}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Funcionamento no tempo}{15}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Resumo do desempenho}{15}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Conclusão}{16}{section.3}%
+\contentsline {section}{Referências}{17}{section*.32}%
+\contentsline {section}{Refer\^encias}{17}{section*.32}%
 \contentsfinish 

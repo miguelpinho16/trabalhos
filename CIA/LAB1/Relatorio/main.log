@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.16)  9 NOV 2026 10:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.16)  9 NOV 2026 11:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/migue/Desktop/Relatórios/CIA/LAB1/main.tex
-(c:/Users/migue/Desktop/Relatórios/CIA/LAB1/main.tex
+**c:/Users/migue/Desktop/Trabalhos/CIA/LAB1/Relatorio/main.tex
+(c:/Users/migue/Desktop/Trabalhos/CIA/LAB1/Relatorio/main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\migue\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -623,7 +623,7 @@ Package hyperref Info: Link coloring ON on input line 9.
 \openout3 = `main.out'.
 
  (capa.tex
-<IMAGENS/logo_fct.png, id=19, 288.07625pt x 68.255pt>
+<IMAGENS/logo_fct.png, id=106, 288.07625pt x 68.255pt>
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 12.
@@ -656,7 +656,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 50.
  [1
 
-{C:/Users/migue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc} <./IMAGENS/logo_fct.png>]) (main.toc)
+{C:/Users/migue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc} <./IMAGENS/logo_fct.png>]) (main.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 2.
+)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
@@ -677,30 +684,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.21 \newpage
-              [1] (introducao.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 8.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 8.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 8.
-<IMAGENS/Reference buffer architecture.png, id=33, 594.42075pt x 236.082pt>
+              [1{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}] (introducao.tex
+<IMAGENS/Reference buffer architecture.png, id=151, 594.42075pt x 236.082pt>
 File: IMAGENS/Reference buffer architecture.png Graphic file (type png)
 <use IMAGENS/Reference buffer architecture.png>
 Package pdftex.def Info: IMAGENS/Reference buffer architecture.png  used on input line 25.
 (pdftex.def)             Requested size: 386.95897pt x 153.68562pt.
-<IMAGENS/Suggested circuit.png, id=36, 551.661pt x 265.59225pt>
+<IMAGENS/Suggested circuit.png, id=154, 551.661pt x 265.59225pt>
 File: IMAGENS/Suggested circuit.png Graphic file (type png)
 <use IMAGENS/Suggested circuit.png>
 Package pdftex.def Info: IMAGENS/Suggested circuit.png  used on input line 38.
 (pdftex.def)             Requested size: 435.32422pt x 209.5805pt.
-
-
-LaTeX Warning: Reference `subsec:analise_amp' on page 2 undefined on input line 47.
-
-
-LaTeX Warning: Reference `subsec:gmid' on page 2 undefined on input line 48.
-
 )
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
@@ -714,7 +708,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
-[2{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./IMAGENS/Reference buffer architecture.png> <./IMAGENS/Suggested circuit.png>]
+[2{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./IMAGENS/Reference buffer architecture.png> <./IMAGENS/Suggested circuit.png>]
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 24.
@@ -728,7 +722,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
 [3] (desenvolvimento.tex
-<IMAGENS/primeiro circuito.png, id=59, 716.9184pt x 345.4506pt>
+<IMAGENS/primeiro circuito.png, id=174, 716.9184pt x 345.4506pt>
 File: IMAGENS/primeiro circuito.png Graphic file (type png)
 <use IMAGENS/primeiro circuito.png>
 Package pdftex.def Info: IMAGENS/primeiro circuito.png  used on input line 18.
@@ -746,12 +740,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
 [4 <./IMAGENS/primeiro circuito.png>]
-<IMAGENS/fig1_gm_vs_CD.png, id=78, 1011.78pt x 289.08pt>
+<IMAGENS/fig1_gm_vs_CD.png, id=193, 1011.78pt x 289.08pt>
 File: IMAGENS/fig1_gm_vs_CD.png Graphic file (type png)
 <use IMAGENS/fig1_gm_vs_CD.png>
 Package pdftex.def Info: IMAGENS/fig1_gm_vs_CD.png  used on input line 118.
 (pdftex.def)             Requested size: 483.69687pt x 138.20103pt.
-<IMAGENS/fig2_Vout_t.png, id=80, 867.24pt x 542.025pt>
+<IMAGENS/fig2_Vout_t.png, id=195, 867.24pt x 542.025pt>
 File: IMAGENS/fig2_Vout_t.png Graphic file (type png)
 <use IMAGENS/fig2_Vout_t.png>
 Package pdftex.def Info: IMAGENS/fig2_Vout_t.png  used on input line 127.
@@ -769,12 +763,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
 [5{C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./IMAGENS/fig1_gm_vs_CD.png>]
-<IMAGENS/fig3_erro_vs_gm.png, id=94, 542.025pt x 325.215pt>
+<IMAGENS/fig3_erro_vs_gm.png, id=209, 542.025pt x 325.215pt>
 File: IMAGENS/fig3_erro_vs_gm.png Graphic file (type png)
 <use IMAGENS/fig3_erro_vs_gm.png>
 Package pdftex.def Info: IMAGENS/fig3_erro_vs_gm.png  used on input line 136.
 (pdftex.def)             Requested size: 386.95897pt x 232.18456pt.
-<IMAGENS/fig4_mapa_CD_gm.png, id=95, 578.16pt x 361.35pt>
+<IMAGENS/fig4_mapa_CD_gm.png, id=210, 578.16pt x 361.35pt>
 File: IMAGENS/fig4_mapa_CD_gm.png Graphic file (type png)
 <use IMAGENS/fig4_mapa_CD_gm.png>
 Package pdftex.def Info: IMAGENS/fig4_mapa_CD_gm.png  used on input line 143.
@@ -792,7 +786,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
 [6 <./IMAGENS/fig2_Vout_t.png> <./IMAGENS/fig3_erro_vs_gm.png>]
-<IMAGENS/m11 cadence circuito.png, id=107, 746.79pt x 461.92575pt>
+<IMAGENS/m11 cadence circuito.png, id=222, 746.79pt x 461.92575pt>
 File: IMAGENS/m11 cadence circuito.png Graphic file (type png)
 <use IMAGENS/m11 cadence circuito.png>
 Package pdftex.def Info: IMAGENS/m11 cadence circuito.png  used on input line 167.
@@ -839,37 +833,114 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 258.
 
+<IMAGENS/circuito_simplificado_sem_Iextra.png, id=244, 2649.9pt x 1806.75pt>
+File: IMAGENS/circuito_simplificado_sem_Iextra.png Graphic file (type png)
+<use IMAGENS/circuito_simplificado_sem_Iextra.png>
+Package pdftex.def Info: IMAGENS/circuito_simplificado_sem_Iextra.png  used on input line 296.
+(pdftex.def)             Requested size: 386.95897pt x 263.83293pt.
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 290.
-(pdftex.def)             Requested size: 290.22107pt x 68.76619pt.
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 306.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
+
+[9 <./IMAGENS/circuito_simplificado_sem_Iextra.png (PNG copy)>]
+<IMAGENS/circuito_simplificado_parasitas.png, id=255, 4577.1pt x 2107.875pt>
+File: IMAGENS/circuito_simplificado_parasitas.png Graphic file (type png)
+<use IMAGENS/circuito_simplificado_parasitas.png>
+Package pdftex.def Info: IMAGENS/circuito_simplificado_parasitas.png  used on input line 318.
+(pdftex.def)             Requested size: 483.69687pt x 222.73251pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 370.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
+
+[10 <./IMAGENS/circuito_simplificado_parasitas.png (PNG copy)>]
+<IMAGENS/modelo_simplificado.png, id=266, 2710.125pt x 1264.725pt>
+File: IMAGENS/modelo_simplificado.png Graphic file (type png)
+<use IMAGENS/modelo_simplificado.png>
+Package pdftex.def Info: IMAGENS/modelo_simplificado.png  used on input line 385.
+(pdftex.def)             Requested size: 411.14528pt x 191.86195pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 417.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
+
+[11 <./IMAGENS/modelo_simplificado.png (PNG copy)>]
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 480.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
+
+[12]
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 550.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
+
+[13]
+<IMAGENS/circuito_simplificado_com_Iextra.png, id=334, 2649.9pt x 1806.75pt>
+File: IMAGENS/circuito_simplificado_com_Iextra.png Graphic file (type png)
+<use IMAGENS/circuito_simplificado_com_Iextra.png>
+Package pdftex.def Info: IMAGENS/circuito_simplificado_com_Iextra.png  used on input line 609.
+(pdftex.def)             Requested size: 386.95897pt x 263.83293pt.
+File: IMAGENS/logo_fct.png Graphic file (type png)
+<use IMAGENS/logo_fct.png>
+Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 613.
+(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
+
+[14]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 306.
+(hyperref)                removing `math shift' on input line 654.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 306.
+(hyperref)                removing `superscript' on input line 654.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 306.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 306.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 334.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 334.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 334.
+(hyperref)                removing `math shift' on input line 654.
 
 )
 File: IMAGENS/logo_fct.png Graphic file (type png)
@@ -884,20 +955,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
-[9]
-File: IMAGENS/logo_fct.png Graphic file (type png)
-<use IMAGENS/logo_fct.png>
-Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 27.
-(pdftex.def)             Requested size: 120.08568pt x 28.45274pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.05278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.05278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
-
-[10] (conclusao.tex)
+[15 <./IMAGENS/circuito_simplificado_com_Iextra.png (PNG copy)>] (conclusao.tex)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 30.
@@ -910,7 +968,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
-[11] (referencias.tex)
+[16] (referencias.tex)
 File: IMAGENS/logo_fct.png Graphic file (type png)
 <use IMAGENS/logo_fct.png>
 Package pdftex.def Info: IMAGENS/logo_fct.png  used on input line 33.
@@ -923,41 +981,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-20.05278pt}.
 
-[12
+[17
 
 ] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 43D8F9060297D9612C9D225A94EAE85B;649
-(rerunfilecheck)             After:  7E899433CE6A98BE0E7373D62A424B8E;5013.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 01BE1039512C5525E3232FE0DC5BC416;4639.
  ) 
 Here is how much of TeX's memory you used:
- 16678 strings out of 474486
- 273174 string characters out of 5743755
- 1945542 words of memory out of 5000000
- 38579 multiletter control sequences out of 15000+600000
+ 16800 strings out of 474486
+ 276088 string characters out of 5743755
+ 1948542 words of memory out of 5000000
+ 38650 multiletter control sequences out of 15000+600000
  623933 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,16n,82p,1237b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,16n,82p,1245b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/migue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (13 pages, 2079767 bytes).
+Output written on main.pdf (18 pages, 2552158 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 500000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
 
