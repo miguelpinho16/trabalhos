@@ -1,0 +1,13 @@
+% ==============================================
+% SEÇÃO: INTRODUÇÃO
+% ==============================================
+\section{Introdução}
+\label{sec:introducao}
+
+Os sistemas MIMO e massive MIMO aumentam a capacidade de uma célula através da multiplexagem espacial: a estação base transmite vários streams de dados em simultâneo, na mesma frequência, para um ou vários utilizadores. O principal obstáculo é a interferência entre esses streams (e entre utilizadores), que tem de ser cancelada por pré-codificação no emissor. Esta, por sua vez, exige conhecimento do canal.
+
+Este trabalho estuda o downlink de um sistema OFDM com modulações QPSK e 16-QAM, em canal de Rayleigh, com pré-codificação linear. As técnicas implementadas são o Zero Forcing (ZF) e a decomposição em valores singulares (SVD), esta última também com distribuição de potência water-filling para obter a capacidade máxima. Acrescentámos a Block Diagonalization (BD), adequada a utilizadores com várias antenas, e, na segunda fase, o pré-codificador MMSE. Consideram-se quatro cenários: uma estação base com 16 antenas (cenário 1), servindo 16 utilizadores de uma antena (1A) ou 2 utilizadores de 8 antenas (1B); e uma estação base com 512 antenas (cenário 2, massive MIMO), servindo 512 utilizadores de uma antena (2A) ou 64 utilizadores de 8 antenas (2B).
+
+O trabalho divide-se em duas fases independentes. Na Fase 1 assume-se conhecimento perfeito do canal e determinam-se as capacidades máximas atingíveis em cada cenário, a complexidade computacional de cada técnica, o EVM do sinal recebido (comparado com os limiares do 5G NR: 17,5\,\% em QPSK e 12,5\,\% em 16-QAM) e a BER em função da SNR. Na Fase 2 o canal é estimado com erro e analisa-se o seu efeito na BER, no EVM, na capacidade e na interferência entre utilizadores, para cada técnica.
+
+O relatório está organizado da seguinte forma: a secção 2 descreve o sistema implementado e os parâmetros (2.1), os sinais (2.2) e apresenta os resultados da Fase 1 (2.3) e da Fase 2 (2.4); a secção 3 apresenta as conclusões, comparando as técnicas e os cenários.

@@ -1,0 +1,30 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {section}{\numberline {1}Introdução}{2}{section.1}%
+\contentsline {section}{\numberline {2}Desenvolvimento}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sistema implementado e parâmetros}{3}{subsection.2.1}%
+\contentsline {paragraph}{Modelo de sinal.}{3}{paragraph*.1}%
+\contentsline {paragraph}{Pré-codificação.}{3}{paragraph*.2}%
+\contentsline {paragraph}{Métricas.}{3}{paragraph*.3}%
+\contentsline {paragraph}{Fase 2: estimativa imperfeita.}{3}{paragraph*.4}%
+\contentsline {paragraph}{Simulador.}{4}{paragraph*.8}%
+\contentsline {subsection}{\numberline {2.2}Sinais}{4}{subsection.2.2}%
+\contentsline {paragraph}{Símbolos transmitidos.}{4}{paragraph*.9}%
+\contentsline {paragraph}{Sinal à saída do receptor.}{4}{paragraph*.10}%
+\contentsline {paragraph}{EVM e limiares.}{5}{paragraph*.12}%
+\contentsline {subsection}{\numberline {2.3}Fase 1: Conhecimento perfeito do canal}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Cenário 1 A}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Cenário 1 B}{6}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Cenário 2 A}{7}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Cenário 2 B}{7}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}Comparação de capacidade e complexidade}{8}{subsubsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.4}Fase 2: Estimativa imperfeita do canal}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Cenário 1 A}{9}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Cenário 1 B}{10}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Cenário 2 A}{10}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Cenário 2 B}{11}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Comparação entre cenários e níveis de erro}{11}{subsubsection.2.4.5}%
+\contentsline {section}{\numberline {3}Conclusão}{13}{section.3}%
+\contentsline {paragraph}{Fase 1.}{13}{paragraph*.26}%
+\contentsline {paragraph}{Fase 2.}{13}{paragraph*.27}%
+\contentsline {paragraph}{Limitações.}{13}{paragraph*.28}%
+\contentsfinish 
