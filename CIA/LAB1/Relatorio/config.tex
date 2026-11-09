@@ -6,8 +6,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[portuguese]{babel}
-\usepackage{lmodern}
-\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm, headheight=33pt, includehead]{geometry}
+\usepackage{lmodern}  % ADICIONAR ESTA LINHA - CORRIGE ERRO DE FONTES
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
 
 
@@ -101,17 +101,6 @@
 
 
 
-% ========== CONFIGURAÇÕES DE ÍNDICE DE FIGURAS ==========
-% Título em preto
-\renewcommand{\cftloftitlefont}{\color{black}\Huge\bfseries}
-
-% Entradas das figuras em azul
-\renewcommand{\cftfigfont}{\color{RoyalBlue}}
-\renewcommand{\cftfigpagefont}{\color{RoyalBlue}}
-\renewcommand{\cftfigleader}{\color{RoyalBlue}\cftdotfill{\cftdotsep}}
-
-
-
 % ========== CONFIGURAÇÕES DE LISTAS ==========
 \setlist[itemize]{leftmargin=*, nosep}
 \setlist[enumerate]{leftmargin=*, nosep}
@@ -133,7 +122,7 @@
     urlcolor=RoyalBlue,
     citecolor=RoyalBlue,
     pdftitle={Relatório CIA},
-    pdfauthor={Delmont, Miguel},
+    pdfauthor={Miguel},
     pdfcreator={LaTeX with lmodern}
 }
 
@@ -143,7 +132,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\includegraphics[height=1cm]{IMAGENS/logo_fct.png}}
-\fancyhead[R]{\footnotesize CS}
+\fancyhead[R]{\footnotesize CIA}
 %\fancyfoot[L]{\footnotesize \today}
 \fancyfoot[L]{\footnotesize Novembro de 2026}
 \fancyfoot[R]{\footnotesize Página \thepage}

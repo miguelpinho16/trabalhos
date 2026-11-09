@@ -4,4 +4,339 @@
 \section{Desenvolvimento}
 \label{sec:desenvolvimento}
 
+% ========== Alínea a) ==========
+\subsection{Dimensionamento do andar de saída}
+\label{subsec:andar_saida}
 
+A primeira parte deste trabalho consiste em dimensionar o andar de saída do buffer.
+O objetivo é escolher os valores de $C_D$ e $g_{m11}$ de forma a cumprir as especificações do
+\textit{settling error} (inferior a 0,05\%, ou seja, 0,55~mV) e da queda inicial provocada pela
+ligação de $C_{DAC}$ (inferior a 50~mV).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{IMAGENS/primeiro circuito.png}
+    \caption{Circuito simplificado do andar de saída.}
+    \label{fig:dimensionamento_M11}
+\end{figure}
+
+Comecemos então por analisar o circuito simplificado da figura \ref{fig:dimensionamento_M11} em pequenos sinais,
+permitindo-nos obter uma expressão para a impedância de saída.
+
+Aplicando a lei dos nós em $v_{out}$, com a gate de $M_{11}$ em ground em AC, temos ($v_{gs11} = -v_{out}$) e designando por $i_{DAC}$ a corrente retirada pelo $C_{DAC}$:
+\begin{equation}
+    -g_{m11}\,v_{gs11} + g_{ds11}\,v_{out} + sC_D\,v_{out} + i_{DAC} = 0
+\end{equation}
+
+pelo que a impedância de saída do seguidor é
+\begin{equation}
+    Z_{out}(s) = -\frac{v_{out}}{i_{DAC}} = \frac{1}{g_{m11} + g_{ds11} + sC_D}
+    \label{eq:zout_seguidor}
+\end{equation}
+
+Quando $\Phi_1$ fecha, $C_{DAC}$ (inicialmente descarregado) é ligado a $v_{out}$. Em pequeno sinal,
+em torno de $V_{ref}$, a sua tensão inicial é $-V_{ref}$, pelo que a corrente que retira do nó é
+\begin{equation}
+    i_{DAC}(s) = sC_{DAC}\,v_{out}(s) + C_{DAC}V_{ref}
+\end{equation}
+
+onde o termo $C_{DAC}V_{ref}$ corresponde à carga retirada instantaneamente pela partilha de carga.
+Substituindo na equação do nó:
+\begin{equation}
+    v_{out}(s)\left[g_{m11} + g_{ds11} + s\left(C_D + C_{DAC}\right)\right] = -\,C_{DAC}V_{ref}
+\end{equation}
+
+Definindo $C = C_D + C_{DAC}$:
+
+\begin{equation}
+    v_{out}(s) = -\frac{V_{ref}\,C_{DAC}}{C}\cdot\frac{1}{s + \dfrac{g_{m11}+g_{ds11}}{C}}
+\end{equation}
+
+e, aplicando a transformada de Laplace inversa,
+
+\begin{equation}
+    v_{out}(t) = -\frac{V_{ref}\,C_{DAC}}{C_D + C_{DAC}}\;e^{-\frac{g_{m11}+g_{ds11}}{C_D + C_{DAC}}\,t}
+    \label{eq:vout_t}
+\end{equation}
+
+A queda inicial é, portanto, $\Delta V = V_{ref}\,C_{DAC}/(C_D + C_{DAC})$, e a constante de tempo do settling é
+$\tau = (C_D + C_{DAC})/(g_{m11}+g_{ds11})$.
+
+Como diz no enunciado do trabalho, temos uma frequência de clock de 250~MHz, pelo que o período de relógio é $T_{clk} = 4$~ns.
+A especificação do settling error ($< 0{,}55$~mV) traduz-se em:
+\begin{equation}
+    \left|v_{out}(T_{clk})\right| = \frac{V_{ref}\,C_{DAC}}{C_D + C_{DAC}}\;e^{-\frac{g_{m11}+g_{ds11}}{C_D + C_{DAC}}\,T_{clk}} < \varepsilon\,V_{ref}
+    \label{eq:cond_erro}
+\end{equation}
+
+com $\varepsilon = 5\times10^{-4}$ (0,05\%). Isolando a transcondutância:
+\begin{equation}
+    g_{m11} + g_{ds11} > \frac{C_D + C_{DAC}}{T_{clk}}\,\ln\!\left(\frac{C_{DAC}}{\varepsilon\,\left(C_D + C_{DAC}\right)}\right)
+\end{equation}
+Considerando, numa primeira aproximação, $g_{ds11} = g_{m11}/10$:
+\begin{equation}
+    g_{m11} > \frac{C_D + C_{DAC}}{1{,}1\,T_{clk}}\,\ln\!\left(\frac{C_{DAC}}{\varepsilon\,\left(C_D + C_{DAC}\right)}\right)
+    \label{eq:gm_min}
+\end{equation}
+
+Para escolher $C_D$ e $g_{m11}$, implementou-se em Python a Eq.~\eqref{eq:gm_min}, percorrendo valores de $C_D$ entre 1 e 20~pF.
+Para cada valor calculou-se o $g_{m11}$ mínimo que garante um erro de 0,55~mV ao fim de $T_{clk} = 4$~ns, a corrente correspondente
+(para $g_m/I_D = 28$) e a queda inicial $\Delta V$.
+
+O valor de $g_m/I_D$ define a relação entre a transcondutância e a corrente de polarização. Como $g_{m11}$ está fixado pelas especificações,
+a corrente necessária é $I_{B4} = g_{m11}/(g_m/I_D)$, pelo que um $g_m/I_D$ elevado minimiza a potência dissipada. Em inversão fraca, $g_m/I_D$
+tende para o seu valor máximo, $1/(n\,U_T) \approx 30$~V$^{-1}$ (com $n \approx 1{,}3$ e $U_T \approx 26$~mV), que não é atingível na prática.
+Escolheu-se $g_m/I_D = 28$~V$^{-1}$, próximo deste limite, de modo a obter a menor corrente possível sem levar o transístor a inversão fraca profunda.
+
+
+Os resultados estão resumidos na Tabela~\ref{tab:varrimento_cd}.
+
+\begin{table}[H]
+    \centering
+    \caption{$g_{m11}$ mínimo, corrente e queda inicial em função de $C_D$ ($T_{clk} = 4$~ns, erro $= 0{,}55$~mV).}
+    \label{tab:varrimento_cd}
+    \begin{tabular}{ccccc}
+        \toprule
+        $C_D$ [pF] & $g_{m11,min}$ [mS] & $I_D$ [$\mu$A] & $\Delta V$ [mV] & $\Delta V \le 50$~mV \\
+        \midrule
+        8  & 9,21  & 329 & 64,7 & não \\
+        9  & 10,05 & 359 & 57,9 & não \\
+        10 & 10,87 & 388 & 52,4 & não \\
+        11 & 11,67 & 417 & 47,8 & sim \\
+        12 & 12,45 & 445 & 44,0 & sim \\
+        13 & 13,21 & 472 & 40,7 & sim \\
+        14 & 13,95 & 498 & 37,9 & sim \\
+        15 & 14,68 & 524 & 35,5 & sim \\
+        16 & 15,39 & 550 & 33,3 & sim \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{IMAGENS/fig1_gm_vs_CD.png}
+    \caption{Compromisso entre $C_D$, $g_{m11}$, corrente e queda inicial.}
+    \label{fig:compromisso_cd_gm}
+\end{figure}
+
+A Fig.~\ref{fig:compromisso_cd_gm} evidencia o compromisso entre as duas especificações: a queda inicial impõe $C_D \ge 10{,}5$~pF, enquanto o $g_{m11}$ mínimo, e com ele a corrente, cresce com $C_D$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{IMAGENS/fig2_Vout_t.png}
+    \caption{Variação de $C_D$ ($g_{m11} = 13$~mS) e variação de $g_{m11}$ ($C_D = 11$~pF): resposta de $V_{out}$ e erro $|V_{ref} - V_{out}|$.}
+    \label{fig:transitorio_teorico}
+\end{figure}
+
+A Fig.~\ref{fig:transitorio_teorico} mostra a resposta temporal de $v_{out}$ prevista pela Eq.~\eqref{eq:vout_t}: aumentar $C_D$ reduz a queda inicial mas torna o assentamento mais lento, enquanto aumentar $g_{m11}$ acelera o assentamento sem alterar a queda.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{IMAGENS/fig3_erro_vs_gm.png}
+    \caption{Erro aos 4~ns em função de $g_{m11}$, para vários valores de $C_D$. Os pontos marcam o $g_{m11}$ mínimo de cada $C_D$.}
+    \label{fig:erro_vs_gm}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{IMAGENS/fig4_mapa_CD_gm.png}
+    \caption{Erro aos 4~ns no plano ($C_D$, $g_{m11}$): acima da linha laranja cumpre a especificação.}
+    \label{fig:mapa_erro}
+\end{figure}
+
+A Fig.~\ref{fig:erro_vs_gm} mostra o erro aos 4~ns em função de $g_{m11}$, assinalando o valor mínimo para cada $C_D$, e a Fig.~\ref{fig:mapa_erro} resume a região do plano ($C_D$, $g_{m11}$) que cumpre a especificação, com o ponto escolhido.
+
+Verifica-se que $C_D = 11$~pF é o menor valor inteiro que cumpre a especificação da queda inicial, exigindo $g_{m11} \ge 11{,}67$~mS.
+Valores superiores de $C_D$ reduzem a queda mas aumentam o $g_{m11}$ e, consequentemente, a corrente necessária.
+Escolheu-se assim $C_D = 11$~pF e, para garantir margem no settling error, $g_{m11} = 13$~mS. Com estes valores obtém-se:
+\begin{itemize}
+    \item queda inicial: $\Delta V = 47{,}8$~mV ($< 50$~mV);
+    \item erro ao fim de 4~ns: $0{,}331$~mV ($< 0{,}55$~mV);
+    \item $V_{out}(4\text{ ns}) = 1{,}099669$~V;
+    \item corrente de polarização: $I_{B4} = g_{m11}/(g_m/I_D) = 13\text{m}/28 \approx 464~\mu$A.
+\end{itemize}
+Estes valores serviram de ponto de partida para o dimensionamento do $M_{11}$ em simulação.
+
+% ========== Cadence para o M11 ==========
+\subsubsection{Validação em simulação}
+\label{subsubsec:validacao_m11}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{IMAGENS/m11 cadence circuito.png}
+    \caption{Circuito de teste do andar de saída no Cadence.}
+    \label{fig:m11_circuito_cadence}
+\end{figure}
+
+O dimensionamento anterior foi validado no Cadence com o circuito da Fig.~\ref{fig:m11_circuito_cadence}. O seguidor $M_{11}$ foi implementado com um
+transístor \texttt{nch\_25\_dnw} ($L = 280$~nm, $W = 2~\mu$m $\times$ 5 \textit{fingers}), com o \textit{bulk} ligado à source para eliminar o
+efeito de corpo, que aumentaria $V_{GS11}$ e o tornaria dependente de $V_{out}$, e polarizado com $I_{B4} = 464~\mu$A. A gate é polarizada por uma fonte DC ideal, que representa
+$V_{ctr}$, ajustada de modo a obter $V_{out} \approx 1{,}1$~V. O $C_{DAC}$ é ligado e descarregado por dois interruptores comandados por relógio
+não sobrepostos: $\Phi_1$ (ligação a $V_{out}$, de 0,1 a 1,9~ns) e $\Phi_2$ (descarga, de 2 a 4~ns), com período de 4~ns. O settling error é medido no fim
+do período, em relação ao valor de repouso de $V_{out}$.
+
+Mantendo $I_{B4}$ e $C_D = 11$~pF, variou-se o tamanho de $M_{11}$ através do multiplicador $M$ (de 50 a 900). A Tabela~\ref{tab:sweep_M} resume alguns dos
+pontos obtidos.
+
+\begin{table}[H]
+    \centering
+    \caption{Erro no fim de $\Phi_1$ e no fim do período em função do multiplicador $M$ de $M_{11}$ ($C_D = 11$~pF).}
+    \label{tab:sweep_M}
+    \begin{tabular}{ccc}
+        \toprule
+        $M$ & Erro fim de $\Phi_1$ [mV] & Erro fim do período [mV] \\
+        \midrule
+        70  & 7,10 & 0,99 \\
+        170 & 6,57 & 0,97 \\
+        210 & 6,53 & 0,97 \\
+        350 & 6,76 & 1,29 \\
+        890 & 7,52 & 2,05 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+O erro apresenta um mínimo para $M \approx 210$. Para valores superiores, o $g_{m11}$ quase não aumenta, porque o transístor está próximo da inversão fraca
+e o $g_m/I_D$ satura, enquanto as capacidades de gate continuam a crescer e tornam a resposta mais lenta. Escolheu-se, assim, $M = 210$.
+
+Mesmo com este valor, o erro no fim do período ($\approx 0{,}97$~mV) ultrapassa a especificação ($0{,}55$~mV). Isto deve-se às capacidades do próprio
+$M_{11}$: com a gate em ground em AC, $C_{gs11}$ e $C_{gb11}$ ficam em paralelo com $C_D$, pelo que a capacidade total no nó de saída é superior à
+considerada na análise teórica. Para compensar, com $M = 210$, variou-se $C_D$ entre 7,75 e 8,75~pF (Tabela~\ref{tab:sweep_cd_sim}).
+
+\begin{table}[H]
+    \centering
+    \caption{Queda inicial e erro no fim do período em função de $C_D$ ($M = 210$).}
+    \label{tab:sweep_cd_sim}
+    \begin{tabular}{cccc}
+        \toprule
+        $C_D$ [pF] & Queda [mV] & Erro [$\mu$V] & Cumpre \\
+        \midrule
+        7,75 & 50,7 & 442 & não (queda) \\
+        8,00 & 49,6 & 482 & sim \\
+        8,25 & 48,5 & 531 & sim \\
+        8,50 & 47,5 & 569 & não (erro) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Escolheu-se $C_D = 8{,}25$~pF, que apresenta margem nas duas especificações. A partir da queda medida, a capacidade total no nó de saída é $C_{total}
+\approx V_{out}C_{DAC}/\Delta V \approx 11{,}3$~pF, ou seja, cerca de 2,5~pF acima de $C_D + C_{DAC}$. Esta diferença corresponde às capacidades de $M_{11}$
+ligadas a $V_{out}$, que funcionam como uma capacidade adicional. A capacidade efetiva é, por isso, $C_{D,ef} \approx 10{,}8$~pF, coerente com o mínimo de
+10,5~pF obtido na análise teórica.
+
+O ponto de funcionamento final de $M_{11}$ está resumido na Tabela~\ref{tab:op_m11}.
+
+\begin{table}[H]
+    \centering
+    \caption{Ponto de funcionamento de $M_{11}$ ($M = 210$, $C_D = 8{,}25$~pF).}
+    \label{tab:op_m11}
+    \begin{tabular}{cc}
+        \toprule
+        Parâmetro & Valor \\
+        \midrule
+        $I_D$ & 464~$\mu$A \\
+        $V_{GS}$ & 453,6~mV \\
+        $g_{m11}$ & 11,22~mS \\
+        $g_{ds11}$ & 367~$\mu$S \\
+        $g_m/I_D$ & 24,2~V$^{-1}$ \\
+        $g_m/g_{ds}$ & 30,6 \\
+        $|C_{gs11}|$ & 1,15~pF \\
+        $|C_{gd11}|$ & 0,77~pF \\
+        $|C_{gg11}|$ & 2,42~pF \\
+        Queda inicial & 48,5~mV \\
+        Erro no fim do período & 531~$\mu$V (0,048\%) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Note-se que o $M_{11}$ resultante é um transístor grande ($W_{total} = 2{,}1$~mm), com $C_{gg11} \approx 2{,}4$~pF.
+Esta capacidade fica ligada a $V_{ctr}$, ou seja, à saída do amplificador, e vai afetar a estabilidade e a resposta no
+tempo do circuito completo. Este dimensionamento é, por isso, um ponto de partida: o tamanho de $M_{11}$ (e, com ele, o valor de $C_D$)
+poderá ser revisto após o dimensionamento do amplificador, se necessário.
+
+% ========== Dimensionamento do M1 ==========
+\subsubsection{Dimensionamento da réplica $M_1$}
+\label{subsubsec:dimensionamento_m1}
+
+O transístor $M_1$ é uma réplica de $M_{11}$: o amplificador força $V_{outR} = V_{ref}$ e, como $M_1$ e $M_{11}$ partilham a tensão de gate
+$V_{ctr}$, $V_{out}$ acompanha $V_{outR}$ desde que ambos tenham a mesma tensão $V_{GS}$. Para isso, os dois transístores têm de ser do mesmo
+tipo, ter o mesmo comprimento $L$ e operar com a mesma densidade de corrente:
+\begin{equation}
+    \frac{I_{B3}}{W_1} = \frac{I_{B4}}{W_{11}} \quad\Rightarrow\quad W_1 = \frac{W_{11}}{K}, \qquad I_{B3} = \frac{I_{B4}}{K}
+\end{equation}
+onde $K$ é um fator de escala. Um $K$ elevado reduz a corrente e a capacidade que a réplica introduz em $V_{ctr}$, mas aumenta o \textit{mismatch}
+entre $M_1$ e $M_{11}$ e, consequentemente, o \textit{offset} entre $V_{out}$ e $V_{outR}$.
+
+Optou-se por $K = 1$, que garante o melhor emparelhamento entre os dois seguidores. Assim, $M_1$ é idêntico a $M_{11}$ (\texttt{nch\_25\_dnw}, \textit{bulk} ligado à source,
+$L = 280$~nm, $W = 2~\mu$m $\times$ 5 \textit{fingers}, $M = 210$) e polarizado com $I_{B3} = 464~\mu$A.
+Em simulação, ambos apresentam $V_{GS} = 453{,}7$~mV, pelo que, no ponto de funcionamento,
+\begin{equation}
+    V_{ctr} = V_{ref} + V_{GS11} \approx 1{,}1 + 0{,}454 = 1{,}554~\text{V}
+\end{equation}
+Em contrapartida, esta escolha duplica a corrente consumida pelos seguidores e a capacidade ligada a
+$V_{ctr}$ ($C_{gg1} \approx C_{gg11} \approx 2{,}4$~pF), o que é tido em conta no dimensionamento do amplificador.
+
+% ========== Alíneas b), c) e d) ==========
+\subsection{Análise do amplificador}
+\label{subsec:analise_amp}
+\subsubsection{Circuito simplificado e modelo de pequeno sinal}
+
+Após o dimensionamento do andar de saída, o próximo passo é analisar o amplificador que o
+controla. Para isso, é necessário primeiro simplificar o amplificador, para ser mais fácil o dimensionamento.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{IMAGENS/logo_fct.png}
+    \caption{Amplificador simplificado}
+    \label{fig:amplificador_simplificado}
+\end{figure}
+
+
+Assim, o amplificador fica 
+
+
+\subsubsection{Função de transferência exata}
+% Só: equações nodais, resolução por Cramer, A0 exato.
+% Polos e zeros exatos: "expressões demasiado extensas, não se apresentam".
+\subsubsection{Expressões aproximadas}
+% Hipóteses + A0, GBW, p1, p2, p3, z1.
+
+% ========== Alínea e) ==========
+\subsection{Dimensionamento pela metodologia $g_m/I_D$}
+\label{subsec:gmid}
+
+\subsubsection{Especificações e critérios}
+\subsubsection{Escolha de cada transístor}
+\subsubsection{Polarização}
+\subsubsection{Tabela-resumo}
+
+% ========== Alíneas g) e h) ==========
+\subsection{Simulação do amplificador}
+\label{subsec:sim_amp}
+
+\subsubsection{Ponto de funcionamento}
+\subsubsection{Resposta em frequência em malha aberta}
+\subsubsection{Otimização do consumo}
+
+% ========== Alíneas f) e i) ==========
+\subsection{Impedância de saída}
+\label{subsec:zout}
+
+\subsubsection{Análise teórica}
+\subsubsection{Simulação}
+
+% ========== Alíneas j) e k) ==========
+\subsection{Ruído e PSRR}
+\label{subsec:ruido_psrr}
+
+\subsubsection{Ruído de saída}
+\subsubsection{PSRR$^+$}
+
+% ========== Alínea l) ==========
+\subsection{Funcionamento no tempo}
+\label{subsec:tran}
+
+% ========== Resumo ==========
+\subsection{Resumo do desempenho}
+\label{subsec:resumo}
