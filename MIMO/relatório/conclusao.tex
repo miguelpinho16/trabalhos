@@ -1,0 +1,27 @@
+% ==============================================
+% ELEMENTO: CONCLUSÃO
+% ==============================================
+\section{Conclusão}
+\label{sec:conclusao}
+
+Simulou-se o \emph{downlink} MIMO e Massive MIMO com pré-codificação ZF, SVD, BD e MMSE, em canal de Rayleigh, com conhecimento perfeito (Fase 1) e imperfeito (Fase 2) do canal.
+
+\paragraph{Fase 1.}
+\begin{itemize}
+  \item \textbf{Capacidade.} A ordem é SVD $>$ BD $>$ ZF em todos os cenários. O SVD (148,6\,bit/s/Hz em 1 A e 7278 em 2 A, a 20\,dB) é um limite superior, porque exige receptores cooperantes. Com utilizadores de uma antena a BD fica $7\,\%$ acima do ZF; com 8 antenas aproveita os receptores e fica $52\,\%$ acima, a 90\,\% do SVD com 16 antenas mas só a 59\,\% com 512. De 16 para 512 antenas a capacidade do ZF e da BD multiplica por 32 e a do SVD por 49. O \emph{water-filling} acrescenta menos de 1\,\% a 20\,dB.
+  \item \textbf{EVM e BER.} O EVM é igual nas três técnicas. Para cumprir os limiares do 5G são precisos, em mediana, 17,6 a 17,8\,dB (QPSK) e 20,0 a 20,6\,dB (16-QAM) por \emph{stream}, 2 a 3\,dB acima do ideal; a essa SNR só cerca de metade dos canais cumpre. A BER decresce devagar (diversidade de ordem 1). O SVD é melhor a SNR baixa, e o ZF e a BD a SNR alta.
+  \item \textbf{Complexidade.} O ZF é o mais barato; o SVD custa 1,5 a 6 vezes mais; a BD clássica custa $K$ vezes o SVD (35\,s por subportadora em 2 A), o que a torna inviável em Massive MIMO. A BD ``rápida'' custa 1,3 a 5 vezes o ZF, mas só é possível com $\mathbf{H}$ quadrada. Em Massive MIMO o limite prático é a complexidade, e não a capacidade.
+\end{itemize}
+Com utilizadores de uma antena, o ZF é a melhor escolha: é o mais simples e a BD acrescenta pouco. Com utilizadores de várias antenas, a BD é a melhor técnica realizável.
+
+\paragraph{Fase 2.}
+\begin{itemize}
+  \item \textbf{Efeito do erro.} Com ZF, SVD e BD a interferência entre \emph{streams} passa a ser igual nas três técnicas e independente da SNR, cerca de $1{,}8\,N_s\sigma_e^2$. A capacidade e a BER deixam de melhorar com a SNR (patamar de BER de cerca de $4\times10^{-3}$ em QPSK e $10^{-2}$ em 16-QAM) e o EVM tem um piso de 5,4, 9,5 e 17\,\% nos três níveis. A 20\,dB o ZF perde 9\,\% da capacidade com $\sigma_e^2=-35$\,dB (16 antenas) e 10\,\% com $-50$\,dB (512 antenas).
+  \item \textbf{Massive MIMO.} Como $N_t=N_s$, a interferência é proporcional a $N_s$: com 512 antenas o erro tolerável é 15\,dB menor. O 16-QAM cumpre o limiar de EVM com $\sigma_e^2\lesssim-33$\,dB com 16 antenas e $\lesssim-48$\,dB com 512.
+  \item \textbf{MMSE.} É a técnica mais robusta, sobretudo com 512 antenas: a 20\,dB tem mais 54\,\% de capacidade que o ZF, cumpre os limiares de EVM com 3\,dB (QPSK) e 9\,dB (16-QAM) de SNR, e com $-45$\,dB é a única que cumpre o 16-QAM. A vantagem limita-se a uma janela de SNR (até cerca de 30\,dB): acima, o MMSE tende para o ZF. Com 16 antenas o ganho é pequeno (1 a 3\,dB na SNR mínima).
+  \item \textbf{Cenários B.} A BD mantém a vantagem sobre o ZF e, em 1 B, sobre o MMSE (124,8 contra 89,2\,bit/s/Hz a 20\,dB); em 2 B o MMSE iguala-a a 20\,dB.
+\end{itemize}
+Com canal estimado com erro, o MMSE é a melhor opção para SNR baixa e média; o SVD continua a ser o limite superior da capacidade.
+
+\paragraph{Limitações.}
+O modelo é por subportadora, com canal e erro de estimação independentes e sem estimador de canal; os cenários têm $N_t=N_s$, o caso desfavorável para ZF e BD. A BER do ZF e da BD a SNR alta é pouco fiável, por depender de canais raros quase singulares.

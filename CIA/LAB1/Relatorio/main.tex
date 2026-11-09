@@ -1,50 +1,33 @@
 % ==============================================
-% MAIN DOCUMENT - RELATÓRIO CIA
+% MAIN DOCUMENT - RELATÓRIO CSF
 % ==============================================
 \documentclass[10pt, a4paper]{article}
-
 
 % ========== CONFIGURAÇÕES GERAIS ==========
 \input{config.tex}
 
 \begin{document}
 
-
 % ========== CAPA ==========
 \input{capa.tex}
 
-
 % ========== ÍNDICE ==========
 \newpage
-\renewcommand{\contentsname}{Índice de Conteúdos}
+\renewcommand{\contentsname}{Índice}
 \tableofcontents
-\vspace{1cm}
-
-\let\oldaddcontentsline\addcontentsline
-\renewcommand{\addcontentsline}[3]{}
-\renewcommand{\listfigurename}{Índice de Figuras}
-\listoffigures
-
-\let\addcontentsline\oldaddcontentsline
-
 \thispagestyle{fancy}
-
 
 % ========== SEÇÕES DO RELATÓRIO ==========
 \newpage
 \input{introducao.tex}
-\clearpage
 
 \newpage
 \input{desenvolvimento.tex}
-\clearpage
 
 \newpage
 \input{conclusao.tex}
-\clearpage
 
 \newpage
-\bibliography{referencias}
-\clearpage
+\input{referencias.tex}
 
 \end{document}
