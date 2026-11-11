@@ -875,6 +875,7 @@ margem de fase com menos corrente no amplificador. O valor de 180 corresponde ao
 
 MOSTRAR OS VARRIMENTOS DE Cc e M5, COMENTAR RESULTADOS E ESCOLHA FINAL
 
+% ============================================================ CIRCUITO FINAL ============================================================
 % ========== Alíneas g) e h) ==========
 \subsection{Circuito final}
 \label{subsec:final}
@@ -897,26 +898,97 @@ MOSTRAR OS VARRIMENTOS DE Cc e M5, COMENTAR RESULTADOS E ESCOLHA FINAL
     \label{fig:circuito_cadence_completo}
 \end{figure}
 
+% ============================================================ IMPEDANCIA DE SAIDA LDO ============================================================
 % ========== Alínea i) ==========
 \subsection{Impedância de saída}
 \label{subsec:zout}
-% TODO i): Zout(f) do xf (fonte IZ), valores a DC e a 250 MHz (87,4 Ohm / 49,7 Ohm -> atualizar), comentar
 
+A impedância de saída foi obtida através de uma análise \texttt{xf}, com uma fonte de corrente $I_Z$ (de valor DC nulo)
+ligada ao nó $v_{out}$, sendo $Z_{out} = v_{out}/i_Z$.
+
+Note-se que $M_{11}$ não está dentro da malha de realimentação: o amplificador regula $V_{outR}$ através da réplica
+$M_1$, e não diretamente $v_{out}$. Uma variação da corrente pedida em $v_{out}$ não é, por isso, corrigida pela malha,
+pelo que a impedância de saída é essencialmente a do seguidor $M_{11}$, dada pela Eq.~\eqref{eq:zout_seguidor}. A baixa
+frequência espera-se $Z_{out} \approx 1/(g_{m11} + g_{ds11}) \approx \textbf{XX}~\Omega$, e a alta frequência a
+impedância diminui devido a $C_D$ e às capacidades de $M_{11}$ ligadas a $v_{out}$, sendo
+$|Z_{out}(250~\text{MHz})| \approx \textbf{XX}~\Omega$.
+% FIXME: XX com gm11, gds11 e C_total do oppoint final (antes: ~86 Ohm e ~48 Ohm)
+
+% TODO i): figura Zout(f) do xf (PNG) + valores simulados a DC e a 250 MHz; comparar com a previsão acima
+
+% ============================================================ RUIDO E PSRR ============================================================
 % ========== Alíneas j) e k) ==========
 \subsection{Ruído e PSRR}
 \label{subsec:ruido_psrr}
 
 \subsubsection{Ruído de saída}
-% TODO j): densidade espectral do ruído na saída + rms integrado 1 Hz-10 GHz (101 uV -> atualizar), comentar
-\subsubsection{PSRR$^+$}
-% TODO k): PSRR+ (fonte V0 no xf), valores DC e 250 MHz (67,6 dB / 12 dB -> atualizar), comentar porque cai
 
+O ruído foi obtido através de uma análise \texttt{noise}, com saída no nó $v_{out}$, e o valor eficaz foi calculado
+integrando a densidade espectral entre 1~Hz e 10~GHz:
+\begin{equation}
+    v_{n,rms} = \sqrt{\int_{1\,\text{Hz}}^{10\,\text{GHz}} S_{v_{out}}(f)\,df}
+\end{equation}
+
+Cada transístor contribui com ruído térmico, de densidade espectral $S_{I_N} = 4 k_B T \gamma\, g_m$, e com ruído
+\textit{flicker}, $S_{V_f} = K/(C_{ox} W L f)$, que domina a baixa frequência e diminui com a área do transístor.
+
+O ruído em $v_{out}$ tem duas origens principais. A primeira é o ruído do amplificador, dominado pelo par de entrada,
+cujo ruído referido à entrada é aproximadamente $S_{v,in} \approx 2 \cdot 4 k_B T \gamma / g_{m1B}$ (dois transístores
+do par), somado às contribuições das fontes de corrente do primeiro andar. Dentro da largura de banda da malha, a
+realimentação faz $V_{outR}$ seguir $V_{ref}$ somado com este ruído, e como $v_{out}$ acompanha $V_{outR}$ através de
+$M_{11}$, o ruído aparece na saída com ganho aproximadamente unitário.
+
+A segunda origem é o ruído do próprio seguidor $M_{11}$. Para um seguidor, a densidade espectral do ruído na saída é
+\begin{equation}
+    S_{v_{out},11} = \frac{4 k_B T \gamma\, g_{m11}}{\left(g_{m11} + g_{ds11}\right)^2 + \left(2\pi f C_{total}\right)^2}
+\end{equation}
+que é plana, igual a $4 k_B T \gamma / g_{m11}$, até ao polo $g_{m11}/(2\pi C_{total})$, e decresce acima dele. Integrando,
+tal como no circuito RC, obtém-se $v_{n,rms,11}^2 \approx \gamma\, k_B T / C_{total}$, que só depende da capacidade no
+nó de saída. Com $C_{total} \approx \textbf{XX}$~pF e $\gamma \approx 1$, resulta $v_{n,rms,11} \approx \textbf{XX}~\mu$V.
+% FIXME: C_total do final (~11 pF -> ~19 uV com gamma = 1)
+
+Espera-se, por isso, uma densidade espectral com uma componente $1/f$ a baixa frequência, aproximadamente plana até à
+largura de banda da malha, e que decresce a alta frequência.
+% TODO j): figura da densidade espectral (PNG) + v_n,rms simulado (antes: 101 uV -> atualizar); comentar
+%          quais os transístores que mais contribuem (Noise Summary do Spectre)
+
+\subsubsection{PSRR$^+$}
+
+A rejeição da alimentação foi obtida através da mesma análise \texttt{xf}, considerando a fonte de alimentação $V_{DD}$
+como entrada, sendo $\mathrm{PSRR}^+ = -20\log_{10}\left|v_{out}/v_{dd}\right|$.
+
+A baixa frequência espera-se uma boa rejeição. Uma variação de $V_{DD}$ altera a corrente de $M_{11}$ através de
+$g_{ds11}$, mas altera da mesma forma a réplica $M_1$, já que os dois transístores são iguais ($K = 1$). A malha
+corrige $V_{ctr}$ para manter $V_{outR} = V_{ref}$, e esta correção compensa também $M_{11}$. Acima da largura de banda
+da malha, o ganho de malha deixa de existir e esta compensação desaparece. A variação de $V_{DD}$ passa então para
+$V_{ctr}$, através de $M_4$ e das capacidades parasitas, e para $v_{out}$, através de $g_{ds11}$ e das capacidades de
+$M_{11}$, pelo que o PSRR diminui com a frequência.
+% TODO k): figura PSRR+(f) (PNG) + valores a DC e a 250 MHz (antes: 67,6 dB / 12 dB -> atualizar); comentar
+
+% ============================================================ FUNCIONAMENTO NO TEMPO ============================================================
 % ========== Alínea l) ==========
 \subsection{Funcionamento no tempo}
 \label{subsec:tran}
-% TODO l): transitório do circuito completo (Vout, Vctr, clocks), queda máx, erro de settling e erro total; comentar
-% TODO: (bom para o relatório) comparar queda/settling com e sem Cp
 
+O funcionamento do circuito completo foi verificado através de uma análise transitória de 40~ns (10 períodos de
+relógio), com $C_{DAC}$ ligado a $v_{out}$ durante $\Phi_1$ e descarregado durante $\Phi_2$. Mediram-se três grandezas:
+\begin{itemize}
+    \item a queda máxima de $v_{out}$, $\Delta V_{max} = V_{out,DC} - \min(v_{out})$, que tem de ser inferior a 50~mV;
+    \item o erro de \textit{settling}, $|V_{out,DC} - v_{out}(t)|/V_{ref}$, medido no fim do último período, que tem
+    de ser inferior a 0,05\%;
+    \item o erro total, $|V_{ref} - v_{out}(t)|/V_{ref}$, que inclui também o erro estático entre $V_{out}$ e $V_{ref}$.
+\end{itemize}
+
+Pela análise da Secção~\ref{subsec:andar_saida}, espera-se uma queda próxima de $V_{ref}C_{DAC}/C_{total}$, seguida de
+uma recuperação exponencial com constante de tempo $\tau \approx C_{total}/(g_{m11} + g_{ds11})$. Como $C_P$ mantém a
+gate de $M_{11}$ praticamente fixa durante a queda, esta recuperação é feita pelo próprio $M_{11}$, sem depender da
+velocidade do amplificador. O erro estático resulta do ganho finito da malha e de eventuais diferenças entre $M_1$ e
+$M_{11}$.
+% TODO l): figura do transitório (v_out, V_ctr, Phi1/Phi2; total + zoom nos 1.os ciclos) -- PNG
+% TODO l): valores: queda máx = XX mV, settling = XX %, erro total = XX %, erro estático = XX uV; comentar
+% TODO: (opcional) comparar com e sem Cp
+
+% ============================================================ FINAL ============================================================
 % ========== Resumo ==========
 \subsection{Resumo do desempenho}
 \label{subsec:resumo}

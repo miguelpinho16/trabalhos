@@ -35,9 +35,9 @@
 \contentsline {subsection}{\numberline {2.5}Impedância de saída}{19}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Ruído e PSRR}{19}{subsection.2.6}%
 \contentsline {subsubsection}{\numberline {2.6.1}Ruído de saída}{19}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}PSRR$^+$}{19}{subsubsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.7}Funcionamento no tempo}{19}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Resumo do desempenho}{19}{subsection.2.8}%
-\contentsline {section}{\numberline {3}Conclusão}{20}{section.3}%
-\contentsline {section}{Refer\^encias}{21}{section*.42}%
+\contentsline {subsubsection}{\numberline {2.6.2}PSRR$^+$}{20}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Funcionamento no tempo}{20}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Resumo do desempenho}{20}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Conclusão}{21}{section.3}%
+\contentsline {section}{Refer\^encias}{22}{section*.42}%
 \contentsfinish 
