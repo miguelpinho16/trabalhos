@@ -23,7 +23,6 @@
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{afterpage}
-\usepackage{indentfirst}
 
 
 
@@ -45,12 +44,10 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage[table]{xcolor}
-
 
 
 % ========== PACOTES DE CORES E LINKS ==========
-\usepackage[dvipsnames]{xcolor}
+\usepackage[table,dvipsnames]{xcolor}
 \usepackage{hyperref}
 
 
@@ -73,10 +70,6 @@
   {1em}
   {}
 
-
-
-% ========== CONFIGURAÇÕES DE ÍNDICE ==========
-\usepackage[titles]{tocloft} % ADICIONAR ESTE PACOTE
 
 % Cor azul para tudo no índice (RoyalBlue)
 \renewcommand{\cfttoctitlefont}{\color{black}\Huge\bfseries} % Título em preto
@@ -138,6 +131,8 @@
 \fancyfoot[R]{\footnotesize Página \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{33pt}
+\addtolength{\topmargin}{-21pt}
 
 
 
@@ -156,4 +151,3 @@
 
 % ========== REFERÊNCIAS ==========
 \bibliographystyle{apalike}
-\bibliography{referencias}

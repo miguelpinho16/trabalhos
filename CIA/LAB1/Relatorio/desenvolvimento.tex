@@ -1,9 +1,26 @@
+
 % ==============================================
 % ELEMENTO: DESENVOLVIMENTO
 % ==============================================
 \section{Desenvolvimento}
 \label{sec:desenvolvimento}
 
+% TODO: adicionar valores completos do CD e M11
+% ------------------------------------------------------------------
+% TODO GERAL (email do professor) -- estado:
+%   a) teoria + Spectre M11/CD ........ quase (faltam: Cp, onda tran, valores finais)
+%   b) 3 eq. nodais + polos ignorados . ok (falta só p_R em Hz)
+%   d) metodologia aproximadas ........ expandir
+%   e) dimensionamento + aprox x exato  refazer com Cp = 10*Cgs11 + comparação
+%   g) esquemático com PFR ............ falta print
+%   h) stb (GBW, A0, PM) .............. falta Bode + valores
+%   tabela previsto x simulado ........ falta
+%   iterações ......................... falta
+%   FoM = A_DC*GBW*Cp/I_VDD ........... falta
+%   i) j) k) l) + comentários ......... falta
+% ------------------------------------------------------------------
+
+% ============================================================ ESCOLHER M11 ============================================================
 % ========== Alínea a) ==========
 \subsection{Dimensionamento do andar de saída}
 \label{subsec:andar_saida}
@@ -156,8 +173,14 @@ Escolheu-se assim $C_D = 11$~pF e, para garantir margem no settling error, $g_{m
     \item $V_{out}(4\text{ ns}) = 1{,}099669$~V;
     \item corrente de polarização: $I_{B4} = g_{m11}/(g_m/I_D) = 13\text{m}/28 \approx 464~\mu$A.
 \end{itemize}
+
+Para passar ao dimensionamento em simulação, fixou-se o comprimento no mínimo do transístor \texttt{nch\_\allowbreak{}25\_\allowbreak{}dnw},
+$L = 280$~nm, que maximiza o $g_m$ para uma dada corrente e minimiza as capacidades, e a largura de cada unidade em
+$W = 2~\mu$m $\times$ 5 \textit{fingers}. Com $L$, $W$ e $I_{B4}$ fixos, restam apenas duas variáveis de projeto:
+o multiplicador de $M_{11}$, que define o tamanho total do transístor e, com ele, o $g_{m11}$, e o condensador $C_D$.
 Estes valores serviram de ponto de partida para o dimensionamento do $M_{11}$ em simulação.
 
+% ============================================================ ESCOLHER M11 SIMULAÇÃO ============================================================
 % ========== Cadence para o M11 ==========
 \subsubsection{Validação em simulação}
 \label{subsubsec:validacao_m11}
@@ -223,6 +246,8 @@ Escolheu-se $C_D = 8{,}25$~pF, que apresenta margem nas duas especificações. A
 \approx V_{out}C_{DAC}/\Delta V \approx 11{,}3$~pF, ou seja, cerca de 2,5~pF acima de $C_D + C_{DAC}$. Esta diferença corresponde às capacidades de $M_{11}$
 ligadas a $V_{out}$, que funcionam como uma capacidade adicional. A capacidade efetiva é, por isso, $C_{D,ef} \approx 10{,}8$~pF, coerente com o mínimo de
 10,5~pF obtido na análise teórica.
+% TODO: adicionar print do transitório do Spectre (Vout com a queda e o assentamento) -- a alínea a)
+%       pede a simulação, só há tabelas. Figura em PNG.
 
 O ponto de funcionamento final de $M_{11}$ está resumido na Tabela~\ref{tab:op_m11}.
 
@@ -249,11 +274,41 @@ O ponto de funcionamento final de $M_{11}$ está resumido na Tabela~\ref{tab:op_
     \end{tabular}
 \end{table}
 
-Note-se que o $M_{11}$ resultante é um transístor grande ($W_{total} = 2{,}1$~mm), com $C_{gg11} \approx 2{,}4$~pF.
-Esta capacidade fica ligada a $V_{ctr}$, ou seja, à saída do amplificador, e vai afetar a estabilidade e a resposta no
-tempo do circuito completo. Este dimensionamento é, por isso, um ponto de partida: o tamanho de $M_{11}$ (e, com ele, o valor de $C_D$)
-poderá ser revisto após o dimensionamento do amplificador, se necessário.
+O $g_m/I_D$ obtido em simulação (24,2~V$^{-1}$) é inferior ao valor de 28~V$^{-1}$ usado na análise teórica.
+Isto acontece porque o tamanho de $M_{11}$ não foi escolhido para atingir esse $g_m/I_D$, mas sim para minimizar o erro
+(Tabela~\ref{tab:sweep_M}): aumentar $M$ aproxima o transístor da inversão fraca, mas as capacidades crescem mais depressa
+do que o $g_{m11}$. Apesar de $g_{m11} = 11{,}22$~mS ser inferior aos 13~mS previstos,
+a especificação é cumprida. A análise teórica é conservadora: considera que todo o assentamento ocorre com $C_{DAC}$ ligado
+e com o $g_{m11}$ de pequeno sinal. Na realidade, a queda inicial aumenta momentaneamente $V_{GS11}$, e com ele a corrente
+de $M_{11}$, e após a abertura de $\Phi_1$ o nó de saída deixa de ter de carregar $C_{DAC}$.
 
+Note-se ainda que $|C_{gs11}| + |C_{gd11}| = 1{,}92$~pF é inferior a $|C_{gg11}| = 2{,}42$~pF. A diferença corresponde a
+$C_{gb11}$, já que $C_{gg} = C_{gs} + C_{gd} + C_{gb}$. É, por isso, $C_{gg11}$ que deve ser considerado como carga do nó
+$V_{ctr}$ no dimensionamento do amplificador.
+
+O $M_{11}$ resultante é um transístor grande ($W_{total} = 2{,}1$~mm), com $C_{gg11} \approx 2{,}4$~pF.
+Esta capacidade fica ligada a $V_{ctr}$, ou seja, à saída do amplificador, e vai afetar a estabilidade e a resposta no
+tempo do circuito completo. Este dimensionamento é, por isso, um ponto de partida.
+
+Após o dimensionamento do amplificador, este andar foi revisto no circuito completo, resultando em $M = 180$ e
+$C_D = 9$~pF (Secção~\ref{subsubsec:iteracoes}).
+
+\paragraph{Condensador $C_P$.}
+Quando $C_{DAC}$ é ligado, a queda em $v_{out}$ (source de $M_{11}$) é acoplada à gate através de $C_{gs11}$. Se a gate
+acompanhasse a source, $v_{gs11}$ quase não variaria e $M_{11}$ não reagiria à queda, deixando a correção a cargo do
+amplificador, que é demasiado lento para o período de 4~ns. Para o evitar, coloca-se em $V_{ctr}$ um condensador $C_P$,
+que forma com $C_{gs11}$ um divisor capacitivo:
+\begin{equation}
+    \frac{v_{ctr}}{v_{out}} \approx \frac{C_{gs11}}{C_{gs11} + C_P}
+\end{equation}
+
+Escolhendo $C_P = 10\,C_{gs11}$, a perturbação em $V_{ctr}$ é atenuada cerca de 11 vezes, pelo que $v_{gs11}$ sente
+praticamente toda a queda e $M_{11}$ fornece de imediato a corrente necessária. Com o $M_{11}$ final ($M = 180$,
+Secção~\ref{subsubsec:iteracoes}), $|C_{gs11}| = \textbf{XX}$~pF, resultando $C_P = \textbf{XX}$~pF.
+% FIXME: confirmar valor de Cgs11 e Cp
+
+
+% ============================================================ ESCOLHER M1 ============================================================
 % ========== Dimensionamento do M1 ==========
 \subsubsection{Dimensionamento da réplica $M_1$}
 \label{subsubsec:dimensionamento_m1}
@@ -275,7 +330,10 @@ Em simulação, ambos apresentam $V_{GS} = 453{,}7$~mV, pelo que, no ponto de fu
 \end{equation}
 Em contrapartida, esta escolha duplica a corrente consumida pelos seguidores e a capacidade ligada a
 $V_{ctr}$ ($C_{gg1} \approx C_{gg11} \approx 2{,}4$~pF), o que é tido em conta no dimensionamento do amplificador.
+Como $K = 1$, o reajuste de $M_{11}$ para $M = 180$ foi aplicado também a $M_1$.
 
+
+% ============================================================ CONTAS DIMENSIONAMENTO AMPLIFICADOR ============================================================
 % ========== Alíneas b), c) e d) ==========
 \subsection{Análise do amplificador}
 \label{subsec:analise_amp}
@@ -283,7 +341,7 @@ $V_{ctr}$ ($C_{gg1} \approx C_{gg11} \approx 2{,}4$~pF), o que é tido em conta 
 \subsubsection{Circuito simplificado e modelo de pequeno sinal}
 
 Após o dimensionamento do andar de saída, analisa-se o amplificador que controla $V_{ctr}$.
-Para tornar a análise tratável, consideram-se as seguintes simplificações sobre o circuito da Fig.~\ref{fig:circuito}:
+Para tornar a análise mais fácil, consideram-se as seguintes simplificações sobre o circuito da Fig.~\ref{fig:circuito}:
 \begin{itemize}
     \item como o par diferencial é simétrico, analisa-se apenas o meio-circuito do lado de $M_{1B}$ (ramo de $V_x$);
     \item a fonte de cauda ($M_{4B}$) é substituída por uma fonte de corrente ideal $I_{B1}$;
@@ -299,9 +357,9 @@ Para tornar a análise tratável, consideram-se as seguintes simplificações so
 \end{figure}
 
 O circuito resultante, representado na Fig.~\ref{fig:amplificador_simplificado}, é um amplificador de dois andares.
-O primeiro andar é formado por $M_{1B}$ com a carga em cascode $M_{2B}$--$M_{3B}$, e o segundo pelo andar de fonte
-comum $M_5$ com a carga ativa $M_4$. O condensador $C_C$ liga $V_{ctr}$ à fonte de $M_{2B}$ (nó de baixa impedância),
-o que corresponde a uma compensação indireta. A saída do amplificador ($V_{ctr}$) controla o seguidor réplica $M_1$,
+O primeiro andar é formado por $M_{1B}$ com a carga em cascode $M_{2B}$--$M_{3B}$, e o segundo pelo andar de common source
+$M_5$ com a carga ativa $M_4$. O condensador $C_C$ liga $V_{ctr}$ à fonte de $M_{2B}$ (nó de baixa impedância),
+o que corresponde a uma compensação de cascode. A saída do amplificador ($V_{ctr}$) controla o seguidor réplica $M_1$,
 cuja fonte ($V_{outR}$) fecha a malha de realimentação.
 
 Para a análise em pequeno sinal consideram-se as capacidades parasitas de todos os transístores, representadas na
@@ -311,7 +369,7 @@ capacidades $C_{gg11}$, no nó $V_{ctr}$, e $C_{gs1A}$ e $C_{gd1A}$, no nó $V_{
 
 Além do condensador de compensação $C_C$, o circuito sugerido inclui um condensador $C_P$ no nó $V_{ctr}$. Ao
 contrário das restantes, esta não é uma capacidade parasita, mas um elemento de projeto, que é incluído na análise
-como parte do nó $V_{ctr}$. O seu valor é discutido no dimensionamento (Secção~\ref{subsec:gmid}).
+como parte do nó $V_{ctr}$. O seu valor foi definido no dimensionamento do andar de saída (Secção~\ref{subsec:andar_saida}).
 
 \begin{figure}[H]
     \centering
@@ -320,10 +378,7 @@ como parte do nó $V_{ctr}$. O seu valor é discutido no dimensionamento (Secç�
     \label{fig:amplificador_parasitas}
 \end{figure}
 
-Com o circuito simplificado definido, substitui-se cada transístor pelo seu modelo de pequeno sinal: uma fonte de corrente
-controlada $g_m v_{gs}$ entre dreno e fonte, a condutância de saída $g_{ds}$ e as capacidades parasitas da Fig.~\ref{fig:amplificador_parasitas}.
-As fontes de polarização ($V_{B3}$, $V_{BN}$, $V_{B4}$ e $V_{DD}$) são ground AC, e as fontes de corrente ideais são circuitos abertos.
-Aplica-se então a lei dos nós em $V_1$, $V_2$, $V_3$ e $V_{outR}$, tendo em conta que
+Com o circuito simplificado definido, substitui-se cada transístor pelo seu modelo de pequeno sinal. Aplica-se então a lei dos nós em $V_1$, $V_2$, $V_3$ e $V_{outR}$, tendo em conta que
 \begin{equation*}
     v_{gs1B} = v_{ref}, \qquad v_{gs2B} = -v_3, \qquad v_{gs3B} = v_{gs4} = 0, \qquad v_{gs5} = v_1, \qquad v_{gs1} = v_2 - v_{outR}
 \end{equation*}
@@ -336,12 +391,12 @@ Aplica-se então a lei dos nós em $V_1$, $V_2$, $V_3$ e $V_{outR}$, tendo em co
 \end{gathered}
 \end{equation}
 
-\textbf{Nó $V_2$ ($V_{ctr}$):}
+\textbf{Nó $V_2$:}
 \begin{equation}
 \begin{gathered}
     0 = v_1\left(g_{m5} - sC_{gd5}\right) + v_3\left(-sC_C\right) + v_{outR}\left(-sC_{gs1}\right) \\
     + \, v_2\big(g_{ds4} + g_{ds5} + sC_{gd5} + sC_{db5} + sC_{db4} + sC_{gd4} \\
-    + \, sC_P + sC_{gs11} + sC_{gd11} + sC_{gs1} + sC_{gd1} + sC_C\big)
+    + \, sC_P + sC_{gg11} + sC_{gs1} + sC_{gd1} + sC_C\big)
 \end{gathered}
 \end{equation}
 
@@ -368,17 +423,30 @@ dependem de todas as transcondutâncias, condutâncias e capacidades do circuito
 As expressões exatas do ganho, dos polos e dos zeros são, por isso, demasiado extensas para serem
 apresentadas e interpretadas, pelo que se recorre a um modelo simplificado.
 
+% ============================================================ SIMPLIFICAÇÃO AONDA MAIS AMPLIFICADOR ============================================================
 \subsubsection{Modelo simplificado e expressões aproximadas}
 \label{subsubsec:aproximadas}
 
 Para obter expressões que relacionem o ganho, o GBW e os polos com os parâmetros de cada transístor, e que possam ser
 usadas no dimensionamento, simplifica-se o modelo com as seguintes hipóteses:
 \begin{itemize}
-    \item $g_{ds} \ll g_m$ em todos os transístores;
+    \item $g_m \gg g_{ds}$ em todos os transístores;
     \item as capacidades parasitas flutuantes ($C_{gd1B}$, $C_{db2B}$, $C_{gd5}$) são desprezáveis face a $C_C$;
     \item o seguidor réplica tem ganho aproximadamente unitário e um polo muito acima do GBW, pelo que $v_{outR} \approx v_{ctr}$.
     Por isso, a tensão aos terminais de $C_{gs1}$ quase não varia e esta capacidade pode ser desprezada.
 \end{itemize}
+
+\paragraph{Polos ignorados.}
+A terceira hipótese elimina a equação do nó $V_{outR}$, reduzindo o sistema de quatro para três polos. Da equação deste
+nó, o seguidor réplica introduz um polo
+\begin{equation}
+    p_R \approx -\frac{g_{m1} + g_{ds1} + g_{ds,IB3}}{C_{db1} + C_{db,IB3} + C_{gs1A} + C_{gd1A}}
+\end{equation}
+que fica muito acima do GBW, porque a condutância deste nó é a própria transcondutância de $M_1$ (impedância $1/g_{m1}$)
+e a capacidade é apenas parasita. Do mesmo modo, as simplificações iniciais eliminam os nós de baixa impedância do
+outro ramo do par diferencial (fonte de $M_{2A}$ e espelho de $M_{3A}$), o nó da cauda, que é de modo comum, e o nó da
+cascode $M_{5C}$, com polos do tipo $g_m/C_{par}$, também muito acima do GBW. Desprezam-se ainda os zeros no semiplano
+direito criados por $C_{gd5}$ e $C_{gd1B}$ ($z \approx g_m/C_{gd}$), já que estas capacidades são muito inferiores a $C_C$.
 
 \begin{figure}[H]
     \centering
@@ -421,9 +489,10 @@ Agrupando as capacidades parasitas de cada nó para terra:
 \begin{align}
     C_1 &= C_{db1B} + C_{gd2B} + C_{gs5} \\
     C_2 &= C_{gs2B} + C_{sb2B} + C_{gd3B} + C_{db3B} \\
-    C_3 &= C_{db4} + C_{gd4} + C_{db5} + C_P + C_{gs11} + C_{gd11} + C_{gd1}
+    C_3 &= C_{db4} + C_{gd4} + C_{db5} + C_P + C_{gg11} + C_{gd1}
 \end{align}
-Note-se que $C_3$ inclui a carga do seguidor de saída ($C_{gg11} = C_{gs11} + C_{gd11}$), que é a contribuição dominante deste nó.
+onde $C_{gg11} = C_{gs11} + C_{gd11} + C_{gb11}$ é a carga do seguidor de saída. A contribuição dominante deste nó é
+o condensador $C_P$, seguido de $C_{gg11}$.
 
 \paragraph{Equações dos nós.}
 Aplicando a lei dos nós ao modelo da Fig.~\ref{fig:modelo_simplificado}:
@@ -432,9 +501,36 @@ Aplicando a lei dos nós ao modelo da Fig.~\ref{fig:modelo_simplificado}:
     v_2:&\quad v_2\left(g_2 + sC_2\right) + sC_C\left(v_2 - v_3\right) = 0 \\
     v_3:&\quad g_{mC}\,v_1 + v_3\left(g_3 + sC_3\right) + sC_C\left(v_3 - v_2\right) = 0
 \end{align}
-Resolvendo o sistema (Python, regra de Cramer) obtém-se uma função de transferência com um zero e três polos. Considerando que os
-polos estão bem separados, cada polo é aproximado pela razão entre coeficientes consecutivos do denominador,
-$p_k \approx -a_{k-1}/a_k$, resultando em:
+
+Resolvendo o sistema obtém-se:
+\begin{equation}
+    H(s) = \frac{v_3}{v_{ref}} = \frac{g_{mA}\,g_{mC}\left[g_2 + s\left(C_2 + C_C\right)\right]}{a_0 + a_1 s + a_2 s^2 + a_3 s^3}
+\end{equation}
+
+com
+\begin{equation}
+\begin{gathered}
+    a_0 = g_1 g_2 g_3, \qquad
+    a_1 = g_{mB}\,g_{mC}\,C_C + g_1\left[g_2\left(C_3 + C_C\right) + g_3\left(C_2 + C_C\right)\right] + g_2 g_3 C_1 \\
+    a_2 = C_1\left[g_2\left(C_3 + C_C\right) + g_3\left(C_2 + C_C\right)\right] + g_1 Q, \qquad
+    a_3 = C_1\,Q, \qquad Q = C_2 C_3 + C_2 C_C + C_3 C_C
+\end{gathered}
+\end{equation}
+
+Escrevendo o denominador em função dos seus polos, $D(s) = a_3\,(s - p_1)(s - p_2)(s - p_3)$, os coeficientes são
+\begin{equation}
+    a_0 = -a_3\,p_1 p_2 p_3, \qquad a_1 = a_3\left(p_1 p_2 + p_1 p_3 + p_2 p_3\right), \qquad a_2 = -a_3\left(p_1 + p_2 + p_3\right)
+\end{equation}
+
+Se os polos estiverem bem separados, $|p_1| \ll |p_2| \ll |p_3|$, em cada soma domina o termo com os polos de maior
+módulo: $a_1 \approx a_3\,p_2 p_3$ e $a_2 \approx -a_3\,p_3$. Assim, cada polo é dado pela razão entre dois coeficientes
+consecutivos:
+\begin{equation}
+    p_1 \approx -\frac{a_0}{a_1}, \qquad p_2 \approx -\frac{a_1}{a_2}, \qquad p_3 \approx -\frac{a_2}{a_3}
+\end{equation}
+
+Desprezando os termos em $g_1$ e $g_3$ face aos termos em $g_m$ (em $a_1$ e $a_2$)
+e $C_2$ face a $C_3$ e $C_C$ (em $Q$), obtém-se:
 \begin{align}
     A_0 &= \frac{g_{mA}\,g_{mC}}{g_1\,g_3} = \frac{g_{m1B}}{g_{ds1B}}\cdot\frac{g_{m5}}{g_{ds4}+g_{ds5}} \label{eq:A0_aprox}\\
     GBW &= \frac{g_{mA}}{2\pi\,C_C} = \frac{g_{m1B}}{2\pi\,C_C} \label{eq:gbw}\\
@@ -444,12 +540,8 @@ $p_k \approx -a_{k-1}/a_k$, resultando em:
     z_1 &= -\frac{g_{mB}}{C_C + C_2}
 \end{align}
 
-O zero $z_1$ está no semiplano esquerdo: ao contrário da compensação de Miller clássica, em que $C_C$ liga diretamente a
-saída do primeiro andar e cria um zero no semiplano direito, aqui a corrente de $C_C$ passa pela cascode, o que elimina esse
-zero e contribui com avanço de fase. O polo $p_2$ é o principal não dominante e depende sobretudo de $g_{m5}$, enquanto $p_3$ é introduzido pela cascode e depende de $g_{mB}$.
-Estas expressões são usadas no dimensionamento da secção seguinte.
 
-% ========== DIMENSIONAMENTO DO RESTO ==========
+% ============================================================ DIMENSIONAMENTO AMPLIFICADOR ============================================================
 % ========== Alínea e) ==========
 \subsection{Dimensionamento pela metodologia \texorpdfstring{$g_m/I_D$}{gm/ID}}
 \label{subsec:gmid}
@@ -467,18 +559,22 @@ através de um fator $\alpha$:
     C_C = \alpha\,C_3
 \end{equation}
 
+% TODO: Falta adicionar o valor de CGG1 e mudar aqui
 Escolheu-se inicialmente $\alpha = 1$, pois além da facilidade em cálculos, equilibra o esforço entre os dois andares: valores
 maiores de $\alpha$ aumentam $C_C$ e, com ele, o $g_{m1B}$ necessário, enquanto valores menores
 exigem um $M_5$ mais rápido. A capacidade $C_3$ é dominada pela carga dos seguidores ($C_{gg11}
-\approx C_{gg1} \approx 2{,}42$~pF) e pelo condensador $C_P$, que se fixou inicialmente em
-$C_P = 10\,C_{gg11}$, de modo a que $V_{ctr}$ seja pouco perturbado pela ligação de $C_{DAC}$.
+\approx C_{gg1} \approx X{,}XX$~pF) e pelo condensador $C_P$.
 
-\paragraph{GBW.} Da Eq.~\eqref{eq:gbw}, o GBW fixa a transcondutância do par de entrada:
+% ========== GBW ==========
+\paragraph{GBW.} O produto entre o ganho DC e o polo dominante dá a frequência de ganho unitário,
+$\omega_{GBW} = A_0\,|p_1| = g_{mA}/C_C$, em rad/s. Como a especificação é dada em Hz, usa-se
+$\omega = 2\pi f$, o que conduz à Eq.~\eqref{eq:gbw}. O GBW fixa assim a transcondutância do par de entrada:
 \begin{equation}
     g_{m1B} \ge 2\pi \cdot GBW \cdot C_C
     \label{eq:cond_gm1b}
 \end{equation}
 
+% ========== PM ==========
 \paragraph{Margem de fase.} Para uma margem de fase de $60^\circ$, o polo não dominante $p_2$ tem
 de estar a pelo menos $2{,}5$ vezes o GBW. Da Eq.~\eqref{eq:p2}, e separando $C_1 = C_x + C_{gs5}$,
 onde $C_x$ representa as capacidades de $M_{1B}$ e $M_{2B}$ no nó $V_x$ e $C_{gs5} \approx g_{m5}/(2\pi f_{T5})$:
@@ -493,8 +589,7 @@ Resolvendo em ordem a $g_{m5}$:
     \label{eq:cond_gm5}
 \end{equation}
 
-A frequência de transição de $M_5$ tem, por isso, de ser bem superior a $f_{T5,min}$ (500~MHz para $\alpha = 1$),
-caso contrário o $g_{m5}$ necessário cresce sem limite.
+A frequência de transição de $M_5$ tem, por isso, de ser superior a $f_{T5,min}$ (500~MHz para $\alpha = 1$).
 
 Adicionalmente, o polo da cascode $p_3$ deve ficar acima de $4\,GBW$. Da Eq.~\eqref{eq:p3}:
 \begin{equation}
@@ -502,27 +597,28 @@ Adicionalmente, o polo da cascode $p_3$ deve ficar acima de $4\,GBW$. Da Eq.~\eq
     \label{eq:cond_gm2b}
 \end{equation}
 
+% ========== A0 ==========
 \paragraph{Ganho DC.} Da Eq.~\eqref{eq:A0_aprox}, o ganho é o produto dos ganhos dos dois andares:
 \begin{equation}
     A_0 = A_1 \cdot A_2 = \frac{g_{m1B}}{g_{ds1B}}\cdot\frac{g_{m5}}{g_{ds4} + g_{ds5}} \ge 200 \quad (46~\text{dB})
 \end{equation}
+
 Uma divisão igual corresponderia a $A_1 = A_2 = \sqrt{A_0} \approx 14$. No entanto, os dois andares não são equivalentes.
 No primeiro, a cascode torna desprezável a condutância da carga, pelo que $A_1 \approx (g_m/g_{ds})_{1B}$. No segundo,
 a carga $M_4$ contribui com uma condutância da mesma ordem da de $M_5$, e $M_5$ precisa de um $f_T$ elevado (Eq.~\eqref{eq:cond_gm5}),
 o que limita o seu $g_m/g_{ds}$. Optou-se, por isso, por atribuir a maior parte do ganho ao primeiro andar:
 \begin{equation}
-    A_1 = 2\sqrt{A_0} \approx 28, \qquad A_2 = \frac{\sqrt{A_0}}{2} \approx 7
+    A_1 = 2\sqrt{A_0} \approx 28{,}3, \qquad A_2 = \frac{\sqrt{A_0}}{2} \approx 7{,}1
+    \qquad \left(A_1 A_2 = 2\sqrt{A_0}\cdot\frac{\sqrt{A_0}}{2} = A_0 = 200\right)
 \end{equation}
+
 Considerando $g_{ds4} \approx g_{ds5}$, isto impõe
 \begin{equation}
-    \left(\frac{g_m}{g_{ds}}\right)_{1B} \ge 28, \qquad
-    \left(\frac{g_m}{g_{ds}}\right)_{5} \ge 2A_2 \approx 14
+    \left(\frac{g_m}{g_{ds}}\right)_{1B} \ge 28{,}3, \qquad
+    \left(\frac{g_m}{g_{ds}}\right)_{5} \ge 2A_2 \approx 14{,}2
 \end{equation}
 
-\paragraph{Margens de tensão.} Todos os transístores têm de operar em saturação. Os nós críticos são $V_{ctr} \approx 1{,}554$~V,
-que deixa a $M_4$ apenas $V_{SD4} = V_{DD} - V_{ctr} \approx 0{,}25$~V, e $V_x = V_{GS5}$, que tem de acomodar $V_{DSAT2B} + V_{DSAT3B}$.
-Pela mesma razão, a fonte do par diferencial está a $V_{ref} + V_{SG1B}$, o que limita $V_{SG1B}$ para que a fonte de cauda permaneça saturada.
-
+% ========== METODOLOGIA ==========
 \paragraph{Metodologia.} Para cada transístor, as condições anteriores que não dependem do tamanho
 ($g_m/I_D$, $f_T$, $g_m/g_{ds}$, $V_{DSAT}$, $V_{GS}$) servem para escolher o ponto de funcionamento numa tabela
 obtida por simulação de um transístor de referência ($W = 2~\mu$m $\times$ 5 \textit{fingers}).
@@ -533,14 +629,19 @@ O tamanho final é obtido através do multiplicador $M$, escolhido de forma a at
 
 Como os transístores em paralelo mantêm a mesma densidade de corrente, $g_m/I_D$, $f_T$, $g_m/g_{ds}$ e $V_{DSAT}$ não se alteram com $M$.
 
-
-% ========== ESCOLHA DE CADA TRANSISTOR DO AMPLIFICADOR ==========
+% ============================================================ ESCOLHA TRANSISTORES ============================================================
 \subsubsection{Escolha de cada transístor}
 \label{subsubsec:escolha}
 
-Com $C_P = 10\,C_{gg11}$ e $C_{gg1} = C_{gg11} = 2{,}417$~pF, a capacidade do nó de saída é $C_3
-\approx C_P + C_{gg11} + C_{gg1} = 12\,C_{gg11} \approx 29{,}0$~pF e, com $\alpha = 1$,
-$C_C = 29{,}0$~pF.
+Apresenta-se em seguida o dimensionamento inicial, com $C_P = 10\,C_{gg11}$. Com $C_{gg1} = C_{gg11} = 2{,}417$~pF
+(valor de $M_{11}$ com $M = 210$, Tabela~\ref{tab:op_m11}), a capacidade do nó de saída é
+$C_3 \approx C_P + C_{gg11} + C_{gg1} = 12\,C_{gg11} \approx 29{,}0$~pF e, com $\alpha = 1$, $C_C = 29{,}0$~pF.
+
+Mais tarde, o valor de $C_P$ foi alterado para $10\,C_{gs11}$ (Secção~\ref{subsec:andar_saida}). Esta alteração não
+afeta a metodologia nem a escolha do ponto de funcionamento de cada transístor apresentada nesta secção, já que as
+condições usadas ($g_m/I_D$, $f_T$, $g_m/g_{ds}$, $V_{DSAT}$) não dependem de $C_P$. Altera apenas o valor de $C_3$ e,
+com ele, os valores de $C_C$ e dos multiplicadores $M$, que foram reajustados diretamente em simulação
+(Secção~\ref{subsubsec:iteracoes}).
 
 \paragraph{$M_5$ (segundo andar).}
 $M_5$ converte a tensão em $V_x$ numa corrente que carrega o nó $V_{ctr}$: define o ganho do
@@ -555,9 +656,7 @@ o seu ponto de funcionamento tem de cumprir:
 
 Entre os pontos que cumprem estas condições, escolheu-se o que exige a menor corrente total.
 Para cada ponto, calcula-se o $g_{m5}$ necessário pela Eq.~\eqref{eq:cond_gm5} e a corrente
-$I_{D5} = g_{m5}/(g_m/I_D)$. Note-se que o ponto de menor corrente não é o de maior $g_m/I_D$:
-um $g_m/I_D$ elevado reduz $f_{T5}$ e, pelo denominador da Eq.~\eqref{eq:cond_gm5}, aumenta o
-$g_{m5}$ necessário. Escolheu-se o ponto com $L = 0{,}5~\mu$m, $g_m/I_D = 10{,}9$~V$^{-1}$, $V_{GS}
+$I_{D5} = g_{m5}/(g_m/I_D)$. Escolheu-se o ponto com $L = 0{,}5~\mu$m, $g_m/I_D = 10{,}9$~V$^{-1}$, $V_{GS}
 = 0{,}59$~V, $f_T = 2{,}48$~GHz e $g_m/g_{ds} = 20$. Com a capacidade do nó $V_x$ (sem $C_{gs5}$)
 estimada em $C_x \approx 1{,}49$~pF a partir de $M_{1B}$, $M_{2B}$ e das fontes $I_{extra}$,
 obtém-se $g_{m5} \ge 5{,}87$~mS, $M = 8$ e $I_{D5} = 548~\mu$A.
@@ -630,33 +729,197 @@ escolheu-se o de menor capacidade de dreno: $L = 1~\mu$m, $g_m/I_D = 10{,}0$~V$^
 Na simulação, as fontes $I_{extra}$ foram implementadas como fontes de corrente ideais; num circuito
 real seriam saídas adicionais do espelho de $M_{4A}$.
 
+\begin{table}[H]
+    \centering
+    \caption{Resumo do dimensionamento inicial ($C_P = 10\,C_{gg11}$, $C_C = 29$~pF).}
+    \label{tab:resumo_dim}
+    \begin{tabular}{lcccccc}
+        \toprule
+        Transístor & $L$ [$\mu$m] & $M$ & $g_m/I_D$ [V$^{-1}$] & $I_D$ [$\mu$A] & $g_m$ [mS] & $g_{ds}$ [$\mu$S] \\
+        \midrule
+        $M_{1A}$, $M_{1B}$ & 0,5 & 266 & 21,6 & 844  & 18,2 & 544 \\
+        $M_{2A}$, $M_{2B}$ & 0,3 & 98  & 17,8 & 1770 & 31,4 & 1060 \\
+        $M_{3A}$, $M_{3B}$ & 1   & 41  & 10,0 & 1760 & 17,7 & 828 \\
+        $M_4$              & 2   & 95  & 14,9 & 548  & 8,17 & 384 \\
+        $M_{4A}$           & 2   & 10  & 14,9 & 57,5 & 0,86 & 40  \\
+        $M_{4B}$           & 2   & 294 & 14,9 & 1690 & 25,2 & 1180 \\
+        $M_5$              & 0,5 & 8   & 10,9 & 548  & 5,97 & 299 \\
+        \midrule
+        $I_{extra}$ (cada) & \multicolumn{6}{c}{915~$\mu$A} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\paragraph{Desempenho previsto.}
+Aplicando as expressões aproximadas da Secção~\ref{subsubsec:aproximadas} aos valores da Tabela~\ref{tab:resumo_dim},
+obtém-se o desempenho previsto da Tabela~\ref{tab:desempenho_previsto}. Para $p_2$ considerou-se
+$C_{gs5} \approx g_{m5}/(2\pi f_{T5}) \approx 0{,}38$~pF, pelo que $C_1 \approx 1{,}87$~pF, e para $z_1$ desprezou-se
+$C_2$ face a $C_C$. A margem de fase foi estimada por
+\begin{equation}
+    PM \approx 90^\circ - \arctan\frac{GBW}{f_{p2}} - \arctan\frac{GBW}{f_{p3}} + \arctan\frac{GBW}{f_{z1}}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{Desempenho previsto pelas expressões aproximadas (dimensionamento inicial).}
+    \label{tab:desempenho_previsto}
+    \begin{tabular}{lccc}
+        \toprule
+        Parâmetro & Expressão & Previsto & Especificação \\
+        \midrule
+        $A_0$          & $\dfrac{g_{m1B}}{g_{ds1B}}\cdot\dfrac{g_{m5}}{g_{ds4}+g_{ds5}}$ & 293 (49,3~dB) & $> 46$~dB \\[2ex]
+        $GBW$          & $\dfrac{g_{m1B}}{2\pi C_C}$                                    & 100~MHz       & $\ge 100$~MHz \\[2ex]
+        $f_{p2}$       & $\dfrac{g_{m5}\,C_C}{2\pi\,C_1(C_3 + C_C)}$                    & 254~MHz ($2{,}5\,GBW$) & $\ge 2{,}5\,GBW$ \\[2ex]
+        $f_{p3}$       & $\dfrac{g_{mB}(C_3 + C_C)}{2\pi\,C_3 C_C}$                     & 400~MHz ($4\,GBW$)     & $\ge 4\,GBW$ \\[2ex]
+        $f_{z1}$       & $\dfrac{g_{mB}}{2\pi(C_C + C_2)}$                              & $\approx 200$~MHz      & --- \\[1ex]
+        PM             & ---                                                            & $\approx 81^\circ$     & $\ge 60^\circ$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+ 
+Todas as especificações são cumpridas pelo modelo aproximado. O GBW previsto fica exatamente no limite, já que $g_{m1B}$
+foi dimensionado à justa pela Eq.~\eqref{eq:cond_gm1b}. Sem o zero $z_1$ no semiplano esquerdo, a margem de fase seria
+de apenas cerca de $54^\circ$, o que mostra a contribuição da compensação indireta. Note-se que, por se desprezar $C_2$,
+$f_{z1}$ está sobrestimado e a margem de fase real deverá ser um pouco inferior.
+
+
+% ============================================================ SIM CADENCE INICIAL ============================================================
+% ========== Alíneas e), g) e h) ==========
+\subsubsection{Validação do dimensionamento inicial}
+\label{subsubsec:aprox_exato}
+
+Para validar o dimensionamento, simulou-se o circuito com os valores da Tabela~\ref{tab:resumo_dim}. A
+Tabela~\ref{tab:previsto_simulado} compara o ponto de funcionamento previsto de cada transístor com o obtido em
+simulação.
+
+\begin{table}[H]
+    \centering
+    \caption{Ponto de funcionamento previsto e simulado de cada transístor (dimensionamento inicial).}
+    \label{tab:previsto_simulado}
+    \small
+    \begin{tabular}{lcccccccc}
+        \toprule
+        & \multicolumn{2}{c}{$I_D$ [$\mu$A]} & \multicolumn{2}{c}{$g_m$ [mS]} & \multicolumn{2}{c}{$g_{ds}$ [$\mu$S]} & \multicolumn{2}{c}{$g_m/I_D$ [V$^{-1}$]} \\
+        \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+        Transístor & Prev. & Sim. & Prev. & Sim. & Prev. & Sim. & Prev. & Sim. \\
+        \midrule
+        $M_{1B}$ & 844  & -- & 18,2 & -- & 544  & -- & 21,6 & -- \\
+        $M_{2B}$ & 1770 & -- & 31,4 & -- & 1060 & -- & 17,8 & -- \\
+        $M_{3B}$ & 1760 & -- & 17,7 & -- & 828  & -- & 10,0 & -- \\
+        $M_4$    & 548  & -- & 8,17 & -- & 384  & -- & 14,9 & -- \\
+        $M_{4B}$ & 1690 & -- & 25,2 & -- & 1180 & -- & 14,9 & -- \\
+        $M_5$    & 548  & -- & 5,97 & -- & 299  & -- & 10,9 & -- \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% TODO: comentar diferenças previsto x simulado (+ figura transistores_previsto_simulado.png)
+
+Para avaliar o erro das expressões aproximadas, calcularam-se numericamente em Python os polos e zeros da função de
+transferência exata, obtida a partir das quatro equações nodais da Secção~\ref{subsec:analise_amp}, com os valores de
+$g_m$, $g_{ds}$ e capacidades retirados do ponto de funcionamento simulado. A Tabela~\ref{tab:aprox_exato_sim} compara
+estes resultados com as contas do dimensionamento (Tabela~\ref{tab:desempenho_previsto}) e com a simulação (análise
+\texttt{stb}). Note-se que a diferença entre as contas e o modelo exato inclui dois efeitos: as simplificações das
+expressões aproximadas e a diferença entre os parâmetros da tabela de referência e os do ponto de funcionamento simulado.
+
+\begin{table}[H]
+    \centering
+        \caption{Comparação entre as contas do dimensionamento, a função de transferência exata e a simulação.}
+    \label{tab:aprox_exato_sim}
+        \begin{tabular}{lccc}
+        \toprule
+        Parâmetro & Contas à mão & Exato & Simulação \\
+        \midrule
+        $A_0$ [dB]       & 49,3 & -- & -- \\
+        $GBW$ [MHz]      & 100  & -- & -- \\
+        $f_{p1}$ [kHz]   & --   & -- & -- \\
+        $f_{p2}$ [MHz]   & 254  & -- & -- \\
+        $f_{p3}$ [MHz]   & 400  & -- & -- \\
+        $f_{z1}$ [MHz]   & 200  & -- & -- \\
+        PM [$^\circ$]    & 81   & -- & -- \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% TODO e): preencher com as linhas que o notebook imprime + comparacao_desempenho.png e bode_aprox_exato_sim.png;
+%          comentar diferenças (polos próximos -> aproximação pior; C2 desprezado no z1).
+
+AQUI É COMPARAR OS VALORES
+
+\subsubsection{Otimização do consumo}
+\label{subsubsec:iteracoes}
+% TODO: explicar as iterações (o professor pede):
+%   1) projeto inicial alpha = 1, Cp = 10*Cgg11, C3 = 29 pF -> ~6 mA
+%   2) troca nch_25 -> nch no amplificador (ganho ~6 dB com nch_25)
+%   3) afinação Cc / M5 (Cc = 25p, M5 = 24)
+%   4) andar de saída reajustado com o Vctr real (M11 = 180, CD = 8,7p -> 9p)
+%   5) M1, M2, M3 ligados ao Cc por expressões; sweep Cc 3-10p, depois Cc x M5 -> Cc = 2p, M5 = 6
+%   6) Cp corrigido para 10*Cgs11 -> novo sweep (A FAZER)
+%   Pôr tabela com IDD, A0, GBW, PM, queda, erro por iteração.
+
+\paragraph{Reajuste do andar de saída.}
+Com o amplificador dimensionado, o andar de saída foi novamente simulado no circuito completo, com $V_{ctr}$
+imposto pelo amplificador e não por uma fonte ideal. Neste caso a gate de $M_{11}$ deixa de ser um ground AC perfeito,
+e a queda inicial aumentou para \textbf{XX}~mV, acima da especificação. Para a reduzir, aumentou-se $C_D$ de 8,25 para
+9~pF, já que $\Delta V \propto C_{DAC}/(C_D + C_{DAC})$.
+
+Em simultâneo, após um varrimento de $M$ no circuito completo, reduziu-se o multiplicador de $M_{11}$ de
+210 para 180. Como a corrente de polarização $I_{B4}$ se mantém, esta alteração não muda diretamente o consumo dos
+seguidores, mas reduz as capacidades parasitas de $M_{11}$ ($C_{gg11}$ passa de 2,42 para \textbf{XX}~pF) e, como
+$C_P = 10\,C_{gs11}$, também o próprio $C_P$ diminui. A capacidade do nó $V_{ctr}$ diminui, o que permite cumprir o GBW e a
+margem de fase com menos corrente no amplificador. O valor de 180 corresponde ao menor $M$ que mantém o erro de
+\textit{settling} dentro da especificação. Com estes valores obteve-se uma queda máxima de 49,27~mV e um erro de
+\textit{settling} de 0,0246\%, ambos dentro da especificação.
+% FIXME: 49,27 mV e 0,0246% são com Cp = 24,17 pF -> atualizar depois de Cp = 10*Cgs11. Faltam os XX.
+
+\paragraph{Varrimentos de $C_C$ e $M_5$.}
+% TODO: sweep de Cc (com M1, M2, M3 ligados ao Cc) e depois Cc x M5; gráfico/tabela e escolha
+
+MOSTRAR OS VARRIMENTOS DE Cc e M5, COMENTAR RESULTADOS E ESCOLHA FINAL
 
 % ========== Alíneas g) e h) ==========
-\subsection{Simulação do amplificador}
-\label{subsec:sim_amp}
+\subsection{Circuito final}
+\label{subsec:final}
+% TODO g): print do esquemático final com o PFR anotado (ID, VGS, VDS, região) -- PNG
+% TODO: tabela com os M e valores finais de cada transístor
+% TODO h): Bode do stb final (módulo + fase de -loopGain), com GBW, A0 e PM
 
-\subsubsection{Ponto de funcionamento}
-\subsubsection{Resposta em frequência em malha aberta}
-\subsubsection{Otimização do consumo}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{IMAGENS/esquematico_PFR.png}
+    \caption{Esquemático do amplificador final com o ponto de funcionamento (PFR) anotado.}
+    \label{fig:esquematico_pfr}
+\end{figure}
 
-% ========== Alíneas f) e i) ==========
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{IMAGENS/esquematico cadence completo.png}
+    \caption{Circuito completo implementado no Cadence}
+    \label{fig:circuito_cadence_completo}
+\end{figure}
+
+% ========== Alínea i) ==========
 \subsection{Impedância de saída}
 \label{subsec:zout}
-
-\subsubsection{Análise teórica}
-\subsubsection{Simulação}
+% TODO i): Zout(f) do xf (fonte IZ), valores a DC e a 250 MHz (87,4 Ohm / 49,7 Ohm -> atualizar), comentar
 
 % ========== Alíneas j) e k) ==========
 \subsection{Ruído e PSRR}
 \label{subsec:ruido_psrr}
 
 \subsubsection{Ruído de saída}
+% TODO j): densidade espectral do ruído na saída + rms integrado 1 Hz-10 GHz (101 uV -> atualizar), comentar
 \subsubsection{PSRR$^+$}
+% TODO k): PSRR+ (fonte V0 no xf), valores DC e 250 MHz (67,6 dB / 12 dB -> atualizar), comentar porque cai
 
 % ========== Alínea l) ==========
 \subsection{Funcionamento no tempo}
 \label{subsec:tran}
+% TODO l): transitório do circuito completo (Vout, Vctr, clocks), queda máx, erro de settling e erro total; comentar
+% TODO: (bom para o relatório) comparar queda/settling com e sem Cp
 
 % ========== Resumo ==========
 \subsection{Resumo do desempenho}
 \label{subsec:resumo}
+% TODO: tabela especificação x obtido (GBW, A0, PM, queda, settling, IDD, potência, Zout, ruído, PSRR)
+% TODO: FoM = A_DC * GBW * Cp / I_VDD
+%   - confirmar com o professor: I_VDD inclui os seguidores (M1, M11)? A_DC em V/V?
