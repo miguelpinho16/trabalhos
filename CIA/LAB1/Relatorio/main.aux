@@ -55,62 +55,125 @@
 \newlabel{fig:amplificador_parasitas}{{10}{10}{Circuito simplificado do amplificador com as capacidades parasitas}{figure.caption.14}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Modelo simplificado e expressões aproximadas}{11}{subsubsection.2.2.2}\protected@file@percent }
 \newlabel{subsubsec:aproximadas}{{2.2.2}{11}{Modelo simplificado e expressões aproximadas}{subsubsection.2.2.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Modelo simplificado do amplificador.}}{11}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:modelo_simplificado}{{11}{11}{Modelo simplificado do amplificador}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {paragraph}{Transcondutâncias.}{11}{paragraph*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Condutâncias.}{11}{paragraph*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Capacidades.}{12}{paragraph*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Equações dos nós.}{12}{paragraph*.19}\protected@file@percent }
-\newlabel{eq:A0_aprox}{{27}{12}{Equações dos nós}{equation.2.27}{}}
-\newlabel{eq:gbw}{{28}{12}{Equações dos nós}{equation.2.28}{}}
-\newlabel{eq:p2}{{30}{12}{Equações dos nós}{equation.2.30}{}}
-\newlabel{eq:p3}{{31}{12}{Equações dos nós}{equation.2.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Dimensionamento pela metodologia $g_m/I_D$}{12}{subsection.2.3}\protected@file@percent }
-\newlabel{subsec:gmid}{{2.3}{12}{Dimensionamento pela metodologia \texorpdfstring {$g_m/I_D$}{gm/ID}}{subsection.2.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Especificações e critérios}{12}{subsubsection.2.3.1}\protected@file@percent }
-\newlabel{subsubsec:criterios}{{2.3.1}{12}{Especificações e critérios}{subsubsection.2.3.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Capacidade de compensação.}{12}{paragraph*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{GBW.}{13}{paragraph*.21}\protected@file@percent }
-\newlabel{eq:cond_gm1b}{{34}{13}{GBW}{equation.2.34}{}}
-\@writefile{toc}{\contentsline {paragraph}{Margem de fase.}{13}{paragraph*.22}\protected@file@percent }
-\newlabel{eq:cond_gm5}{{36}{13}{Margem de fase}{equation.2.36}{}}
-\newlabel{eq:cond_gm2b}{{37}{13}{Margem de fase}{equation.2.37}{}}
-\@writefile{toc}{\contentsline {paragraph}{Ganho DC.}{13}{paragraph*.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Margens de tensão.}{13}{paragraph*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Metodologia.}{13}{paragraph*.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{13}{subsubsection.2.3.2}\protected@file@percent }
-\newlabel{subsubsec:escolha}{{2.3.2}{13}{Escolha de cada transístor}{subsubsection.2.3.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{$M_5$ (segundo andar).}{14}{paragraph*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{$M_4$, $M_{4A}$ e $M_{4B}$ (espelho PMOS).}{14}{paragraph*.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{14}{paragraph*.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{$M_{2A}$ e $M_{2B}$ (cascode) e fonte $I_{extra}$.}{14}{paragraph*.29}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Circuito simplificado do amplificador com a fonte $I_{extra}$.}}{15}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:amplificador_iextra}{{12}{15}{Circuito simplificado do amplificador com a fonte $I_{extra}$}{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {paragraph}{$M_{3A}$ e $M_{3B}$ (fonte de corrente).}{15}{paragraph*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Polos ignorados.}{11}{paragraph*.15}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Modelo simplificado do amplificador.}}{11}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:modelo_simplificado}{{11}{11}{Modelo simplificado do amplificador}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {paragraph}{Transcondutâncias.}{12}{paragraph*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Condutâncias.}{12}{paragraph*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Capacidades.}{12}{paragraph*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Equações dos nós.}{12}{paragraph*.20}\protected@file@percent }
+\newlabel{eq:A0_aprox}{{28}{12}{Equações dos nós}{equation.2.28}{}}
+\newlabel{eq:gbw}{{29}{12}{Equações dos nós}{equation.2.29}{}}
+\newlabel{eq:p2}{{31}{12}{Equações dos nós}{equation.2.31}{}}
+\newlabel{eq:p3}{{32}{12}{Equações dos nós}{equation.2.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Dimensionamento pela metodologia $g_m/I_D$}{13}{subsection.2.3}\protected@file@percent }
+\newlabel{subsec:gmid}{{2.3}{13}{Dimensionamento pela metodologia \texorpdfstring {$g_m/I_D$}{gm/ID}}{subsection.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Especificações e critérios}{13}{subsubsection.2.3.1}\protected@file@percent }
+\newlabel{subsubsec:criterios}{{2.3.1}{13}{Especificações e critérios}{subsubsection.2.3.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Capacidade de compensação.}{13}{paragraph*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{GBW.}{13}{paragraph*.22}\protected@file@percent }
+\newlabel{eq:cond_gm1b}{{35}{13}{GBW}{equation.2.35}{}}
+\@writefile{toc}{\contentsline {paragraph}{Margem de fase.}{13}{paragraph*.23}\protected@file@percent }
+\newlabel{eq:cond_gm5}{{37}{13}{Margem de fase}{equation.2.37}{}}
+\newlabel{eq:cond_gm2b}{{38}{13}{Margem de fase}{equation.2.38}{}}
+\@writefile{toc}{\contentsline {paragraph}{Ganho DC.}{13}{paragraph*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Margens de tensão.}{14}{paragraph*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Metodologia.}{14}{paragraph*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{14}{subsubsection.2.3.2}\protected@file@percent }
+\newlabel{subsubsec:escolha}{{2.3.2}{14}{Escolha de cada transístor}{subsubsection.2.3.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{$M_5$ (segundo andar).}{14}{paragraph*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{$M_4$, $M_{4A}$ e $M_{4B}$ (espelho PMOS).}{14}{paragraph*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{14}{paragraph*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{$M_{2A}$ e $M_{2B}$ (cascode) e fonte $I_{extra}$.}{15}{paragraph*.30}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Circuito simplificado do amplificador com a fonte $I_{extra}$.}}{15}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:amplificador_iextra}{{12}{15}{Circuito simplificado do amplificador com a fonte $I_{extra}$}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {paragraph}{$M_{3A}$ e $M_{3B}$ (fonte de corrente).}{15}{paragraph*.32}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Simulação do amplificador}{15}{subsection.2.4}\protected@file@percent }
 \newlabel{subsec:sim_amp}{{2.4}{15}{Simulação do amplificador}{subsection.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Ponto de funcionamento}{15}{subsubsection.2.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Resposta em frequência em malha aberta}{15}{subsubsection.2.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Otimização do consumo}{15}{subsubsection.2.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Impedância de saída}{15}{subsection.2.5}\protected@file@percent }
-\newlabel{subsec:zout}{{2.5}{15}{Impedância de saída}{subsection.2.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Análise teórica}{15}{subsubsection.2.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Simulação}{15}{subsubsection.2.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Ruído e PSRR}{15}{subsection.2.6}\protected@file@percent }
-\newlabel{subsec:ruido_psrr}{{2.6}{15}{Ruído e PSRR}{subsection.2.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Ruído de saída}{15}{subsubsection.2.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}PSRR$^+$}{15}{subsubsection.2.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Funcionamento no tempo}{15}{subsection.2.7}\protected@file@percent }
-\newlabel{subsec:tran}{{2.7}{15}{Funcionamento no tempo}{subsection.2.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Resumo do desempenho}{15}{subsection.2.8}\protected@file@percent }
-\newlabel{subsec:resumo}{{2.8}{15}{Resumo do desempenho}{subsection.2.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Conclusão}{16}{section.3}\protected@file@percent }
-\newlabel{sec:conclusao}{{3}{16}{Conclusão}{section.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Esquemático do circuito simulado com o ponto de funcionamento anotado.}}{15}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:esquematico_pfr}{{13}{15}{Esquemático do circuito simulado com o ponto de funcionamento anotado}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Ponto de funcionamento}{16}{subsubsection.2.4.1}\protected@file@percent }
+\newlabel{subsubsec:pfr}{{2.4.1}{16}{Ponto de funcionamento}{subsubsection.2.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Ponto de funcionamento previsto e simulado de cada transístor (dimensionamento inicial).}}{16}{table.caption.34}\protected@file@percent }
+\newlabel{tab:previsto_simulado}{{5}{16}{Ponto de funcionamento previsto e simulado de cada transístor (dimensionamento inicial)}{table.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Erro do ponto de funcionamento simulado face ao previsto.}}{16}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:trans_prev_sim}{{14}{16}{Erro do ponto de funcionamento simulado face ao previsto}{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Resposta em frequência em malha aberta}{16}{subsubsection.2.4.2}\protected@file@percent }
+\newlabel{subsubsec:stb}{{2.4.2}{16}{Resposta em frequência em malha aberta}{subsubsection.2.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Ganho de malha obtido com a análise \texttt  {stb} (dimensionamento inicial).}}{16}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:stb_inicial}{{15}{16}{Ganho de malha obtido com a análise \texttt {stb} (dimensionamento inicial)}{figure.caption.36}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Comparação entre as contas do dimensionamento, as expressões aproximadas, a função de transferência exata e a simulação (dimensionamento inicial).}}{17}{table.caption.37}\protected@file@percent }
+\newlabel{tab:aprox_exato_sim}{{6}{17}{Comparação entre as contas do dimensionamento, as expressões aproximadas, a função de transferência exata e a simulação (dimensionamento inicial)}{table.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Comparação do desempenho previsto pelas contas, pelas expressões aproximadas, pela função exata e pela simulação.}}{17}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:comp_desempenho}{{16}{17}{Comparação do desempenho previsto pelas contas, pelas expressões aproximadas, pela função exata e pela simulação}{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Ganho de malha do modelo aproximado e do modelo exato.}}{18}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:bode_aprox_exato}{{17}{18}{Ganho de malha do modelo aproximado e do modelo exato}{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Posição dos polos ($\times $) e dos zeros ($\circ $) nas contas, no modelo aproximado e no modelo exato.}}{18}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:polos_zeros}{{18}{18}{Posição dos polos ($\times $) e dos zeros ($\circ $) nas contas, no modelo aproximado e no modelo exato}{figure.caption.40}{}}
+\@writefile{toc}{\contentsline {paragraph}{Ganho DC.}{18}{paragraph*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{GBW.}{18}{paragraph*.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Polos não dominantes.}{18}{paragraph*.43}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Margem de fase.}{19}{paragraph*.44}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Estabilidade do ganho de malha calculado com o modelo exato e os valores simulados.}}{19}{figure.caption.45}\protected@file@percent }
+\newlabel{fig:bode_nyquist_exato}{{19}{19}{Estabilidade do ganho de malha calculado com o modelo exato e os valores simulados}{figure.caption.45}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Otimização do consumo}{19}{subsubsection.2.4.3}\protected@file@percent }
+\newlabel{subsubsec:iteracoes}{{2.4.3}{19}{Otimização do consumo}{subsubsection.2.4.3}{}}
+\newlabel{eq:fom}{{44}{19}{Otimização do consumo}{equation.2.44}{}}
+\@writefile{toc}{\contentsline {paragraph}{Primeiras iterações.}{19}{paragraph*.46}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Limite do segundo andar.}{19}{paragraph*.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Correção de $C_P$.}{20}{paragraph*.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ajustes sem custo de corrente.}{20}{paragraph*.49}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Varrimento de $M_2$ ($C_C = 2$~pF, $C_P = 11{,}5$~pF, $M_4 = 72$, $M_5 = 6$, $I_{DD} = 1{,}884$~mA constante).}}{20}{table.caption.50}\protected@file@percent }
+\newlabel{tab:iter_m2}{{7}{20}{Varrimento de $M_2$ ($C_C = 2$~pF, $C_P = 11{,}5$~pF, $M_4 = 72$, $M_5 = 6$, $I_{DD} = 1{,}884$~mA constante)}{table.caption.50}{}}
+\@writefile{toc}{\contentsline {paragraph}{Réplica com $K > 1$.}{20}{paragraph*.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Capacidade de compensação e corrente da cauda.}{20}{paragraph*.52}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Varrimento de $C_C$ e da corrente de cauda ($M_4 = 100$, $M_5 = 7$, $M_1 = 21$, $C_P = 11{,}5$~pF).}}{20}{table.caption.53}\protected@file@percent }
+\newlabel{tab:iter_cc}{{8}{20}{Varrimento de $C_C$ e da corrente de cauda ($M_4 = 100$, $M_5 = 7$, $M_1 = 21$, $C_P = 11{,}5$~pF)}{table.caption.53}{}}
+\@writefile{toc}{\contentsline {paragraph}{Par de entrada.}{21}{paragraph*.54}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Varrimento de $M_1$ ($C_C = 3$~pF, $M_{4B} = 30$, $I_{VDD} = 1{,}26$~mA constante).}}{21}{table.caption.55}\protected@file@percent }
+\newlabel{tab:iter_m1}{{9}{21}{Varrimento de $M_1$ ($C_C = 3$~pF, $M_{4B} = 30$, $I_{VDD} = 1{,}26$~mA constante)}{table.caption.55}{}}
+\@writefile{toc}{\contentsline {paragraph}{Especificações no tempo.}{21}{paragraph*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ponto final.}{21}{paragraph*.57}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Evolução do desempenho ao longo das iterações.}}{21}{table.caption.58}\protected@file@percent }
+\newlabel{tab:iter_resumo}{{10}{21}{Evolução do desempenho ao longo das iterações}{table.caption.58}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Multiplicadores finais dos transístores e componentes.}}{21}{table.caption.59}\protected@file@percent }
+\newlabel{tab:final_dim}{{11}{21}{Multiplicadores finais dos transístores e componentes}{table.caption.59}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Circuito final}{21}{subsection.2.5}\protected@file@percent }
+\newlabel{subsec:final}{{2.5}{21}{Circuito final}{subsection.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Esquemático do circuito final com o ponto de funcionamento anotado.}}{21}{figure.caption.60}\protected@file@percent }
+\newlabel{fig:esquematico_final}{{20}{21}{Esquemático do circuito final com o ponto de funcionamento anotado}{figure.caption.60}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Ganho de malha do circuito final (análise \texttt  {stb}).}}{22}{figure.caption.61}\protected@file@percent }
+\newlabel{fig:stb_final}{{21}{22}{Ganho de malha do circuito final (análise \texttt {stb})}{figure.caption.61}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Impedância de saída}{22}{subsection.2.6}\protected@file@percent }
+\newlabel{subsec:zout}{{2.6}{22}{Impedância de saída}{subsection.2.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Análise teórica}{22}{subsubsection.2.6.1}\protected@file@percent }
+\newlabel{eq:zout_teo}{{46}{22}{Análise teórica}{equation.2.46}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Simulação}{22}{subsubsection.2.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Impedância de saída do circuito final.}}{22}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:zout}{{22}{22}{Impedância de saída do circuito final}{figure.caption.62}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Ruído e PSRR}{22}{subsection.2.7}\protected@file@percent }
+\newlabel{subsec:ruido_psrr}{{2.7}{22}{Ruído e PSRR}{subsection.2.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.1}Ruído de saída}{22}{subsubsection.2.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Densidade espectral do ruído de saída do circuito final.}}{23}{figure.caption.63}\protected@file@percent }
+\newlabel{fig:ruido}{{23}{23}{Densidade espectral do ruído de saída do circuito final}{figure.caption.63}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}PSRR$^+$}{23}{subsubsection.2.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces PSRR$^+$ do circuito final.}}{23}{figure.caption.64}\protected@file@percent }
+\newlabel{fig:psrr}{{24}{23}{PSRR$^+$ do circuito final}{figure.caption.64}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Funcionamento no tempo}{23}{subsection.2.8}\protected@file@percent }
+\newlabel{subsec:tran}{{2.8}{23}{Funcionamento no tempo}{subsection.2.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Transitório do circuito final: $V_{out}$, $V_{ctr}$ e $V_{DAC}$, com detalhe do último ciclo.}}{23}{figure.caption.65}\protected@file@percent }
+\newlabel{fig:tran}{{25}{23}{Transitório do circuito final: $V_{out}$, $V_{ctr}$ e $V_{DAC}$, com detalhe do último ciclo}{figure.caption.65}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Resumo do desempenho}{24}{subsection.2.9}\protected@file@percent }
+\newlabel{subsec:resumo}{{2.9}{24}{Resumo do desempenho}{subsection.2.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Desempenho do circuito final face às especificações.}}{24}{table.caption.66}\protected@file@percent }
+\newlabel{tab:resumo_final}{{12}{24}{Desempenho do circuito final face às especificações}{table.caption.66}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Conclusões}{25}{section.3}\protected@file@percent }
+\newlabel{sec:conclusoes}{{3}{25}{Conclusões}{section.3}{}}
 \bibcite{enunciado}{1}
 \bibcite{harikumar}{2}
 \bibcite{carvajal}{3}
 \bibcite{manikandan}{4}
-\@writefile{toc}{\contentsline {section}{Referências}{17}{section*.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Refer\^encias}{17}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Referências}{26}{section*.67}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Refer\^encias}{26}{section*.67}\protected@file@percent }
 \ttl@finishall
-\gdef \@abspage@last{18}
+\gdef \@abspage@last{27}
