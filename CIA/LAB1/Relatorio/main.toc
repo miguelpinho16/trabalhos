@@ -3,10 +3,12 @@
 \contentsline {section}{\numberline {2}Desenvolvimento}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Dimensionamento do andar de saída}{4}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Validação em simulação}{7}{subsubsection.2.1.1}%
+\contentsline {paragraph}{Condensador $C_P$.}{9}{paragraph*.13}%
 \contentsline {subsubsection}{\numberline {2.1.2}Dimensionamento da réplica $M_1$}{9}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Análise do amplificador}{9}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Circuito simplificado e modelo de pequeno sinal}{9}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Modelo simplificado e expressões aproximadas}{11}{subsubsection.2.2.2}%
+<<<<<<< HEAD
 \contentsline {paragraph}{Polos ignorados.}{11}{paragraph*.15}%
 \contentsline {paragraph}{Transcondutâncias.}{12}{paragraph*.17}%
 \contentsline {paragraph}{Condutâncias.}{12}{paragraph*.18}%
@@ -55,4 +57,38 @@
 \contentsline {section}{\numberline {3}Conclusões}{25}{section.3}%
 \contentsline {section}{Referências}{26}{section*.67}%
 \contentsline {section}{Refer\^encias}{26}{section*.67}%
+=======
+\contentsline {paragraph}{Polos ignorados.}{11}{paragraph*.16}%
+\contentsline {paragraph}{Transcondutâncias.}{12}{paragraph*.18}%
+\contentsline {paragraph}{Condutâncias.}{12}{paragraph*.19}%
+\contentsline {paragraph}{Capacidades.}{12}{paragraph*.20}%
+\contentsline {paragraph}{Equações dos nós.}{13}{paragraph*.21}%
+\contentsline {subsection}{\numberline {2.3}Dimensionamento pela metodologia $g_m/I_D$}{13}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Especificações e critérios}{13}{subsubsection.2.3.1}%
+\contentsline {paragraph}{Capacidade de compensação.}{13}{paragraph*.22}%
+\contentsline {paragraph}{GBW.}{13}{paragraph*.23}%
+\contentsline {paragraph}{Margem de fase.}{14}{paragraph*.24}%
+\contentsline {paragraph}{Ganho DC.}{14}{paragraph*.25}%
+\contentsline {paragraph}{Metodologia.}{14}{paragraph*.26}%
+\contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{14}{subsubsection.2.3.2}%
+\contentsline {paragraph}{$M_5$ (segundo andar).}{15}{paragraph*.27}%
+\contentsline {paragraph}{$M_4$, $M_{4A}$ e $M_{4B}$ (espelho PMOS).}{15}{paragraph*.28}%
+\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{15}{paragraph*.29}%
+\contentsline {paragraph}{$M_{2A}$ e $M_{2B}$ (cascode) e fonte $I_{extra}$.}{15}{paragraph*.30}%
+\contentsline {paragraph}{$M_{3A}$ e $M_{3B}$ (fonte de corrente).}{16}{paragraph*.32}%
+\contentsline {paragraph}{Desempenho previsto.}{16}{paragraph*.34}%
+\contentsline {subsubsection}{\numberline {2.3.3}Validação do dimensionamento inicial}{17}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Otimização do consumo}{18}{subsubsection.2.3.4}%
+\contentsline {paragraph}{Reajuste do andar de saída.}{18}{paragraph*.38}%
+\contentsline {paragraph}{Varrimentos de $C_C$ e $M_5$.}{18}{paragraph*.39}%
+\contentsline {subsection}{\numberline {2.4}Circuito final}{18}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Impedância de saída}{19}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Ruído e PSRR}{19}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Ruído de saída}{19}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}PSRR$^+$}{20}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Funcionamento no tempo}{20}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Resumo do desempenho}{20}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Conclusão}{21}{section.3}%
+\contentsline {section}{Refer\^encias}{22}{section*.42}%
+>>>>>>> a57b58076fb4b668b173b2eadd9409ddfeec4373
 \contentsfinish 
