@@ -177,7 +177,7 @@ Estes valores serviram de ponto de partida para o dimensionamento do $M_{11}$ em
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{IMAGENS/m11 cadence circuito.png}
+    \includegraphics[width=0.8\linewidth]{IMAGENS/m11 cadence circuito.png}
     \caption{Circuito de teste do andar de saída no Cadence.}
     \label{fig:m11_circuito_cadence}
 \end{figure}
@@ -643,7 +643,7 @@ Apresenta-se em seguida o dimensionamento inicial, com $C_P = 10\,C_{gg11}$. Com
 (valor de $M_{11}$ com $M = 210$, Tabela~\ref{tab:op_m11}), a capacidade do nó de saída é
 $C_3 \approx C_P + C_{gg11} + C_{gg1} = 12\,C_{gg11} \approx 29{,}0$~pF e, com $\alpha = 1$, $C_C = 29{,}0$~pF.
 
-Mais tarde, o valor de $C_P$ foi alterado para $10\,C_{gs11}$ (Secção~\ref{subsec:andar_saida}). Esta alteração não
+Mais tarde, por indicação do docente, o valor de $C_P$ foi alterado para $10\,C_{gs11}$ (Secção~\ref{subsec:andar_saida}). Esta alteração não
 afeta a metodologia nem a escolha do ponto de funcionamento de cada transístor apresentada nesta secção, já que as
 condições usadas ($g_m/I_D$, $f_T$, $g_m/g_{ds}$, $V_{DSAT}$) não dependem de $C_P$. Altera apenas o valor de $C_3$ e,
 com ele, os valores de $C_C$ e dos multiplicadores $M$, que foram reajustados diretamente em simulação
@@ -1092,8 +1092,8 @@ modo a que a corrente da cauda e a do segundo andar escalem em conjunto, e reduz
 (de 244 para 170~$\mu$A), o par de entrada ($M_1$ de 39 para 28) e o condensador de compensação ($C_C$ de 3 para 2,75~pF).
 Como o GBW é dado por $g_{m1B}/(2\pi C_C)$, a redução de $C_C$ permite manter o GBW com menos $g_{m1B}$ e, por isso, com menos
 corrente na cauda. A corrente dos seguidores foi ligeiramente aumentada ($I_{B3} = I_{B4}$ de 464 para 483~$\mu$A), o que
-aumenta $g_{m11}$ para 11,49~mS e não entra no FOM.
-% FIXME: confirmar a ordem e a justificação destes últimos ajustes (e se houve varrimentos que valha a pena mostrar)
+aumenta $g_{m11}$ para 11,49~mS e não entra no FOM. Com esta corrente, $C_{gs11}$ passa de 0,997 para
+0,9995~pF, pelo que $C_P = 10\,C_{gs11}$ foi atualizado para 9,995~pF.
 
 O amplificador final consome $I_{VDD} = 1{,}00$~mA, menos de metade do ponto anterior e cerca de um quarto do
 dimensionamento inicial, e cumpre o GBW e a margem de fase com folga ($GBW = 107{,}9$~MHz, $PM = 66{,}5^\circ$).
@@ -1242,7 +1242,7 @@ estabilidade.
         PM [$^\circ$]              & $\ge 60$               & 66,5 \\
         $I_{VDD}$ (amplificador) [mA] & mínimo              & 1,004 \\
         Corrente total [mA]        & mínimo                 & 1,97 \\
-        Consumido total [mW]       & mínimo                 & 3,546 \\
+        Potência total [mW]       & mínimo                 & 3,546 \\
         FOM [V$^{-1}$]             & máximo                 & 1537 \\
         \bottomrule
     \end{tabular}

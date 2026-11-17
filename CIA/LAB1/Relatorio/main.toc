@@ -23,7 +23,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{15}{subsubsection.2.3.2}%
 \contentsline {paragraph}{$M_5$ (segundo andar).}{15}{paragraph*.27}%
 \contentsline {paragraph}{$M_4$, $M_{4A}$ e $M_{4B}$ (espelho PMOS).}{15}{paragraph*.28}%
-\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{15}{paragraph*.29}%
+\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{16}{paragraph*.29}%
 \contentsline {paragraph}{$M_{2A}$ e $M_{2B}$ (cascode) e fonte $I_{extra}$.}{16}{paragraph*.30}%
 \contentsline {paragraph}{$M_{3A}$ e $M_{3B}$ (fonte de corrente).}{16}{paragraph*.32}%
 \contentsline {paragraph}{Desempenho previsto.}{17}{paragraph*.34}%
