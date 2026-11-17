@@ -1,0 +1,61 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {section}{\numberline {1}Introdução}{2}{section.1}%
+\contentsline {section}{\numberline {2}Desenvolvimento}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dimensionamento do andar de saída}{4}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Validação em simulação}{7}{subsubsection.2.1.1}%
+\contentsline {paragraph}{Condensador $C_P$.}{9}{paragraph*.13}%
+\contentsline {subsubsection}{\numberline {2.1.2}Dimensionamento da réplica $M_1$}{9}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Análise do amplificador}{9}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Circuito simplificado e modelo de pequeno sinal}{9}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Modelo simplificado e expressões aproximadas}{11}{subsubsection.2.2.2}%
+\contentsline {paragraph}{Polos ignorados.}{12}{paragraph*.16}%
+\contentsline {paragraph}{Transcondutâncias.}{12}{paragraph*.18}%
+\contentsline {paragraph}{Condutâncias.}{13}{paragraph*.19}%
+\contentsline {paragraph}{Capacidades.}{13}{paragraph*.20}%
+\contentsline {paragraph}{Equações dos nós.}{13}{paragraph*.21}%
+\contentsline {subsection}{\numberline {2.3}Dimensionamento pela metodologia $g_m/I_D$}{14}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Especificações e critérios}{14}{subsubsection.2.3.1}%
+\contentsline {paragraph}{Capacidade de compensação.}{14}{paragraph*.22}%
+\contentsline {paragraph}{GBW.}{14}{paragraph*.23}%
+\contentsline {paragraph}{Margem de fase.}{14}{paragraph*.24}%
+\contentsline {paragraph}{Ganho DC.}{14}{paragraph*.25}%
+\contentsline {paragraph}{Metodologia.}{15}{paragraph*.26}%
+\contentsline {subsubsection}{\numberline {2.3.2}Escolha de cada transístor}{15}{subsubsection.2.3.2}%
+\contentsline {paragraph}{$M_5$ (segundo andar).}{15}{paragraph*.27}%
+\contentsline {paragraph}{$M_4$, $M_{4A}$ e $M_{4B}$ (espelho PMOS).}{15}{paragraph*.28}%
+\contentsline {paragraph}{$M_{1A}$ e $M_{1B}$ (par de entrada).}{16}{paragraph*.29}%
+\contentsline {paragraph}{$M_{2A}$ e $M_{2B}$ (cascode) e fonte $I_{extra}$.}{16}{paragraph*.30}%
+\contentsline {paragraph}{$M_{3A}$ e $M_{3B}$ (fonte de corrente).}{16}{paragraph*.32}%
+\contentsline {paragraph}{Desempenho previsto.}{17}{paragraph*.34}%
+\contentsline {subsection}{\numberline {2.4}Simulação do amplificador}{17}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Ponto de funcionamento}{17}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Resposta em frequência em malha aberta}{18}{subsubsection.2.4.2}%
+\contentsline {paragraph}{Ganho DC.}{20}{paragraph*.42}%
+\contentsline {paragraph}{GBW.}{20}{paragraph*.43}%
+\contentsline {paragraph}{Polos não dominantes.}{20}{paragraph*.44}%
+\contentsline {paragraph}{Margem de fase.}{20}{paragraph*.45}%
+\contentsline {subsubsection}{\numberline {2.4.3}Otimização do consumo}{21}{subsubsection.2.4.3}%
+\contentsline {paragraph}{Primeiras iterações.}{21}{paragraph*.47}%
+\contentsline {paragraph}{Limite do segundo andar.}{21}{paragraph*.48}%
+\contentsline {paragraph}{Correção de $C_P$.}{21}{paragraph*.49}%
+\contentsline {paragraph}{Ajustes sem custo de corrente.}{21}{paragraph*.50}%
+\contentsline {paragraph}{Réplica com $K > 1$.}{22}{paragraph*.52}%
+\contentsline {paragraph}{Capacidade de compensação e corrente da cauda.}{22}{paragraph*.53}%
+\contentsline {paragraph}{Par de entrada.}{22}{paragraph*.55}%
+\contentsline {paragraph}{Especificações no tempo.}{22}{paragraph*.57}%
+\contentsline {paragraph}{Redução final do consumo.}{22}{paragraph*.58}%
+\contentsline {paragraph}{Ponto final.}{23}{paragraph*.59}%
+\contentsline {subsection}{\numberline {2.5}Circuito final}{24}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Ponto de funcionamento}{24}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Resposta em frequência em malha aberta}{25}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Impedância de saída}{26}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Análise teórica}{26}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Simulação}{27}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Ruído e PSRR}{27}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Ruído de saída}{27}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}PSRR$^+$}{28}{subsubsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.8}Funcionamento no tempo}{29}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Resumo do desempenho}{32}{subsection.2.9}%
+\contentsline {section}{\numberline {3}Conclusões}{34}{section.3}%
+\contentsline {section}{Refer\^encias}{35}{section*.76}%
+\contentsfinish 
