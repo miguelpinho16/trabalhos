@@ -5,30 +5,43 @@
 \label{sec:conclusoes}
 
 Neste trabalho dimensionou-se um buffer de referência de 1,1~V para um DAC capacitivo a 250~MHz, formado por um seguidor
-de saída $M_{11}$, uma réplica $M_1$ e um amplificador de dois andares com compensação indireta através da cascode.
+de saída $M_{11}$, uma réplica $M_1$ e um amplificador de dois andares com compensação indireta através da cascode. O
+circuito final cumpre todas as especificações nominais: $A_0 = 63{,}1$~dB, $GBW = 107{,}9$~MHz, $PM = 66{,}5^\circ$, uma
+queda máxima de 48,3~mV e um erro de \textit{settling} de 0,015\%, com 1,00~mA no amplificador e uma figura de mérito de
+$1{,}54\times10^3$~V$^{-1}$.
 
-O andar de saída foi dimensionado a partir de um modelo de primeira ordem da queda e do \textit{settling}, que fixou
-$C_D$ e $g_{m11}$. A simulação mostrou que as capacidades do próprio $M_{11}$ aumentam a capacidade efetiva do nó de
-saída, o que obrigou a reduzir $C_D$ para manter o erro dentro da especificação.
+A principal conclusão do trabalho diz respeito aos diferentes níveis de modelo usados. As expressões aproximadas,
+obtidas a partir de um modelo de três nós, foram essenciais para o dimensionamento, porque mostram de forma direta que
+parâmetro de cada transístor controla cada especificação. No entanto, cada simplificação afasta o modelo do circuito
+real. As contas feitas com a tabela de referência previram um ganho de 49,3~dB, contra os 66,6~dB simulados, porque as
+condutâncias de saída reais eram até 66\% inferiores às da tabela, obtida com um $V_{DS}$ diferente do do circuito. A
+função de transferência exata, calculada em Python com os valores do ponto de funcionamento simulado, corrigiu o ganho e o
+GBW, mas não a margem de fase, que tanto no dimensionamento inicial como no final ficou cerca de $15^\circ$ acima da
+simulada. A razão é que os polos não dominantes não estão bem separados entre si nem do zero e formam um par complexo, pelo
+que a hipótese $|p_1| \ll |p_2| \ll |p_3|$, base das expressões aproximadas, deixa de ser válida. Conclui-se que o modelo
+aproximado serve para dimensionar e o modelo exato para compreender as diferenças, mas só a simulação permite validar a
+estabilidade.
 
-O amplificador foi analisado com um modelo de pequeno sinal de quatro nós e simplificado para um modelo de três nós, do
-qual se obtiveram expressões para o ganho, o GBW, os polos e o zero. Estas expressões foram usadas no dimensionamento pela
-metodologia $g_m/I_D$. A comparação com a função de transferência exata e com a simulação mostrou que as expressões
-preveem bem o ganho, o GBW e o polo dominante, mas falham nos polos não dominantes, que no circuito real não estão bem
-separados e chegam a formar um par complexo. As maiores diferenças face às contas vieram ainda das condutâncias de saída,
-até 66\% inferiores às da tabela de referência, por esta ter sido obtida com um $V_{DS}$ diferente do real.
+As iterações mostraram também quais os parâmetros que realmente limitavam o projeto. A margem de fase não era limitada
+pela corrente do segundo andar, mas pela razão $\alpha = C_C/C_3$: aumentar $M_4$ e $M_5$ gastava corrente sem melhorar a
+margem de fase, enquanto a correção de $C_P$ para $10\,C_{gs11}$ e o ajuste de $C_C$ a resolveram. Verificou-se ainda que
+os graus de liberdade sem custo de corrente, como os multiplicadores dos transístores com a corrente fixa, devem ser
+explorados antes de aumentar o consumo, já que alteram o $g_m/I_D$ e as capacidades sem custo para o FOM. Seguindo esta
+ordem, o consumo do amplificador passou de cerca de 4~mA no dimensionamento inicial para 1~mA no circuito final.
 
-O dimensionamento inicial não cumpria o GBW nem a margem de fase e consumia cerca de 4~mA. As iterações mostraram que a
-margem de fase era limitada pela razão $\alpha = C_C/C_3$, e não pela corrente do segundo andar, e que os graus de
-liberdade sem custo de corrente (multiplicadores com a corrente fixa) devem ser explorados antes de aumentar o consumo.
-O circuito final cumpre $A_0 = 63{,}5$~dB, $GBW = 104{,}8$~MHz e $PM = 62{,}6^\circ$, com 1,25~mA no amplificador, cerca de
-um terço do consumo inicial, e uma figura de mérito de $1{,}25\times10^3$~V$^{-1}$.
+Alguns compromissos só se tornaram visíveis no circuito completo. Reduzir a réplica ($K = 10$) poupa área e corrente, mas
+baixa o polo do nó $V_{outR}$ e custa cerca de $7^\circ$ de margem de fase. O condensador $C_P$ protege $V_{ctr}$ da queda
+provocada pelo $C_{DAC}$, mas faz parte de $C_3$ e afeta a estabilidade. No domínio do tempo, a análise mostrou que o erro
+remanescente no fim do ciclo é de nível e não de velocidade: o erro total face a 1,1~V (0,071\%) é dominado pelo
+\textit{offset} sistemático do amplificador, que não aparece na análise de pequeno sinal e pode ser corrigido com um
+pequeno ajuste da corrente da réplica. A própria forma de medir (o instante de medida e a referência do erro) mostrou-se
+determinante para a interpretação dos resultados.
 
-No domínio do tempo, a queda inicial (48,4~mV) cumpre a especificação e $V_{out}$ estabiliza dentro de cada ciclo. O erro
-remanescente é de nível e não de velocidade, resultando do \textit{offset} sistemático do amplificador e do regime
-periódico imposto pelo DAC, \textbf{XX}.
-% TODO: completar com a correção do nível, o erro final, e os resultados de Zout, ruído e PSRR
+Os restantes resultados confirmam a análise teórica: a impedância de saída (84,3~$\Omega$ em DC, com o polo a 178~MHz)
+segue o modelo do seguidor de fonte, o ruído de saída (88,6~$\mu$V$_{rms}$) é dominado pelo ruído branco do amplificador
+e não pelo seguidor, e o PSRR$^+$, de 65,3~dB em DC, desce para 9,3~dB à frequência de relógio, onde a malha já não tem
+ganho, o que exigiria uma alimentação bem desacoplada.
 
-As margens obtidas são reduzidas (cerca de $2{,}6^\circ$ na margem de fase e de 1,6~mV na queda), pelo que o
-circuito cumpre as especificações no caso nominal, mas uma análise de \textit{corners} e de Monte Carlo seria necessária
-para garantir o funcionamento com variações de processo, tensão e temperatura.
+Por fim, algumas margens do circuito final são reduzidas, nomeadamente 1,7~mV na queda inicial e cerca de 35~mV na
+saturação de $M_3$ e $M_5$. O circuito cumpre as especificações no caso nominal, mas uma análise de \textit{corners} e de
+Monte Carlo seria necessária para garantir o funcionamento com variações de processo, tensão e temperatura.
