@@ -21,6 +21,11 @@ simulada. A razão é que os polos não dominantes não estão bem separados ent
 que a hipótese $|p_1| \ll |p_2| \ll |p_3|$, base das expressões aproximadas, deixa de ser válida. Conclui-se que o modelo
 aproximado serve para dimensionar e o modelo exato para compreender as diferenças, mas só a simulação permite validar a
 estabilidade.
+Pela mesma razão, no circuito final os polos não dominantes calculados pelas expressões aproximadas não
+cumprem os critérios de $2{,}5\,GBW$ e $4\,GBW$ usados no dimensionamento e, ainda assim, a margem de fase simulada
+($66{,}5^\circ$) cumpre a especificação. Estes critérios foram úteis como ponto de partida para escolher os transístores,
+mas, por assentarem em polos reais e bem separados, são apenas uma aproximação: o critério que conta é a margem de fase
+medida na simulação.
 
 As iterações mostraram também quais os parâmetros que realmente limitavam o projeto. A margem de fase não era limitada
 pela corrente do segundo andar, mas pela razão $\alpha = C_C/C_3$: aumentar $M_4$ e $M_5$ gastava corrente sem melhorar a
