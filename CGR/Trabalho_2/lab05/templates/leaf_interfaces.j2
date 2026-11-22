@@ -1,0 +1,82 @@
+{# Data-plane part of /etc/network/interfaces of a leaf (deploy.py keeps the management part).
+   Variables: name, node, links, networks, tenants, fabric  (./generate.py --show leaf1) #}
+auto lo
+iface lo inet loopback
+    address {{ node.loopback }}/32
+
+{# ---- underlay: routed links to the spines #}
+{% for l in links %}
+auto {{ l.port }}
+iface {{ l.port }}
+    address {{ l.address }}
+    # to {{ l.peer }} {{ l.peer_port }}
+
+{% endfor %}
+{# ---- access ports (untagged, one VLAN each) #}
+{% for a in node.access %}
+auto {{ a.port }}
+iface {{ a.port }}
+    bridge-access {{ a.vlan }}
+
+{% endfor %}
+{# ---- overlay 1: one VRF per tenant that has hosts on this leaf (tenants = only the local ones) #}
+{% for t, td in tenants.items() %}
+auto {{ t }}
+iface {{ t }}
+    vrf-table auto
+
+{% endfor %}
+{# ---- overlay 2: one VXLAN interface per VNI: the L2VNI of each local network ... #}
+{% for n in networks %}
+auto vni{{ n.vni }}
+iface vni{{ n.vni }}
+    vxlan-id {{ n.vni }}
+    vxlan-local-tunnelip {{ node.loopback }}
+    bridge-access {{ n.vlan }}
+    bridge-learning off
+    bridge-arp-nd-suppress on
+    # L2VNI of VLAN {{ n.vlan }} ({{ n.tenant }})
+
+{% endfor %}
+{# ... and the L3VNI of each local tenant (no ARP suppression: nobody lives in it) #}
+{% for t, td in tenants.items() %}
+auto vni{{ td.l3vni }}
+iface vni{{ td.l3vni }}
+    vxlan-id {{ td.l3vni }}
+    vxlan-local-tunnelip {{ node.loopback }}
+    bridge-access {{ td.l3vlan }}
+    bridge-learning off
+    # L3VNI of tenant {{ t }}
+
+{% endfor %}
+{# ---- overlay 3: ONE VLAN-aware bridge: access ports + all the VXLAN interfaces #}
+auto bridge
+iface bridge
+    bridge-vlan-aware yes
+    bridge-ports {% for a in node.access %}{{ a.port }} {% endfor %}{% for n in networks %}vni{{ n.vni }} {% endfor %}{% for t, td in tenants.items() %}vni{{ td.l3vni }} {% endfor %}
+
+    bridge-vids {% for n in networks %}{{ n.vlan }} {% endfor %}{% for t, td in tenants.items() %}{{ td.l3vlan }} {% endfor %}
+
+    bridge-stp off
+
+{# ---- overlay 4: SVIs - the anycast gateway of each local network ... #}
+{% for n in networks %}
+auto vlan{{ n.vlan }}
+iface vlan{{ n.vlan }}
+    vlan-id {{ n.vlan }}
+    vlan-raw-device bridge
+    address {{ n.gateway }}
+    hwaddress {{ fabric.anycast_gateway_mac }}
+    arp-accept on
+    vrf {{ n.tenant }}
+
+{% endfor %}
+{# ... and the SVI of each tenant's L3VNI VLAN (only joins the VRF) #}
+{% for t, td in tenants.items() %}
+auto vlan{{ td.l3vlan }}
+iface vlan{{ td.l3vlan }}
+    vlan-id {{ td.l3vlan }}
+    vlan-raw-device bridge
+    vrf {{ t }}
+
+{% endfor %}

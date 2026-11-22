@@ -1,0 +1,24 @@
+auto lo
+iface lo inet loopback
+    address 10.0.0.1/32
+
+auto swp1
+iface swp1
+    address 10.1.1.0/31
+    # to leaf1 swp1
+
+auto swp2
+iface swp2
+    address 10.1.2.0/31
+    # to leaf2 swp1
+
+auto swp3
+iface swp3
+    address 10.1.3.0/31
+    # to leaf3 swp1
+
+auto swp4
+iface swp4
+    address 10.1.4.0/31
+    # to leaf4 swp1
+

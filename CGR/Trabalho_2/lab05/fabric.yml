@@ -1,0 +1,60 @@
+# fabric.yml - the PLAN of the Lab 05 data-center fabric (your source of truth).
+# generate.py checks it and renders the device files with the templates in templates/.
+# Everything below comes from the Lab 05 statement (Table 1 = tenants/networks, Table 2 = numbering).
+
+anycast_gateway_mac: "00:00:5e:00:01:01"     # the gateway MAC, the same on every leaf
+
+tenants:
+  RED:
+    l3vni: 5001          # VNI of the tenant's VRF (routed traffic between leaves)
+    l3vlan: 4001         # local VLAN that carries that VNI on each leaf
+    networks:
+      - {vlan: 10, vni: 10010, gateway: 192.168.10.1/24}
+      - {vlan: 20, vni: 10020, gateway: 192.168.20.1/24}
+  BLUE:
+    l3vni: 5002
+    l3vlan: 4002
+    networks:
+      - {vlan: 30, vni: 10030, gateway: 192.168.10.1/24}   # same addresses as RED's VLAN 10 (isolated by the VRF)
+
+spines:
+  spine1: {asn: 65000, loopback: 10.0.0.1}
+  spine2: {asn: 65000, loopback: 10.0.0.2}
+
+# Numbering (Table 2): link spineS-leafL = 10.S.L.0/31 (spine .0, leaf .1); spineS swpL -> leafL;
+# leaf swp1 -> spine1, swp2 -> spine2; loopback of leafN = 10.0.0.1N; AS of leafN = 6510N.
+leaves:
+  leaf1:
+    asn: 65101
+    loopback: 10.0.0.11          # also the leaf's VTEP address
+    uplinks:                     # port, spine, the spine's port, this side's /31
+      - {port: swp1, peer: spine1, peer_port: swp1, address: 10.1.1.1/31}
+      - {port: swp2, peer: spine2, peer_port: swp1, address: 10.2.1.1/31}
+    access:                      # host ports: untagged, one VLAN each
+      - {port: swp3, vlan: 10}   # h1 (RED)
+      - {port: swp4, vlan: 30}   # h5 (BLUE)
+  leaf2:
+    asn: 65102
+    loopback: 10.0.0.12
+    uplinks:
+      - {port: swp1, peer: spine1, peer_port: swp2, address: 10.1.2.1/31}
+      - {port: swp2, peer: spine2, peer_port: swp2, address: 10.2.2.1/31}
+    access:
+      - {port: swp3, vlan: 20}   # h2 (RED)
+  leaf3:
+    asn: 65103
+    loopback: 10.0.0.13
+    uplinks:
+      - {port: swp1, peer: spine1, peer_port: swp3, address: 10.1.3.1/31}
+      - {port: swp2, peer: spine2, peer_port: swp3, address: 10.2.3.1/31}
+    access:
+      - {port: swp3, vlan: 10}   # h3 (RED)
+  leaf4:
+    asn: 65104
+    loopback: 10.0.0.14
+    uplinks:
+      - {port: swp1, peer: spine1, peer_port: swp4, address: 10.1.4.1/31}
+      - {port: swp2, peer: spine2, peer_port: swp4, address: 10.2.4.1/31}
+    access:
+      - {port: swp3, vlan: 20}   # h4 (RED)
+      - {port: swp4, vlan: 30}   # h6 (BLUE)

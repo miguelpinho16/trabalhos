@@ -1,0 +1,61 @@
+auto lo
+iface lo inet loopback
+    address 10.0.0.12/32
+
+auto swp1
+iface swp1
+    address 10.1.2.1/31
+    # to spine1 swp2
+
+auto swp2
+iface swp2
+    address 10.2.2.1/31
+    # to spine2 swp2
+
+auto swp3
+iface swp3
+    bridge-access 20
+
+auto RED
+iface RED
+    vrf-table auto
+
+auto vni10020
+iface vni10020
+    vxlan-id 10020
+    vxlan-local-tunnelip 10.0.0.12
+    bridge-access 20
+    bridge-learning off
+    bridge-arp-nd-suppress on
+    # L2VNI of VLAN 20 (RED)
+
+auto vni5001
+iface vni5001
+    vxlan-id 5001
+    vxlan-local-tunnelip 10.0.0.12
+    bridge-access 4001
+    bridge-learning off
+    # L3VNI of tenant RED
+
+auto bridge
+iface bridge
+    bridge-vlan-aware yes
+    bridge-ports swp3 vni10020 vni5001 
+    bridge-vids 20 4001 
+    bridge-stp off
+
+auto vlan20
+iface vlan20
+    vlan-id 20
+    vlan-raw-device bridge
+    address 192.168.20.1/24
+    hwaddress 00:00:5e:00:01:01
+    arp-accept on
+    vrf RED
+
+auto vlan4001
+iface vlan4001
+    vlan-id 4001
+    vlan-raw-device bridge
+    vrf RED
+
