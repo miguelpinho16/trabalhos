@@ -1,0 +1,5 @@
+idle_timeout: 10
+tcp_stats_file: tcp_stats.csv
+limited_hosts:
+  10.0.0.1: 2
+  10.0.0.3: 1
